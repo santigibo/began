@@ -10,10 +10,72 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_203606) do
+ActiveRecord::Schema.define(version: 2020_03_02_210935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "challenge_completions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "challenge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challenge_id"], name: "index_challenge_completions_on_challenge_id"
+    t.index ["user_id"], name: "index_challenge_completions_on_user_id"
+  end
+
+  create_table "challenge_recipes", force: :cascade do |t|
+    t.bigint "recipe_id"
+    t.bigint "challenge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challenge_id"], name: "index_challenge_recipes_on_challenge_id"
+    t.index ["recipe_id"], name: "index_challenge_recipes_on_recipe_id"
+  end
+
+  create_table "challenges", force: :cascade do |t|
+    t.bigint "category_id"
+    t.string "name"
+    t.text "description"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_challenges_on_category_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "time"
+    t.integer "difficulty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tips", force: :cascade do |t|
+    t.bigint "challenge_id"
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challenge_id"], name: "index_tips_on_challenge_id"
+  end
+
+  create_table "user_recipes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_user_recipes_on_recipe_id"
+    t.index ["user_id"], name: "index_user_recipes_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +85,22 @@ ActiveRecord::Schema.define(version: 2020_03_02_203606) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "age"
+    t.integer "no_meat_counter"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_users_on_category_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "challenge_completions", "challenges"
+  add_foreign_key "challenge_completions", "users"
+  add_foreign_key "challenge_recipes", "challenges"
+  add_foreign_key "challenge_recipes", "recipes"
+  add_foreign_key "challenges", "categories"
+  add_foreign_key "tips", "challenges"
+  add_foreign_key "user_recipes", "recipes"
+  add_foreign_key "user_recipes", "users"
 end
