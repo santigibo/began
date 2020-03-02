@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/cookbook', to: 'pages#cookbook', as: :cookbook
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get '/profile', to: 'devise/registrations#show', as: :profile
+  get '/profile', to: 'pages#profile', as: :profile
   resources :categories, only: %I(show)
   resources :challenges, only: %I(show) do
     resources :recipes, only: %I(index)
