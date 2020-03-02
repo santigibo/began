@@ -1,0 +1,3 @@
+<% @cookbook.each do |recipe| %>
+  <h1><%= link_to recipe.name, recipe_path(recipe.id) %></h1>
+<% end %>

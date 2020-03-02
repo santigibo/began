@@ -1,0 +1,4 @@
+<%= @category.name %>
+<% @challenges.each do |challenge| %>
+  <%= link_to challenge.name, challenge_path(challenge.id) %>
+<% end %>
