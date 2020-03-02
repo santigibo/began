@@ -6,4 +6,7 @@ class PagesController < ApplicationController
 
   def cookbook
   end
+
+  def profile
+  end
 end
