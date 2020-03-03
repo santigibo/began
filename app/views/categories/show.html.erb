@@ -1,4 +1,15 @@
 <%= @category.name %>
 <% @challenges.each do |challenge| %>
-  <%= link_to challenge.name, challenge_path(challenge.id) %>
+  <% challenge_before = @challenges.detect { |in_challenge| in_challenge.position == challenge.position - 1 } %>
+
+  <% is_first = challenge == @challenges.first %>
+  <% is_done = current_user.challenges.include?(challenge) %>
+  <% before_done = current_user.challenges.include?(challenge_before) %>
+
+  <% if is_first || is_done || before_done %>
+    <%= link_to challenge.name, challenge_path(challenge.id) %>
+  <% else %>
+    <p><%= challenge.name %></p>
+  <% end %>
+
 <% end %>
