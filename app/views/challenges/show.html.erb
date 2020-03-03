@@ -1,5 +1,13 @@
 <h1><%= @challenge.name %></h1>
 <p><%= @challenge.description %></p>
+
+<% if current_user.challenges.include?(@challenge) %>
+  <p>Completed <i class="fas fa-check"></i></p>
+  <%= link_to 'Back to list', category_path(current_user.category_id) %>
+<% else %>
+  <%= link_to 'Completed', challenge_challenge_completions_path(@challenge), method: :post %>
+<% end %>
+
 <div>
   <% @challenge.tips.each do |tip |%>
     <p><%= tip.title %></p>
@@ -8,3 +16,5 @@
 </div>
 
 <%= link_to "See the recipes for this challenge", challenge_recipes_path(@challenge.id) %>
+
+
