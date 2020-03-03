@@ -16,11 +16,14 @@ user1 = User.create({first_name: 'Félix', last_name: 'Timmel', age: 23, email:'
 n = Challenge.count + 1
 challenge1_flexi = Challenge.create({category: flexi, name: 'Tofu Beginner', description: 'Testing Tofu : Your challenge is to cook tofu !', position: n})
 
-def scratch_top5(ingredient)
-  url = "https://www.bbcgoodfood.com/search/recipes?query=#{ingredient}"
+# https://www.bbcgoodfood.com/search/recipes?query=#path=diet/vegetarian
+# https://www.bbcgoodfood.com/search/recipes?query=tofu#query=tofu&path=diet/vegetarian
+
+def scratch
+  url = "https://www.bbcgoodfood.com/search/recipes?query=#path=diet/vegetarian"
   html = open(url).read
   html_doc = Nokogiri::HTML(html)
-  reci = html_doc.search(".node-teaser-item").first(5).map do |element|
+  reci = html_doc.search(".node-teaser-item").first(10).map do |element|
     name = element.search(".teaser-item__title").text.strip
     description = element.search(".field-items").text.strip
     prep_time = element.search(".teaser-item__info-item--total-time").text.strip
@@ -31,4 +34,17 @@ def scratch_top5(ingredient)
   return reci
 end
 
-p scratch_top5('tofu')
+def scratch_top6(ingredient)
+  url = "https://www.bbcgoodfood.com/search/recipes?query=#{ingredient}"
+  html = open(url).read
+  html_doc = Nokogiri::HTML(html)
+  recip = html_doc.search(".node-teaser-item").first(6).map do |element|
+    name = element.search(".teaser-item__title").text.strip
+    description = element.search(".field-items").text.strip
+    prep_time = element.search(".teaser-item__info-item--total-time").text.strip
+    difficulty = element.search(".teaser-item__info-item--skill-level").text.strip
+
+    Recipe.create(name: name, description: description, time: prep_time, difficulty: difficulty)
+  end
+  return recip
+end
