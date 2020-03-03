@@ -1,2 +1,10 @@
 <h1><%= @challenge.name %></h1>
 <p><%= @challenge.description %></p>
+<div>
+  <% @challenge.tips.each do |tip |%>
+    <p><%= tip.title %></p>
+    <p><%= tip.description %></p>
+  <% end %>
+</div>
+
+<%= link_to "See the recipes for this challenge", challenge_recipes_path(@challenge.id) %>

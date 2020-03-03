@@ -1,4 +1,8 @@
 <h1>All recipes</h1>
 <% @recipes.each do |recipe| %>
+  <%= cl_image_tag recipe.photo.key %>
   <%= recipe.name %>
+  <%= recipe.description %>
+  <%= recipe.time %>
+  <%= recipe.difficulty %>
 <% end %>

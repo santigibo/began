@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   end
   resources :recipes, only: %I(show)
 
-  get 'recipes/all', to: 'recipes#all', as: :all_recipes
+  get '/all_recipes', to: 'recipes#all', as: :all_recipes
 end
