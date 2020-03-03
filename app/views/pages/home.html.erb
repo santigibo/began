@@ -1,2 +1,8 @@
 <h1>Hi <%= @user.first_name %></h1>
 <h4>Days without meat <%= @user.no_meat_counter %></h4>
+
+<% if @user.category_id.nil? %>
+  <%= link_to 'Choose category to play', choose_category_path %>
+<% else %>
+  <%= link_to 'Start game', category_path(@user.category_id) %>
+<% end %>

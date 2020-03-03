@@ -6,6 +6,9 @@ class User < ApplicationRecord
   has_many :challenge_completions
   has_many :challenges, through: :challenge_completions
 
+  # belongs_to :categories
+  # validates :categories, length: { minimum: 0, maximum: 1 }
+
   has_many :user_recipes
   has_many :recipes, through: :user_recipes
 
