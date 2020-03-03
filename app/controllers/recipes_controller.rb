@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
   def index
     @challenge = Challenge.find(params[:challenge_id])
     @recipes = @challenge.recipes
+    @all_recipes = Recipe.all
   end
 
   def show

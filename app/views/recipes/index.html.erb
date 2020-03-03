@@ -1,4 +1,19 @@
 <h1><%= @challenge.name %> recipes</h1>
 <% @recipes.each do |recipe| %>
+  <%= cl_image_tag recipe.photo.key %>
   <%= recipe.name %>
+  <%= recipe.description %>
+  <%= recipe.time %>
+  <%= recipe.difficulty %>
 <% end %>
+
+<% if @recipes.empty? %>
+  <% @all_recipes.sample(6).each do |recipe| %>
+    <%= cl_image_tag recipe.photo.key %>
+    <%= recipe.name %>
+    <%= recipe.description %>
+    <%= recipe.time %>
+    <%= recipe.difficulty %>
+  <% end %>
+<% end %>
+
