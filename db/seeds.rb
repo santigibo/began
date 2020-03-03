@@ -13,10 +13,9 @@ vegan = Category.create({name: 'vegan', description: 'Lorem ipsum dolor sit amet
 user1 = User.create({first_name: 'Santiago', last_name: 'Giraldo', age: 20, email:'santi@web.com', password: '123456'})
 user1 = User.create({first_name: 'Félix', last_name: 'Timmel', age: 23, email:'felix@web.com', password: '123456'})
 
-n = Challenge.count + 1
-challenge1_flexi = Challenge.create({category: flexitarian, name: 'Tofu Beginner', description: 'Testing Tofu : Your challenge is to cook tofu !', position: n})
-challenge2_flexi = Challenge.create({category: flexitarian, name: 'Proteiiins', description: 'First step replacing meet : Your challenge is to go for a full day without eating any meet !', position: n})
-challenge3_flexi = Challenge.create({category: flexitarian, name: 'Tempe Lover', description: 'Testing Tempe : Your challenge is to cook tempe !', position: n})
+challenge1_flexi = Challenge.create({category: flexitarian, name: 'Tofu Beginner', description: 'Testing Tofu : Your challenge is to cook tofu !', position: Challenge.count + 1})
+challenge2_flexi = Challenge.create({category: flexitarian, name: 'Proteiiins', description: 'First step replacing meet : Your challenge is to go for a full day without eating any meet !', position: Challenge.count + 1})
+challenge3_flexi = Challenge.create({category: flexitarian, name: 'Tempe Lover', description: 'Testing Tempe : Your challenge is to cook tempe !', position: Challenge.count + 1})
 
 # https://www.bbcgoodfood.com/search/recipes?query=#path=diet/vegetarian
 # https://www.bbcgoodfood.com/search/recipes?query=tofu#query=tofu&path=diet/vegetarian
