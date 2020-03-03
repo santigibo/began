@@ -1,2 +1,4 @@
 <h1><%= @challenge.name %></h1>
 <p><%= @challenge.description %></p>
+
+<%= link_to 'Completed', challenge_challenge_completions_path(@challenge), method: :post %>
