@@ -5,6 +5,10 @@ class PagesController < ApplicationController
     @user = current_user
   end
 
+  def choose_category
+    @category = Category.all
+  end
+
   def cookbook
     @cookbook = current_user.recipes
   end
