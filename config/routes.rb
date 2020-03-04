@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     resources :recipes, only: %I(index)
     resources :challenge_completions, only: %I(create)
   end
-  resources :recipes, only: %I(show)
+  resources :recipes, only: %I(show) do
+      resources :user_recipes, only: %I(create)
+  end
 
   get '/all_recipes', to: 'recipes#all', as: :all_recipes
 end
