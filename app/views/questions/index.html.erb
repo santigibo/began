@@ -1,0 +1,15 @@
+<div>
+  <% @questions.each do |question| %>
+    <p><strong><%= question.content %></strong></p>
+      <% question.answers.each do |answer| %>
+        <p><%= answer.content %></p>
+      <% end %>
+      <br>
+      <hr>
+      <br>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to "Go back to the challenge", challenge_path(@challenge) %>
+</div>
