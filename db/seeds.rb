@@ -1,6 +1,8 @@
 require 'open-uri'
 require 'nokogiri'
 
+Question.destroy_all
+Answer.destroy_all
 ChallengeCompletion.destroy_all
 ChallengeRecipe.destroy_all
 UserRecipe.destroy_all
@@ -102,4 +104,85 @@ end
 
 scraping()
 
+#QUIZZ PART
+question1_chall1 = Question.new(content:"What is tofu made of ?")
+question1_chall1.challenge = challenge1_flexi
+question1_chall1.save
 
+answer1_q1_c1 = Answer.new(
+                            content:"Tofu is made from soybeans",
+                            status: true,
+                            explanation:"Right ! bla bla bla bla "
+                          )
+answer1_q1_c1.question = question1_chall1
+answer1_q1_c1.save
+
+
+answer2_q1_c1 = Answer.new(
+                            content:"Tofu is made from cheese",
+                            status: false,
+                            explanation:"False ! bla bla bla bla "
+                          )
+answer2_q1_c1.question = question1_chall1
+answer2_q1_c1.save
+
+
+answer2_q1_c1 = Answer.new(
+                            content:"Tofu is made from almond milk",
+                            status: false,
+                            explanation:"False ! bla blou bla bla bla "
+                          )
+answer2_q1_c1.question = question1_chall1
+answer2_q1_c1.save
+
+# --------------------------------------------
+
+question2_chall1 = Question.new(content:"Where is tofu coming from ?")
+question2_chall1.challenge = challenge1_flexi
+question2_chall1.save
+
+answer2_q2_c1 = Answer.new(
+                            content:"America",
+                            status: false,
+                            explanation:"False ! It's coming from China ! "
+                          )
+answer2_q2_c1.question = question2_chall1
+answer2_q2_c1.save
+
+answer2_q2_c1 = Answer.new(
+                            content:"China",
+                            status: true,
+                            explanation:"Excellent !"
+                          )
+answer2_q2_c1.question = question2_chall1
+answer2_q2_c1.save
+
+answer2_q2_c1 = Answer.new(
+                            content:"Argentina",
+                            status: false,
+                            explanation:"False ! It's coming from China ! "
+                          )
+answer2_q2_c1.question = question2_chall1
+answer2_q2_c1.save
+
+# --------------------------------------------
+
+question3_chall1 = Question.new(content:"Can you have tofu for dessert ?")
+question3_chall1.challenge = challenge1_flexi
+question3_chall1.save
+
+answer1_q3_c1 = Answer.new(
+                            content:"Yes, tofu can be sweet",
+                            status: true,
+                            explanation:"Of course ! (look at our tofu recepies :)"
+                          )
+answer1_q3_c1.question = question3_chall1
+answer1_q3_c1.save
+
+answer2_q3_c1 = Answer.new(
+                            content:"No, tofu is only prepared has a salty meal.",
+                            status: false,
+                            explanation:"Of course it can ! (look at our tofu recepies :)"
+                          )
+answer2_q3_c1.question = question3_chall1
+answer2_q3_c1.save

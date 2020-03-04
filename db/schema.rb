@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_153513) do
+ActiveRecord::Schema.define(version: 2020_03_04_195830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 2020_03_04_153513) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.string "content"
+    t.boolean "status"
+    t.text "explanation"
+    t.bigint "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -69,6 +79,23 @@ ActiveRecord::Schema.define(version: 2020_03_04_153513) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_challenges_on_category_id"
+  end
+
+  create_table "question_completions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_question_completions_on_question_id"
+    t.index ["user_id"], name: "index_question_completions_on_user_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "challenge_id"
+    t.index ["challenge_id"], name: "index_questions_on_challenge_id"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -118,11 +145,15 @@ ActiveRecord::Schema.define(version: 2020_03_04_153513) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "answers", "questions"
   add_foreign_key "challenge_completions", "challenges"
   add_foreign_key "challenge_completions", "users"
   add_foreign_key "challenge_recipes", "challenges"
   add_foreign_key "challenge_recipes", "recipes"
   add_foreign_key "challenges", "categories"
+  add_foreign_key "question_completions", "questions"
+  add_foreign_key "question_completions", "users"
+  add_foreign_key "questions", "challenges"
   add_foreign_key "tips", "challenges"
   add_foreign_key "user_recipes", "recipes"
   add_foreign_key "user_recipes", "users"
