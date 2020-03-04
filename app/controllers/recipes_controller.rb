@@ -10,6 +10,12 @@ class RecipesController < ApplicationController
   end
 
   def all
-    @recipes = Recipe.all
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR description ILIKE :query OR time ILIKE :query OR difficulty ILIKE :query"
+      @recipes = Recipe.where(sql_query, query: "%#{params[:query]}%")
+      params[:query] = ""
+    else
+      @recipes = Recipe.all
+    end
   end
 end

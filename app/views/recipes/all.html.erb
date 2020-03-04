@@ -1,4 +1,16 @@
 <h1>All recipes</h1>
+
+<div>
+  <%= form_tag all_recipes_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Look into all our recipes"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
 <% @recipes.each do |recipe| %>
   <div>
     <%= cl_image_tag recipe.photo.key %>
