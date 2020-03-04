@@ -2,8 +2,7 @@
 <% @recipes.each do |recipe| %>
   <div>
     <%= cl_image_tag recipe.photo.key %>
-    <%= recipe.name %>
-    <%= recipe.description %>
+    <%= link_to recipe.name, recipe_path(recipe.id) %>
     <%= recipe.time %>
     <%= recipe.difficulty %>
     <% if current_user.recipes.include?(recipe) %>
