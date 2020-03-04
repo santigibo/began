@@ -22,8 +22,8 @@ def scratch_top6(ingredient)
       file = URI.open(photo_url)
       name = element.search(".teaser-item__title").text.strip
       description = element.search(".field-items").text.strip
-      p prep_time = element.search(".teaser-item__info-item--total-time").text.strip
-      p difficulty = element.search(".teaser-item__info-item--skill-level").text.strip
+      prep_time = element.search(".teaser-item__info-item--total-time").text.strip
+      difficulty = element.search(".teaser-item__info-item--skill-level").text.strip
 
       r = Recipe.new(name: name, description: description, time: prep_time, difficulty: difficulty)
       unless Recipe.all.include?(r)
