@@ -7,12 +7,15 @@ Rails.application.routes.draw do
   get '/profile', to: 'pages#profile', as: :profile
   resources :categories, only: %I(show)
   resources :challenges, only: %I(show) do
+    resources :questions, only: %I(index)
     resources :recipes, only: %I(index)
     resources :challenge_completions, only: %I(create)
   end
   resources :recipes, only: %I(show) do
       resources :user_recipes, only: %I(create)
   end
-
+  resources :questions, only: [] do
+    resources :question_completions, only: %I(create)
+  end
   get '/all_recipes', to: 'recipes#all', as: :all_recipes
 end

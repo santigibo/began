@@ -6,11 +6,14 @@ class User < ApplicationRecord
   has_many :challenge_completions, dependent: :destroy
   has_many :challenges, through: :challenge_completions
 
-  # belongs_to :categories
+  has_one :categories
   # validates :categories, length: { minimum: 0, maximum: 1 }
 
   has_many :user_recipes, dependent: :destroy
   has_many :recipes, through: :user_recipes
+
+  has_many :question_completions
+  has_many :questions, through: :question_completions
 
   has_one_attached :photo
 
