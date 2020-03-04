@@ -6,5 +6,10 @@
     <%= recipe.description %>
     <%= recipe.time %>
     <%= recipe.difficulty %>
+    <% if current_user.recipes.include?(recipe) %>
+      <p>Added <i class="fas fa-check"></i></p>
+    <% else %>
+      <%= link_to 'Add to cookbook', recipe_user_recipes_path(recipe), method: :post %>
+    <% end %>
   </div>
 <% end %>
