@@ -3,13 +3,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :challenge_completions
+  has_many :challenge_completions, dependent: :destroy
   has_many :challenges, through: :challenge_completions
 
   # belongs_to :categories
   # validates :categories, length: { minimum: 0, maximum: 1 }
 
-  has_many :user_recipes
+  has_many :user_recipes, dependent: :destroy
   has_many :recipes, through: :user_recipes
 
   has_one_attached :photo
