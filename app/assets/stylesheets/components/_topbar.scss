@@ -1,0 +1,38 @@
+.topbar {
+  height: 60px;
+  width: 100vw;
+  color: black;
+  background-color: white;
+  border-bottom: 1px solid #EEEEEE;
+  font-size: 22px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.topbar p {
+  margin-bottom: 0;
+}
+
+.chevron {
+  flex-grow:1;
+  padding-left: 25px;
+}
+
+.chevron i {
+  color: black;
+}
+
+.my {
+  font-weight: lighter;
+}
+
+.excla-mark {
+  font-style: italic;
+}
+
+.topbar-title {
+  position: fixed;
+}

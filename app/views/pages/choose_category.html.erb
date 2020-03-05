@@ -1,7 +1,10 @@
 <div class="topbar">
-  <p>Choose your goal</p>
+  <p>CHOOSE YOUR GOAL</p>
 </div>
 
-<%= link_to Category.all[0].name, category_path(Category.all[0]) %>
-<%= link_to Category.all[1].name, category_path(Category.all[1]) %>
-<%= link_to Category.all[2].name, category_path(Category.all[2]) %>
+<div class="container">
+  <%= link_to Category.all[0].name, category_path(Category.all[0]) %>
+  <%= link_to Category.all[1].name, category_path(Category.all[1]) %>
+  <%= link_to Category.all[2].name, category_path(Category.all[2]) %>
+</div>
+

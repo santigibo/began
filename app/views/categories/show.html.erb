@@ -1,15 +1,26 @@
-<%= @category.name %>
-<% @challenges.each do |challenge| %>
-  <% challenge_before = @challenges.detect { |in_challenge| in_challenge.position == challenge.position - 1 } %>
+<div class="topbar">
+  <p class="chevron">
+    <%= link_to choose_category_path do %>
+    <i class="fas fa-chevron-left"></i>
+    <% end %>
+  </p>
 
-  <% is_first = challenge == @challenges.first %>
-  <% is_done = current_user.challenges.include?(challenge) %>
-  <% before_done = current_user.challenges.include?(challenge_before) %>
+  <p class="topbar-title"><span class="my">MY</span> <%= @category.name.upcase %><span class="excla-mark">!</span></%></p>
+</div>
 
-  <% if is_first || is_done || before_done %>
-    <%= link_to challenge.name, challenge_path(challenge.id) %>
-  <% else %>
-    <p><%= challenge.name %></p>
+<div class="container">
+  <%= @category.name %>
+  <% @challenges.each do |challenge| %>
+    <% challenge_before = @challenges.detect { |in_challenge| in_challenge.position == challenge.position - 1 } %>
+
+    <% is_first = challenge == @challenges.first %>
+    <% is_done = current_user.challenges.include?(challenge) %>
+    <% before_done = current_user.challenges.include?(challenge_before) %>
+
+    <% if is_first || is_done || before_done %>
+      <%= link_to challenge.name, challenge_path(challenge.id) %>
+    <% else %>
+      <p><%= challenge.name %></p>
+    <% end %>
   <% end %>
-
-<% end %>
+</div>
