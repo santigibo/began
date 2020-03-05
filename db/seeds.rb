@@ -20,25 +20,31 @@ def scratch_top6(ingredient)
   search_result = []
   recip = html_doc.search(".node-teaser-item").first(6).map do |element|
     unless element.nil?
-      photo_class = element.search(".teaser-item__image")
-      photo_a = photo_class.search("img")
-      photo_url = "https://" + photo_a.attribute("src").text[2..-1]
-      file = URI.open(photo_url)
-      name = element.search(".teaser-item__title").text.strip
-      description = element.search(".field-items").text.strip
-      prep_time = element.search(".teaser-item__info-item--total-time").text.strip
-      difficulty = element.search(".teaser-item__info-item--skill-level").text.strip
+      href = element.search(".teaser-item__title a").attribute('href').value
+      reci_url = "https://www.bbcgoodfood.com#{href}"
 
-      r = Recipe.new(name: name, description: description, time: prep_time, difficulty: difficulty)
-      unless Recipe.all.include?(r)
-        begin
-          r.photo.attach(io: file, filename: "#{name}.jpg", content_type: 'image/jpg')
-          r.save
-          search_result << r
-        rescue ActiveStorage::IntegrityError
-          "Bad url: #{photo_url}"
-        end
-      end
+      search_result << scrape_from(reci_url)
+
+
+      # photo_class = element.search(".teaser-item__image")
+      # photo_a = photo_class.search("img")
+      # photo_url = "https://" + photo_a.attribute("src").text[2..-1]
+      # file = URI.open(photo_url)
+      # name = element.search(".teaser-item__title").text.strip
+      # description = element.search(".field-items").text.strip
+      # prep_time = element.search(".teaser-item__info-item--total-time").text.strip
+      # difficulty = element.search(".teaser-item__info-item--skill-level").text.strip
+
+      # r = Recipe.new(name: name, description: description, time: prep_time, difficulty: difficulty)
+      # unless Recipe.all.include?(r)
+      #   begin
+      #     r.photo.attach(io: file, filename: "#{name}.jpg", content_type: 'image/jpg')
+      #     r.save
+      #     search_result << r
+      #   rescue ActiveStorage::IntegrityError
+      #     "Bad url: #{photo_url}"
+      #   end
+      # end
     end
   end
   return search_result
@@ -52,16 +58,16 @@ user1 = User.create({first_name: 'Santiago', last_name: 'Giraldo', age: 20, emai
 user1 = User.create({first_name: 'Félix', last_name: 'Timmel', age: 23, email:'felix@web.com', password: '123456'})
 
 challenge1_flexi = Challenge.create({category: flexitarian, name: 'Tofu Beginner', description: 'Testing Tofu : Your challenge is to cook tofu !', position: Challenge.count + 1})
-# scratch_top6('tofu').each do |recipe|
-#   challenge1_flexi.recipes << recipe
-# end
+scratch_top6('tofu').each do |recipe|
+  challenge1_flexi.recipes << recipe
+end
 
 challenge2_flexi = Challenge.create({category: flexitarian, name: 'Proteiiins', description: 'First step replacing meet : Your challenge is to go for a full day without eating any meet !', position: Challenge.count + 1})
 
 challenge3_flexi = Challenge.create({category: flexitarian, name: 'Tempeh Lover', description: 'Testing Tempe : Your challenge is to cook tempe !', position: Challenge.count + 1})
-# scratch_top6('tempeh').each do |recipe|
-#   challenge3_flexi.recipes << recipe
-# end
+scratch_top6('tempeh').each do |recipe|
+  challenge3_flexi.recipes << recipe
+end
 
 tip1 = Tip.new(
                 title: 'Do you really know your proteins ?',
@@ -89,8 +95,16 @@ def scrape_from(url)
   difficulty = html_doc.search(".recipe-details__item--skill-level span").text.strip
   description = html_doc.search(".field-item p").text.strip
 
-
   r = Recipe.new(name: name, description: description, time: prep_time, difficulty: difficulty)
+
+  ingredients = html_doc.search(".ingredients-list__item").each do |ingredient|
+    ing = Ingredient.create(content: ingredient.attribute('content').value, recipe: r)
+  end
+
+  recipe_methods = html_doc.search('.method__list li p').each do |method|
+    met = RecipeMethod.create(content: method.text.strip, recipe: r)
+  end
+
   unless Recipe.all.include?(r)
     begin
       r.photo.attach(io: file, filename: "#{name}.jpg", content_type: 'image/jpg')
@@ -100,6 +114,7 @@ def scrape_from(url)
       "Bad url: #{photo_url}"
     end
   end
+  return r
 end
 
 scrape_from('https://www.bbcgoodfood.com/recipes/spiced-carrot-lentil-soup')
