@@ -18,9 +18,14 @@
     <%= recipe.time %>
     <%= recipe.difficulty %>
     <% if current_user.recipes.include?(recipe) %>
-      <p>Added <i class="fas fa-check"></i></p>
+      <% user_r = UserRecipe.all.detect {|ur| ur.user == current_user && ur.recipe == recipe} %>
+      <%= link_to user_recipe_path(user_r), method: :delete do  %>
+        <i class="fas fa-heart"></i>
+      <% end %>
     <% else %>
-      <%= link_to 'Add to cookbook', recipe_user_recipes_path(recipe), method: :post %>
+      <%= link_to recipe_user_recipes_path(recipe), method: :post do %>
+        <i class="far fa-heart"></i>
+      <% end %>
     <% end %>
   </div>
 <% end %>
