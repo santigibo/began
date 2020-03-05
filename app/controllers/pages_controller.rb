@@ -5,6 +5,9 @@ class PagesController < ApplicationController
     @user = current_user
   end
 
+  def meat_counter
+  end
+
   def choose_category
     @category = Category.all
   end
