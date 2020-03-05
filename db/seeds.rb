@@ -13,6 +13,41 @@ Recipe.destroy_all
 Challenge.destroy_all
 Category.destroy_all
 
+def scrape_from(url)
+  html = open(url).read
+  html_doc = Nokogiri::HTML(html)
+  photo_class = html_doc.search(".img-container")
+  photo_a = photo_class.search("img")
+  photo_url = "https://" + photo_a.attribute("src").text[2..-1]
+  file = URI.open(photo_url)
+
+  name = html_doc.search(".recipe-header__title").text.strip
+  prep_time = html_doc.search(".recipe-details__cooking-time-prep span").text.strip
+  difficulty = html_doc.search(".recipe-details__item--skill-level span").text.strip
+  description = html_doc.search(".field-item p").text.strip
+
+  r = Recipe.new(name: name, description: description, time: prep_time, difficulty: difficulty)
+
+  ingredients = html_doc.search(".ingredients-list__item").each do |ingredient|
+    ing = Ingredient.create(content: ingredient.attribute('content').value, recipe: r)
+  end
+
+  recipe_methods = html_doc.search('.method__list li p').each do |method|
+    met = RecipeMethod.create(content: method.text.strip, recipe: r)
+  end
+
+  unless Recipe.all.include?(r)
+    begin
+      r.photo.attach(io: file, filename: "#{name}.jpg", content_type: 'image/jpg')
+      r.valid?
+      r.save
+    rescue ActiveStorage::IntegrityError
+      "Bad url: #{photo_url}"
+    end
+  end
+  return r
+end
+
 def scratch_top6(ingredient)
   url = "https://www.bbcgoodfood.com/search/recipes?query=#{ingredient}"
   html = open(url).read
@@ -20,25 +55,10 @@ def scratch_top6(ingredient)
   search_result = []
   recip = html_doc.search(".node-teaser-item").first(6).map do |element|
     unless element.nil?
-      photo_class = element.search(".teaser-item__image")
-      photo_a = photo_class.search("img")
-      photo_url = "https://" + photo_a.attribute("src").text[2..-1]
-      file = URI.open(photo_url)
-      name = element.search(".teaser-item__title").text.strip
-      description = element.search(".field-items").text.strip
-      prep_time = element.search(".teaser-item__info-item--total-time").text.strip
-      difficulty = element.search(".teaser-item__info-item--skill-level").text.strip
+      href = element.search(".teaser-item__title a").attribute('href').value
+      reci_url = "https://www.bbcgoodfood.com#{href}"
 
-      r = Recipe.new(name: name, description: description, time: prep_time, difficulty: difficulty)
-      unless Recipe.all.include?(r)
-        begin
-          r.photo.attach(io: file, filename: "#{name}.jpg", content_type: 'image/jpg')
-          r.save
-          search_result << r
-        rescue ActiveStorage::IntegrityError
-          "Bad url: #{photo_url}"
-        end
-      end
+      search_result << scrape_from(reci_url)
     end
   end
   return search_result
@@ -76,30 +96,17 @@ tip1.save
 # https://www.bbcgoodfood.com/search/recipes?query=#path=diet/vegetarian
 # https://www.bbcgoodfood.com/search/recipes?query=tofu#query=tofu&path=diet/vegetarian
 
+
+
 def scraping
   url = "https://www.bbcgoodfood.com/search/recipes?query=#path=diet/vegetarian"
   html = open("bbc.html").read
   html_doc = Nokogiri::HTML(html)
   reci = html_doc.search(".node-teaser-item").first(10).map do |element|
-    photo_class = element.search(".teaser-item__image")
-    photo_a = photo_class.search("img")
-    photo_url = "https://" + photo_a.attribute("src").text[2..-1]
-    file = URI.open(photo_url)
-    name = element.search(".teaser-item__title").text.strip
-    description = element.search(".field-items").text.strip
-    prep_time = element.search(".teaser-item__info-item--total-time").text.strip
-    difficulty = element.search(".teaser-item__info-item--skill-level").text.strip
+    href = element.search(".teaser-item__title a").attribute('href').value
+    reci_url = "https://www.bbcgoodfood.com#{href}"
 
-    r = Recipe.new(name: name, description: description, time: prep_time, difficulty: difficulty)
-    unless Recipe.all.include?(r)
-      begin
-        r.photo.attach(io: file, filename: "#{name}.jpg", content_type: 'image/jpg')
-        r.save
-      rescue ActiveStorage::IntegrityError
-        "Bad url: #{photo_url}"
-      end
-    end
-    # c=Cloudinary::Uploader.upload(photo_url)
+    scrape_from(reci_url)
   end
   return reci
 end
