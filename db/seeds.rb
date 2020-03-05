@@ -59,27 +59,6 @@ def scratch_top6(ingredient)
       reci_url = "https://www.bbcgoodfood.com#{href}"
 
       search_result << scrape_from(reci_url)
-
-
-      # photo_class = element.search(".teaser-item__image")
-      # photo_a = photo_class.search("img")
-      # photo_url = "https://" + photo_a.attribute("src").text[2..-1]
-      # file = URI.open(photo_url)
-      # name = element.search(".teaser-item__title").text.strip
-      # description = element.search(".field-items").text.strip
-      # prep_time = element.search(".teaser-item__info-item--total-time").text.strip
-      # difficulty = element.search(".teaser-item__info-item--skill-level").text.strip
-
-      # r = Recipe.new(name: name, description: description, time: prep_time, difficulty: difficulty)
-      # unless Recipe.all.include?(r)
-      #   begin
-      #     r.photo.attach(io: file, filename: "#{name}.jpg", content_type: 'image/jpg')
-      #     r.save
-      #     search_result << r
-      #   rescue ActiveStorage::IntegrityError
-      #     "Bad url: #{photo_url}"
-      #   end
-      # end
     end
   end
   return search_result
