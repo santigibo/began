@@ -4,6 +4,8 @@ class Challenge < ApplicationRecord
   has_many :challenge_completions, dependent: :destroy
   has_many :users, through: :challenge_completions
 
+  has_many :questions
+
   has_many :challenge_recipes, dependent: :destroy
   has_many :recipes, through: :challenge_recipes
 

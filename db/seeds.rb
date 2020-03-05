@@ -1,6 +1,7 @@
 require 'open-uri'
 require 'nokogiri'
 
+QuestionCompletion.destroy_all
 Question.destroy_all
 Answer.destroy_all
 ChallengeCompletion.destroy_all
