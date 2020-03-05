@@ -1,0 +1,24 @@
+<div id="footer">
+    <ul class="footer-nav">
+      <% if user_signed_in? %>
+        <li class="footer-nav-item active">
+          <%= link_to "Home", all_recipes_path %>
+        </li>
+        <li class="footer-nav-item active">
+          <%= link_to "Recipes", all_recipes_path %>
+        </li>
+        <li class="footer-nav-item active">
+          <%= link_to "Recipes", all_recipes_path %>
+        </li>
+        <li class="footer-nav-item active">
+          <%= link_to "My cookbook", cookbook_path%>
+        </li>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
