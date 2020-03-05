@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_195830) do
+ActiveRecord::Schema.define(version: 2020_03_05_164022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,14 @@ ActiveRecord::Schema.define(version: 2020_03_04_195830) do
     t.index ["category_id"], name: "index_challenges_on_category_id"
   end
 
+  create_table "ingredients", force: :cascade do |t|
+    t.string "content"
+    t.bigint "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
+  end
+
   create_table "question_completions", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "question_id"
@@ -96,6 +104,14 @@ ActiveRecord::Schema.define(version: 2020_03_04_195830) do
     t.datetime "updated_at", null: false
     t.bigint "challenge_id"
     t.index ["challenge_id"], name: "index_questions_on_challenge_id"
+  end
+
+  create_table "recipe_methods", force: :cascade do |t|
+    t.string "content"
+    t.bigint "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_recipe_methods_on_recipe_id"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -151,9 +167,11 @@ ActiveRecord::Schema.define(version: 2020_03_04_195830) do
   add_foreign_key "challenge_recipes", "challenges"
   add_foreign_key "challenge_recipes", "recipes"
   add_foreign_key "challenges", "categories"
+  add_foreign_key "ingredients", "recipes"
   add_foreign_key "question_completions", "questions"
   add_foreign_key "question_completions", "users"
   add_foreign_key "questions", "challenges"
+  add_foreign_key "recipe_methods", "recipes"
   add_foreign_key "tips", "challenges"
   add_foreign_key "user_recipes", "recipes"
   add_foreign_key "user_recipes", "users"
