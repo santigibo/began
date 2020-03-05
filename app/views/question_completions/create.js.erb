@@ -1,0 +1,6 @@
+<% if @questions.all? { |question| question.users.include?(current_user) } %>
+  real = document.getElementById('real-finish');
+  real.classList.remove('d-none');
+  fake = document.getElementById('fake-finish');
+  fake.classList.add('d-none');
+<% end %>
