@@ -7,6 +7,8 @@ ChallengeCompletion.destroy_all
 ChallengeRecipe.destroy_all
 UserRecipe.destroy_all
 User.destroy_all
+RecipeMethod.destroy_all
+Ingredient.destroy_all
 Recipe.destroy_all
 Challenge.destroy_all
 Category.destroy_all
