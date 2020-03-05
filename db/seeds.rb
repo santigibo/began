@@ -13,6 +13,41 @@ Recipe.destroy_all
 Challenge.destroy_all
 Category.destroy_all
 
+def scrape_from(url)
+  html = open(url).read
+  html_doc = Nokogiri::HTML(html)
+  photo_class = html_doc.search(".img-container")
+  photo_a = photo_class.search("img")
+  photo_url = "https://" + photo_a.attribute("src").text[2..-1]
+  file = URI.open(photo_url)
+
+  name = html_doc.search(".recipe-header__title").text.strip
+  prep_time = html_doc.search(".recipe-details__cooking-time-prep span").text.strip
+  difficulty = html_doc.search(".recipe-details__item--skill-level span").text.strip
+  description = html_doc.search(".field-item p").text.strip
+
+  r = Recipe.new(name: name, description: description, time: prep_time, difficulty: difficulty)
+
+  ingredients = html_doc.search(".ingredients-list__item").each do |ingredient|
+    ing = Ingredient.create(content: ingredient.attribute('content').value, recipe: r)
+  end
+
+  recipe_methods = html_doc.search('.method__list li p').each do |method|
+    met = RecipeMethod.create(content: method.text.strip, recipe: r)
+  end
+
+  unless Recipe.all.include?(r)
+    begin
+      r.photo.attach(io: file, filename: "#{name}.jpg", content_type: 'image/jpg')
+      r.valid?
+      r.save
+    rescue ActiveStorage::IntegrityError
+      "Bad url: #{photo_url}"
+    end
+  end
+  return r
+end
+
 def scratch_top6(ingredient)
   url = "https://www.bbcgoodfood.com/search/recipes?query=#{ingredient}"
   html = open(url).read
@@ -82,42 +117,7 @@ tip1.save
 # https://www.bbcgoodfood.com/search/recipes?query=#path=diet/vegetarian
 # https://www.bbcgoodfood.com/search/recipes?query=tofu#query=tofu&path=diet/vegetarian
 
-def scrape_from(url)
-  html = open(url).read
-  html_doc = Nokogiri::HTML(html)
-  photo_class = html_doc.search(".img-container")
-  photo_a = photo_class.search("img")
-  photo_url = "https://" + photo_a.attribute("src").text[2..-1]
-  file = URI.open(photo_url)
 
-  name = html_doc.search(".recipe-header__title").text.strip
-  prep_time = html_doc.search(".recipe-details__cooking-time-prep span").text.strip
-  difficulty = html_doc.search(".recipe-details__item--skill-level span").text.strip
-  description = html_doc.search(".field-item p").text.strip
-
-  r = Recipe.new(name: name, description: description, time: prep_time, difficulty: difficulty)
-
-  ingredients = html_doc.search(".ingredients-list__item").each do |ingredient|
-    ing = Ingredient.create(content: ingredient.attribute('content').value, recipe: r)
-  end
-
-  recipe_methods = html_doc.search('.method__list li p').each do |method|
-    met = RecipeMethod.create(content: method.text.strip, recipe: r)
-  end
-
-  unless Recipe.all.include?(r)
-    begin
-      r.photo.attach(io: file, filename: "#{name}.jpg", content_type: 'image/jpg')
-      r.valid?
-      r.save
-    rescue ActiveStorage::IntegrityError
-      "Bad url: #{photo_url}"
-    end
-  end
-  return r
-end
-
-scrape_from('https://www.bbcgoodfood.com/recipes/spiced-carrot-lentil-soup')
 
 def scraping
   url = "https://www.bbcgoodfood.com/search/recipes?query=#path=diet/vegetarian"
@@ -132,7 +132,7 @@ def scraping
   return reci
 end
 
-# scraping()
+scraping()
 
 #QUIZZ PART
 question1_chall1 = Question.new(content:"What is tofu made of ?")
