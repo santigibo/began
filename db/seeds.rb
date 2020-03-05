@@ -67,6 +67,19 @@ def scratch_top6(ingredient)
   return search_result.filter { |r| r }
 end
 
+def scraping
+  url = "https://www.bbcgoodfood.com/search/recipes?query=#path=diet/vegetarian"
+  html = open("bbc.html").read
+  html_doc = Nokogiri::HTML(html)
+  reci = html_doc.search(".node-teaser-item").first(10).map do |element|
+    href = element.search(".teaser-item__title a").attribute('href').value
+    reci_url = "https://www.bbcgoodfood.com#{href}"
+
+    scrape_from(reci_url)
+  end
+  return reci
+end
+
 flexitarian = Category.create({name: 'flexitarian', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo deserunt asperiores facere labore, voluptatibus, maxime quae nesciunt ipsam, laborum laudantium qui quam? Rerum quam nemo, necessitatibus, enim adipisci perspiciatis rem.'})
 vegetarian = Category.create({name: 'vegetarian', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo deserunt asperiores facere labore, voluptatibus, maxime quae nesciunt ipsam, laborum laudantium qui quam? Rerum quam nemo, necessitatibus, enim adipisci perspiciatis rem.'})
 vegan = Category.create({name: 'vegan', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo deserunt asperiores facere labore, voluptatibus, maxime quae nesciunt ipsam, laborum laudantium qui quam? Rerum quam nemo, necessitatibus, enim adipisci perspiciatis rem.'})
@@ -101,18 +114,6 @@ tip1.save
 
 
 
-def scraping
-  url = "https://www.bbcgoodfood.com/search/recipes?query=#path=diet/vegetarian"
-  html = open("bbc.html").read
-  html_doc = Nokogiri::HTML(html)
-  reci = html_doc.search(".node-teaser-item").first(2).map do |element|
-    href = element.search(".teaser-item__title a").attribute('href').value
-    reci_url = "https://www.bbcgoodfood.com#{href}"
-
-    scrape_from(reci_url)
-  end
-  return reci
-end
 
 scraping()
 
