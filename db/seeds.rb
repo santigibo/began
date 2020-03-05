@@ -28,24 +28,27 @@ def scrape_from(url)
 
   r = Recipe.new(name: name, description: description, time: prep_time, difficulty: difficulty)
 
-  ingredients = html_doc.search(".ingredients-list__item").each do |ingredient|
-    ing = Ingredient.create(content: ingredient.attribute('content').value, recipe: r)
-  end
-
-  recipe_methods = html_doc.search('.method__list li p').each do |method|
-    met = RecipeMethod.create(content: method.text.strip, recipe: r)
-  end
-
   unless Recipe.all.include?(r)
     begin
       r.photo.attach(io: file, filename: "#{name}.jpg", content_type: 'image/jpg')
-      r.valid?
       r.save
     rescue ActiveStorage::IntegrityError
       "Bad url: #{photo_url}"
     end
   end
-  return r
+  if r.persisted?
+    ingredients = html_doc.search(".ingredients-list__item").each do |ingredient|
+      ing = Ingredient.create(content: ingredient.attribute('content').value, recipe: r)
+    end
+
+    recipe_methods = html_doc.search('.method__list li p').each do |method|
+      met = RecipeMethod.create(content: method.text.strip, recipe: r)
+    end
+
+    return r
+  else
+    return nil
+  end
 end
 
 def scratch_top6(ingredient)
@@ -61,7 +64,20 @@ def scratch_top6(ingredient)
       search_result << scrape_from(reci_url)
     end
   end
-  return search_result
+  return search_result.filter { |r| r }
+end
+
+def scraping
+  url = "https://www.bbcgoodfood.com/search/recipes?query=#path=diet/vegetarian"
+  html = open("bbc.html").read
+  html_doc = Nokogiri::HTML(html)
+  reci = html_doc.search(".node-teaser-item").first(10).map do |element|
+    href = element.search(".teaser-item__title a").attribute('href').value
+    reci_url = "https://www.bbcgoodfood.com#{href}"
+
+    scrape_from(reci_url)
+  end
+  return reci
 end
 
 flexitarian = Category.create({name: 'flexitarian', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo deserunt asperiores facere labore, voluptatibus, maxime quae nesciunt ipsam, laborum laudantium qui quam? Rerum quam nemo, necessitatibus, enim adipisci perspiciatis rem.'})
@@ -98,18 +114,6 @@ tip1.save
 
 
 
-def scraping
-  url = "https://www.bbcgoodfood.com/search/recipes?query=#path=diet/vegetarian"
-  html = open("bbc.html").read
-  html_doc = Nokogiri::HTML(html)
-  reci = html_doc.search(".node-teaser-item").first(10).map do |element|
-    href = element.search(".teaser-item__title a").attribute('href').value
-    reci_url = "https://www.bbcgoodfood.com#{href}"
-
-    scrape_from(reci_url)
-  end
-  return reci
-end
 
 scraping()
 
