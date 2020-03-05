@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   resources :recipes, only: %I(show) do
       resources :user_recipes, only: %I(create)
   end
+
+  resources :user_recipes, only: %I(destroy)
+
   resources :questions, only: [] do
     resources :question_completions, only: %I(create)
   end
