@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get '/profile', to: 'pages#profile', as: :profile
   resources :categories, only: %I(show)
   resources :challenges, only: %I(show) do
-    resources :questions, only: %I(index)
+    resources :questions, only: %I(index) do
+      resources :question_completions, only: %I(create)
+    end
     resources :recipes, only: %I(index)
     resources :challenge_completions, only: %I(create)
   end
