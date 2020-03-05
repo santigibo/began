@@ -1,0 +1,38 @@
+<div id="footer">
+  <div class="small-logo">
+    <%= link_to image_tag("began_small_logo.png"), root_path %>
+  </div>
+    <ul class="footer-nav">
+      <% if user_signed_in? %>
+      <div class="footer-icon-left">
+        <li class="footer-nav-item">
+          <%= link_to root_path  do %>
+          <i class="fas fa-home"></i>
+          <% end %>
+        </li>
+        <li class="footer-nav-item">
+          <%= link_to meat_counter_path do %>
+          <i class="fas fa-calendar-check"></i>
+          <% end %>
+        </li>
+      </div>
+      <div class="footer-icon-right">
+        <li class="footer-nav-item">
+          <%= link_to cookbook_path do %>
+          <i class="fas fa-utensils"></i>
+          <% end %>
+        </li>
+        <li class="footer-nav-item">
+          <%= link_to root_path do %>
+          <i class="fas fa-users"></i>
+          <% end %>
+        </li>
+      </div>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

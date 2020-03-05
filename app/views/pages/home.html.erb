@@ -1,9 +1,16 @@
-<h1>Hi <%= @user.first_name %></h1>
-<h4>Days without meat <%= @user.no_meat_counter %></h4>
-<h4><%= link_to "My favorites recipes", cookbook_path, class: "nav-link" %></h4>
+<div class="topbar">
+  <!-- <img src="./app/assets/images/began-logo.png" alt="Began logo"> -->
+  <%= image_tag("began-logo.png", alt: "Began logo", class: "logo") %>
+</div>
 
-<% if @user.category_id.nil? %>
-  <%= link_to 'Choose category to play', choose_category_path %>
-<% else %>
-  <%= link_to 'Start game', category_path(@user.category_id) %>
-<% end %>
+<div class="container">
+  <h1>Hi <%= @user.first_name %></h1>
+  <h4>Days without meat <%= @user.no_meat_counter %></h4>
+  <h4><%= link_to "My favorites recipes", cookbook_path, class: "nav-link" %></h4>
+
+  <% if @user.category_id.nil? %>
+    <%= link_to 'Choose category to play', choose_category_path %>
+  <% else %>
+    <%= link_to 'Start game', category_path(@user.category_id) %>
+  <% end %>
+</div>
