@@ -1,3 +1,5 @@
+<div class="container">
+
 <h1>Hi <%= @user.first_name %></h1>
 <h4>Days without meat <%= @user.no_meat_counter %></h4>
 <h4><%= link_to "My favorites recipes", cookbook_path, class: "nav-link" %></h4>
@@ -7,3 +9,4 @@
 <% else %>
   <%= link_to 'Start game', category_path(@user.category_id) %>
 <% end %>
+</div>

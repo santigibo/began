@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+
+  get '/meat_counter', to: 'pages#meat_counter', as: :meat_counter
   get '/cookbook', to: 'pages#cookbook', as: :cookbook
   get '/choose_category', to: 'pages#choose_category', as: :choose_category
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
