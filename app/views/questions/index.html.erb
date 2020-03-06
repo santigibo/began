@@ -1,8 +1,31 @@
 <div>
-  <% @questions.each do |question| %>
-    <p><strong><%= question.content %></strong></p>
+  <% @questions.each_with_index do |question, q_index| %>
+    <p id="<%= q_index %>-question"><strong><%= question.content %></strong></p>
       <% question.answers.each do |answer| %>
-        <p><%= answer.content %></p>
+        <% if answer.status %>
+          <div class="answer">
+            <%= link_to answer.content, question_question_completions_path(question), method: :post, remote: true, class: 'answer-option'%>
+            <div class="explanation d-none">
+              <%= answer.explanation %>
+              <% if q_index + 1 == @questions.all.length %>
+                <%# if @questions.all? { |question| question.users.include?(current_user) } %>
+                  <%= link_to 'finish', challenge_path(@challenge), class: "d-none", id: 'real-finish' %>
+                <%# else %>
+                  <p id="fake-finish">finish</p>
+                <%# end %>
+              <% else %>
+                <a href="#<%= q_index + 1 %>-question">Next</a>
+              <% end %>
+            </div>
+          </div>
+        <% else %>
+          <div class="answer">
+            <a href="" class="answer-option"><%= answer.content %></a>
+            <div class="explanation d-none">
+              <%= answer.explanation %>
+            </div>
+          </div>
+        <% end %>
       <% end %>
       <br>
       <hr>
