@@ -1,9 +1,10 @@
 body {
   background-color: white;
+  color: black;
 }
 
 .container {
-  margin: 25px auto;
+  margin: 30px auto 120px auto;
   padding: 0 25px;
 }
 
@@ -14,12 +15,10 @@ a, a:hover {
 h1 {
   font-size: 30px;
   font-weight: bold;
-  text-align:center;
 }
 
 
 h2 {
   font-size: 22px;
   font-weight: medium;
-  text-align:center;
 }

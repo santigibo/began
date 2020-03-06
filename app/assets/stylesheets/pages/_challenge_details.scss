@@ -1,17 +1,21 @@
 .challenge-description {
   display: block;
   width:100%;
-  border-left: 4px solid $yellow;
+  border-left: 6px solid $yellow;
+  border-radius:6px;
   padding: 10px 20px;
   margin-bottom: 15px;
+  color: black;
 }
 
 .challenge-tips {
   display: block;
   width:100%;
-  border-right: 4px solid $yellow;
+  border-right: 6px solid $yellow;
+  border-radius:6px;
   padding: 10px 20px;
   margin-bottom: 15px;
+  color: black;
 }
 
 
@@ -20,6 +24,7 @@
   width:100%;
   padding: 20px 0;
   text-align:center;
+  color: black;
 }
 
 
@@ -27,5 +32,11 @@ h2.challenge {
   font-size: 22px;
   font-weight: bold;
   margin: 50px 0 20px 0;
+  color: black;
+  text-align: center;
 }
 
+
+h1.challenge {
+  text-align: center !important;
+}

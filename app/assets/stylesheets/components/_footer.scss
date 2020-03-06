@@ -1,5 +1,5 @@
 #footer {
-  position: absolute;
+  position: fixed;
   width:100%;
   bottom:0;
 }
@@ -32,7 +32,7 @@ ul.footer-nav {
 
 li.footer-nav-item {
   display: inline;
-  padding: 0 15px;
+  padding: 0 20px;
 }
 
 .footer-icon-left {
