@@ -9,18 +9,27 @@
 </div>
 
 <div class="container">
-  <%= @category.name %>
-  <% @challenges.each do |challenge| %>
-    <% challenge_before = @challenges.detect { |in_challenge| in_challenge.position == challenge.position - 1 } %>
 
-    <% is_first = challenge == @challenges.first %>
-    <% is_done = current_user.challenges.include?(challenge) %>
-    <% before_done = current_user.challenges.include?(challenge_before) %>
+    <% @challenges.each_with_index do |challenge, index| %>
+      <% challenge_before = @challenges.detect { |in_challenge| in_challenge.position == challenge.position - 1 } %>
 
-    <% if is_first || is_done || before_done %>
-      <%= link_to challenge.name, challenge_path(challenge.id) %>
-    <% else %>
-      <p><%= challenge.name %></p>
+      <% is_first = challenge == @challenges.first %>
+      <% is_done = current_user.challenges.include?(challenge) %>
+      <% before_done = current_user.challenges.include?(challenge_before) %>
+
+      <% if index != 0 %>
+        <div class="line"></div>
+      <% end %>
+      <div class="challenge-box">
+        <span class="color-box"></span>
+        <span class="white-box"></span>
+        <div class="text">
+          <% if is_first || is_done || before_done %>
+            <%= link_to challenge.name, challenge_path(challenge.id) %>
+          <% else %>
+            <p><%= challenge.name %></p>
+          <% end %>
+        </div>
+      </div>
     <% end %>
-  <% end %>
 </div>
