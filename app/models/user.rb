@@ -17,7 +17,8 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true

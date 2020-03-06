@@ -5,12 +5,13 @@ class PostsController < ApplicationController
   end
 
   def create
+    @posts = Post.all
     @post = Post.new(safe_params)
     @post.user = current_user
     if @post.save
       redirect_to posts_path
     else
-      render 'index'
+      render :index
     end
   end
 
