@@ -13,8 +13,17 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <%= link_to category_path(Category.all[0]) do %>
+
           <div class="diet-card">
-            <h2>FLEXITARIAN</h2>
+            <div class="category-img">
+              <%= image_tag("FLEXITARIAN - Icons.png", alt: "Flexitarian icons", class: "flexitarian-icons") %>
+            </div>
+
+            <div class="diet-card-title">
+              <span class="box-color yellow"></span>
+              <h2 class="text">FLEXITARIAN</h2>
+            </div>
+
             <p>Center your diet around plant foods, with occasional inclusion of meat.</p>
           </div>
         <% end %>
@@ -23,6 +32,7 @@
 
       <div class="carousel-item">
         <%= link_to category_path(Category.all[1]) do %>
+
           <div class="diet-card">
             <div class="diet-card-title">
               <span class="box-color green"></span>
@@ -36,11 +46,17 @@
 
       <div class="carousel-item">
         <%= link_to category_path(Category.all[2]) do %>
+
           <div class="diet-card">
-            <h2>VEGAN</h2>
+            <div class="diet-card-title">
+              <span class="box-color pink"></span>
+              <h2 class="text">VEGAN</h2>
+            </div>
+
             <p>Center your diet around plant foods without animal products.</p>
           </div>
         <% end %>
+      </div>
     </div>
 
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
