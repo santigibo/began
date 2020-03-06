@@ -1,0 +1,31 @@
+.diet-card {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: black;
+  border-radius: 25px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  background-color: white;
+
+  .diet-card-title {
+    position: relative;
+      .box-color {
+        position: absolute;
+        left: 0;
+        height: 20px;
+        width: 10px;
+        background-color: #ccc;
+        z-index: 1;
+      }
+    .text {
+      position: relative;
+      z-index: 2;
+    }
+  }
+}
