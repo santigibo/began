@@ -220,7 +220,7 @@ end
       puts "Answers for question 2 of challenge 1"
       answer1_q3_c1 = Answer.new(
                                   content: "Yes",
-                                  status: false,
+                                  status: true,
                                   explanation: "There is a lot of possibilities for tofu, and you can create more.
                                                 Try looking for some tofu dessert recipes, they are really good"
                                 )
@@ -230,7 +230,7 @@ end
 
       answer2_q3_c1 = Answer.new(
                                   content:"No",
-                                  status: true,
+                                  status: false,
                                   explanation:"Actually it’s a really good possibility and is delicious. Try it."
                                 )
       answer2_q3_c1.question = question3_c1
