@@ -1,0 +1,39 @@
+.challenge-box {
+  position: relative;
+  display: flex;
+  // margin-bottom: 69px;
+  height: 235px;
+  justify-content: center;
+  align-items: center;
+}
+
+.color-box {
+  position: absolute;
+  height: 175px;
+  width: 175px;
+  background-color: $yellow;
+  border-radius: 25px;
+
+}
+
+.white-box {
+  position: absolute;
+  transform: rotate(45deg);
+  border: 1px solid black;
+  border-radius: 25px;
+  height: 175px;
+  width: 175px;
+  background-color: white;
+}
+
+.text {
+  position: absolute;
+  z-index: 100;
+}
+
+.line {
+  width: 1px;
+  height: 69px;
+  border-left: 3px dotted black;
+  margin: auto;
+}

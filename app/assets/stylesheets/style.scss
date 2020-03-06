@@ -1,8 +1,10 @@
 body {
   background-color: white;
+  color: black;
 }
 
 .container {
+  margin: 30px auto 120px auto;
   padding: 0 25px;
 }
 
@@ -10,3 +12,13 @@ a, a:hover {
   text-decoration: none;
 }
 
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+
+h2 {
+  font-size: 22px;
+  font-weight: medium;
+}
