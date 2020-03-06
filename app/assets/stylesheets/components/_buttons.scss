@@ -1,0 +1,21 @@
+.button-default {
+  display: block;
+  width: 150px;
+  margin: 0 auto;
+  background-color: white;
+  color: black;
+  border: 2px solid $yellow;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+
+.button-complete {
+  display: block;
+  width:150px;
+  background-color: #c4c4c4;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 25px;
+}
