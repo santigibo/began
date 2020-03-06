@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   resources :user_recipes, only: %I(destroy)
+  resources :posts, only: %I(index show create update destroy)
 
   resources :questions, only: [] do
     resources :question_completions, only: %I(create)
