@@ -5,7 +5,7 @@
 
 <div class="container" style="background-image: url(<%= asset_path 'began-homepage.png' %>); background-size:cover; ">
   <div class="welcome">
-    <h4 class="extra-large">Hi,</h4>
+    <h4 class="xl-large">Hi,</h4>
     <h1><%= @user.first_name %></h1>
   </div>
 
@@ -30,7 +30,8 @@
           </p>
         <% else %>
           <%= link_to category_path(@user.category_id) do %>
-          <h2><%= @user.category.name %></h2>
+          <p>Your game is <br>
+          <span style="font-size:20px"><%= @user.category.name.upcase %></span></p>
         <% end %>
       <% end %>
       </div>
@@ -42,7 +43,7 @@
     <%= link_to cookbook_path do %>
      <div class="card-button-text">
       <p>My favorite
-      <br><span>RECIPES</span>
+      <br><span style="font-size:20px">RECIPES</span>
      </div>
     <% end %>
   </div>
