@@ -341,7 +341,7 @@ challenge2_flexi = Challenge.create(category: flexitarian, name: 'Meet Quinoa',
                                   status: false,
                                   explanation: "Come on. That’s a small number for 100g of delicious quinoa"
                                 )
-      answer1_q3_c2.question = question2_c2
+      answer1_q3_c2.question = question3_c2
       answer1_q3_c2.save
 
 
@@ -351,7 +351,7 @@ challenge2_flexi = Challenge.create(category: flexitarian, name: 'Meet Quinoa',
                                   explanation:"Perfect 8% of protein. On the other hand, it has a lot of
                                                fiber, that is really good for your body."
                                 )
-      answer2_q3_c2.question = question2_c2
+      answer2_q3_c2.question = question3_c2
       answer2_q3_c2.save
 
       answer3_q3_c2 = Answer.new(
@@ -359,7 +359,7 @@ challenge2_flexi = Challenge.create(category: flexitarian, name: 'Meet Quinoa',
                                   status: false,
                                   explanation:"Wow. Chill"
                                 )
-      answer3_q3_c2.question = question2_c2
+      answer3_q3_c2.question = question3_c2
       answer3_q3_c2.save
 
 
