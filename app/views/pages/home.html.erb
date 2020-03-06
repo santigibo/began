@@ -30,7 +30,7 @@
           </p>
         <% else %>
           <%= link_to category_path(@user.category_id) do %>
-          <h2>Start now</h2>
+          <h2><%= @user.category.name %></h2>
         <% end %>
       <% end %>
       </div>

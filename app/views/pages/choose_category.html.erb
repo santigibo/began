@@ -15,6 +15,10 @@
         <%= link_to category_path(Category.all[0]) do %>
 
           <div class="diet-card">
+            <div class="category-img">
+              <%= image_tag("FLEXITARIAN - Icons.png", alt: "Flexitarian icons", class: "flexitarian-icons") %>
+            </div>
+
             <div class="diet-card-title">
               <span class="box-color yellow"></span>
               <h2 class="text">FLEXITARIAN</h2>
