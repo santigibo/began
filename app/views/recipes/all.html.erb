@@ -17,15 +17,12 @@
     <%= link_to recipe.name, recipe_path(recipe.id) %>
     <%= recipe.time %>
     <%= recipe.difficulty %>
-    <% if current_user.recipes.include?(recipe) %>
-      <% user_r = UserRecipe.all.detect {|ur| ur.user == current_user && ur.recipe == recipe} %>
-      <%= link_to user_recipe_path(user_r), method: :delete do  %>
-        <i class="fas fa-heart"></i>
+      <%= link_to recipe_create_or_destroy_path(recipe), method: :post do  %>
+        <% if current_user.recipes.include?(recipe) %>
+          <i class="fas fa-heart"></i>
+        <% else %>
+          <i class="far fa-heart"></i>
+        <% end %>
       <% end %>
-    <% else %>
-      <%= link_to recipe_user_recipes_path(recipe), method: :post do %>
-        <i class="far fa-heart"></i>
-      <% end %>
-    <% end %>
   </div>
 <% end %>

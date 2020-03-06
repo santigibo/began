@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :challenge_completions, only: %I(create)
   end
   resources :recipes, only: %I(show) do
-      resources :user_recipes, only: %I(create)
+      post '/create_or_destroy', to: 'user_recipes#create_or_destroy', as: :create_or_destroy
   end
 
   resources :user_recipes, only: %I(destroy)
