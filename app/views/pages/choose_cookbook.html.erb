@@ -1,6 +1,29 @@
+<div class="topbar">
+  <p>COOKBOOK</p>
+</div>
+
 <div class="container">
-  <div class="card_my_cookbook">
+  <div class="cookbook-box">
+    <span class="cookbook-color-box pink"></span>
+    <div class="cookbook-white-box">
+      <%= link_to cookbook_path do %>
+        <div class="card_my_cookbook">
+          My<br>
+          <span class="not-that-big">COOKBOOK</span></p>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div class="card_all_recipes">
+
+  <div class="cookbook-box">
+    <span class="cookbook-color-box yellow"></span>
+    <div class="cookbook-white-box">
+      <%= link_to all_recipes_path do %>
+        <div class="card_all_recipes">
+          <p>All <br>
+          <span class="not-that-big">RECIPES</span></p>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
