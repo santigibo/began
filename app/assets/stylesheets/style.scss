@@ -3,6 +3,7 @@ body {
 }
 
 .container {
+  margin: 25px auto;
   padding: 0 25px;
 }
 
@@ -10,3 +11,15 @@ a, a:hover {
   text-decoration: none;
 }
 
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+  text-align:center;
+}
+
+
+h2 {
+  font-size: 22px;
+  font-weight: medium;
+  text-align:center;
+}

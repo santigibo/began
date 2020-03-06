@@ -9,24 +9,41 @@
 </div>
 
 <div class="container">
-  <h1><%= @challenge.name %></h1>
-  <p><%= @challenge.description %></p>
+  <h1>CHALLENGE <%= @challenge.id %></h1>
 
-  <% if current_user.challenges.include?(@challenge) %>
-    <p>Completed <i class="fas fa-check"></i></p>
-    <%= link_to 'Back to list', category_path(current_user.category_id) %>
-  <% else %>
-    <%= link_to 'Completed', challenge_challenge_completions_path(@challenge), method: :post %>
-  <% end %>
+  <h2 class="challenge"><%= @challenge.name.upcase %></h2>
 
-  <div>
+  <div class="challenge-description">
+    <p><%= @challenge.description %></p>
+  </div>
+
+  <h2 class="challenge">Tips</h2>
+  <div class="challenge-tips">
     <% @challenge.tips.each do |tip |%>
       <p><%= tip.title %></p>
       <p><%= tip.description %></p>
     <% end %>
   </div>
 
-  <%= link_to "See the recipes for this challenge", challenge_recipes_path(@challenge.id) %>
-  <%= link_to "Do the quizz", challenge_questions_path(@challenge.id) %>
+
+  <div class="challenge-links">
+
+  <div class="challenge-link">
+    <%= link_to "Recipes", challenge_recipes_path(@challenge.id), class:"btn btn-primary"  %>
+  </div>
+  <div class="challenge-link">
+  <%= link_to "Quizz", challenge_questions_path(@challenge.id), class:"btn btn-primary"  %>
+   </div>
+
+  <div class="challenge-link">
+  <% if current_user.challenges.include?(@challenge) %>
+      <p>Completed <i class="fas fa-check"></i></p>
+      <%= link_to 'Back to list', category_path(current_user.category_id) %>
+    <% else %>
+      <%= link_to 'Completed', challenge_challenge_completions_path(@challenge), method: :post,  class:"btn btn-primary"  %>
+    <% end %>
+   </div>
+</div>
+
 </div>
 

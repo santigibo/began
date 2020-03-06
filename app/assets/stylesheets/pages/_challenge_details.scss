@@ -1,0 +1,31 @@
+.challenge-description {
+  display: block;
+  width:100%;
+  border-left: 4px solid $yellow;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+}
+
+.challenge-tips {
+  display: block;
+  width:100%;
+  border-right: 4px solid $yellow;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+}
+
+
+.challenge-link {
+  display: block;
+  width:100%;
+  padding: 20px 0;
+  text-align:center;
+}
+
+
+h2.challenge {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 50px 0 20px 0;
+}
+
