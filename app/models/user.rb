@@ -17,6 +17,8 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
+  has_many :posts
+
   validates :first_name, presence: true
   validates :last_name, presence: true
 
