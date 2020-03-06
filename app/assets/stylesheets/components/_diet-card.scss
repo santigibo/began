@@ -1,7 +1,7 @@
 .diet-card {
   width: 300px;
   height: 300px;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -12,6 +12,8 @@
   border-radius: 25px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
   background-color: white;
+  position: relative;
+  margin-top: calc((100vh - 463px) / 2);
 
   .diet-card-title {
     position: relative;
