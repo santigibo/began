@@ -39,6 +39,25 @@
   background-color: $pink;
 }
 
-.flexitarian-icons {
+.icons {
   height: 38px;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+}
+
+.carousel-indicators {
+  bottom: -50px;
+}
+
+.carousel-dot {
+  margin: 0px 5px !important;
+  background-color: $gray !important;
+  height: 10px !important;
+  width: 10px !important;
+  border-radius: 50%;
+}
+
+.carousel-dot.active {
+  background-color: black !important;
 }
