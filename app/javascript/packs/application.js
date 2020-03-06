@@ -4,3 +4,7 @@ import { iconToggle } from "../plugins/heart-toggle"
 
 showExplanation();
 iconToggle();
+
+$('#diet-carousel').carousel({
+  ride: false
+});
