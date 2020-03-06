@@ -8,6 +8,9 @@ class PagesController < ApplicationController
   def meat_counter
   end
 
+  def choose_cookbook
+  end
+
   def choose_category
     @category = Category.all
   end
