@@ -20,14 +20,17 @@
       <% if index != 0 %>
         <div class="line"></div>
       <% end %>
+
       <div class="challenge-box">
         <span class="color-box"></span>
         <span class="white-box"></span>
+
         <div class="text">
           <% if is_first || is_done || before_done %>
-            <%= link_to challenge.name, challenge_path(challenge.id) %>
+            <%= link_to challenge.name.upcase, challenge_path(challenge.id) %>
           <% else %>
-            <p><%= challenge.name %></p>
+            <i class="fas fa-lock"></i>
+            <p><%= challenge.name.upcase %></p>
           <% end %>
         </div>
       </div>

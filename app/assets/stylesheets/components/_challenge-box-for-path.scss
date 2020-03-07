@@ -19,7 +19,7 @@
 .white-box {
   position: absolute;
   transform: rotate(45deg);
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 25px;
   height: 175px;
   width: 175px;
@@ -29,6 +29,7 @@
 .text {
   position: absolute;
   z-index: 100;
+  font-size: 22px;
 }
 
 .line {
