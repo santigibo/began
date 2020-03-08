@@ -1,0 +1,38 @@
+.quizz-box {
+  padding-top: 60px;
+
+  p{
+  margin-bottom: 0.5rem;
+  }
+
+  hr {
+    margin-top: 4rem;
+    margin-bottom: 0;
+    border: 0;
+    border-top: 0;
+}
+
+}
+
+.border-question {
+  border: 2px solid $yellow;
+  border-radius:4px;
+  margin: 0 60% 20px -40px;
+}
+
+.answer {
+  padding-left:15px;
+  margin: 10px 0;
+}
+
+.checkbox {
+  color:#fff;
+}
+
+.explanation {
+  color: #c4c4c4;
+  padding: 20px;
+  background-color: #eee;
+  border-radius: 25px;
+  margin: 10px;
+}

@@ -1,10 +1,32 @@
-<div>
+<div class="topbar">
+  <p class="chevron">
+    <%= link_to :back do %>
+    <i class="fas fa-chevron-left"></i>
+    <% end %>
+  </p>
+
+  <p class="topbar-title"><span class="my">MY</span> <%= @challenge.category.name.upcase %><span class="excla-mark">!</span></%></p>
+</div>
+
+<div class="container">
+  <h1 class="head-title">QUIZZ</h1>
+  <h2 class="third-title"><mark></mark><%= @challenge.name%></h2>
+
+<div class="quizz-box">
   <% @questions.each_with_index do |question, q_index| %>
     <p id="<%= q_index %>-question"><strong><%= question.content %></strong></p>
+    <div class="border-question"></div>
       <% question.answers.each do |answer| %>
         <% if answer.status %>
           <div class="answer">
-            <%= link_to answer.content, question_question_completions_path(question), method: :post, remote: true, class: 'answer-option'%>
+
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">
+                <%= link_to answer.content, question_question_completions_path(question), method: :post, remote: true, class: 'answer-option'%></label>
+            </div>
+
+
             <div class="explanation d-none">
               <%= answer.explanation %>
               <% if q_index + 1 == @questions.all.length %>
@@ -20,17 +42,20 @@
           </div>
         <% else %>
           <div class="answer">
-            <a href="" class="answer-option"><%= answer.content %></a>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">
+              <a href="" class="answer-option"><%= answer.content %></a>
+            </div>
             <div class="explanation d-none">
               <%= answer.explanation %>
             </div>
           </div>
         <% end %>
       <% end %>
-      <br>
       <hr>
-      <br>
   <% end %>
+  </div>
 </div>
 
 <div>

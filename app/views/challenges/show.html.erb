@@ -9,9 +9,9 @@
 </div>
 
 <div class="container">
-  <h1 class="challenge">CHALLENGE <%= @challenge.id %></h1>
+  <h1 class="head-title">CHALLENGE <%= @challenge.id %></h1>
 
-  <h2 class="challenge"><%= @challenge.name.upcase %></h2>
+  <h2 class="second-title"><%= @challenge.name.upcase %></h2>
 
   <div class="challenge-description">
     <p><%= @challenge.description %></p>
@@ -24,24 +24,27 @@
       <p><%= tip.description %></p>
     <% end %>
   </div>
+  <div class="challenge-tip">
+    <%= link_to "Read more", challenge_questions_path(@challenge.id) %>
+  </div>
 
 
   <div class="challenge-links">
 
-  <div class="challenge-link">
+  <!-- <div class="challenge-link">
     <%= link_to "Recipes", challenge_recipes_path(@challenge.id), class:"button-default"  %>
+  </div> -->
+  <div class="challenge-link">
+    <%= link_to "Quizz", challenge_questions_path(@challenge.id), class:"button-default"  %>
   </div>
-  <div class="challenge-link">
-  <%= link_to "Quizz", challenge_questions_path(@challenge.id), class:"button-default"  %>
-   </div>
 
-  <div class="challenge-link">
+  <!-- <div class="challenge-link">
   <% if @challenge.questions.all? { |question| current_user.questions.include?(question)} %>
       <%= link_to 'Mark as done', challenge_challenge_completions_path(@challenge), method: :post,  class:"button-complete"  %>
     <% else %>
       <p>Please complete the quizz</p>
     <% end %>
-   </div>
+   </div> -->
 </div>
 
 </div>
