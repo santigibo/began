@@ -1,4 +1,4 @@
-.recipe-card {
+.recipe-carousel-card {
   width: 300px;
   height: 300px;
   margin: 20px auto;
@@ -22,19 +22,28 @@
     display:none;
   }
 
+  .recipe-card-text {
+    position: absolute;
+    bottom:0;
+    background-color:#fff;
+    width:300px;
+    height: 90px;
+    border-radius: 0px 0px 25px 25px;
+    padding: 15px;
+  }
+
+  h2.recipe-name {
+    font-size: 20px;
+    font-weight:normal;
+  }
+
+  h3.recipe-difficulty {
+
+  }
 }
 
 
-h2.recipe-name {
-  font-size: 20px;
-  font-weight:normal;
-}
-
-h3.recipe-difficulty {
-
-}
-
-h1.main-title {
+h1.head-title {
   font-size: 30px;
   letter-spacing: 4px;
 }

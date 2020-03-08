@@ -24,5 +24,32 @@ h2 {
 }
 
 p {
-  font-size: 16px;
+  font-size: 18px;
+}
+
+.search-form {
+  margin: 0 auto;
+
+  .form-control {
+    width:80%;
+    margin-right: 15px;
+    border-radius: 15px;
+  }
+
+  .button-search {
+    background-color: $yellow;
+    color: white;
+    border:0;
+    border-radius: 15px;
+    padding: 4px 12px;
+    font-size: 20px;
+  }
+}
+
+.grid-column {
+
+}
+
+.paragraph-title {
+  font-weight: bold;
 }
