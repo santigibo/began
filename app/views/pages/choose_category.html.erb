@@ -2,7 +2,7 @@
   <p>CHOOSE YOUR GOAL</p>
 </div>
 
-<div class="container pr-0 pl-0">
+<div class="full-height-centered-container">
   <div id="diet-carousel" class="carousel slide">
     <ol class="carousel-indicators">
       <li class="carousel-dot active" data-target="#diet-carousel" data-slide-to="0"></li>
@@ -15,15 +15,19 @@
         <%= link_to category_path(Category.all[0]) do %>
 
           <div class="diet-card">
-            <div class="category-img">
-              <%= image_tag("FLEXITARIAN - Icons.png", alt: "Flexitarian icons", class: "icons") %>
+             <div class="category-icons yellow">
+              <%= render 'shared/steak-icon' %>
+              <%= render 'shared/egg-icon' %>
+              <%= render 'shared/leaf-icon' %>
             </div>
 
-            <div class="diet-card-title">
-              <h2 class="text"><mark class="mark-yellow"></mark>FLEXITARIAN</h2>
-            </div>
+            <div class="diet-card-text">
+              <div class="diet-card-title">
+                <h2 class="category-text yellow"><mark class="diet-mark yellow"></mark>FLEXITARIAN</h2>
+              </div>
 
-            <p>Center your diet around plant foods, with occasional inclusion of meat.</p>
+              <p>Center your diet around plant foods, with occasional inclusion of meat.</p>
+            </div>
           </div>
         <% end %>
       </div>
@@ -33,15 +37,18 @@
         <%= link_to category_path(Category.all[1]) do %>
 
           <div class="diet-card">
-            <div class="category-img">
-              <%= image_tag("VEGETARIAN - Icons.png", alt: "Vegetarian icons", class: "icons") %>
+            <div class="category-icons green">
+              <%= render 'shared/egg-icon' %>
+              <%= render 'shared/leaf-icon' %>
             </div>
 
-            <div class="diet-card-title">
-              <h2 class="text"><mark class="mark-green"></mark>VEGETARIAN</h2>
-            </div>
+            <div class="diet-card-text">
+              <div class="diet-card-title">
+                <h2 class="category-text green"><mark class="diet-mark green"></mark>VEGETARIAN</h2>
+              </div>
 
-            <p>Center your diet around plant foods, with occasional inclusion of animal products, except meat and fish.</p>
+              <p>Center your diet around plant foods, with occasional inclusion of animal products, except meat and fish.</p>
+            </div>
           </div>
         <% end %>
       </div>
@@ -50,15 +57,17 @@
         <%= link_to category_path(Category.all[2]) do %>
 
           <div class="diet-card">
-            <div class="category-img">
-              <%= image_tag("VEGAN - Icons.png", alt: "Vegan icons", class: "icons") %>
+            <div class="category-icons pink">
+              <%= render 'shared/leaf-icon' %>
             </div>
 
-            <div class="diet-card-title">
-              <h2 class="text"><mark class="mark-pink"></mark>VEGAN</h2>
-            </div>
+            <div class="diet-card-text">
+              <div class="diet-card-title">
+                <h2 class="category-text pink"><mark class="diet-mark pink"></mark>VEGAN</h2>
+              </div>
 
-            <p>Center your diet around plant foods without animal products.</p>
+              <p>Center your diet around plant foods without animal products.</p>
+            </div>
           </div>
         <% end %>
       </div>

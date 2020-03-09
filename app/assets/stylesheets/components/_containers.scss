@@ -1,0 +1,13 @@
+.full-height-centered-container {
+  height: calc(100vh - 163px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.container {
+  margin: 30px auto 120px auto;
+  padding: 0 25px;
+}

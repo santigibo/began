@@ -1,11 +1,12 @@
+
 .diet-card {
-  width: 300px;
+  width: calc(100% - 70px);
   height: 300px;
   margin: 20px auto;
   padding: 16px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
   color: black;
@@ -13,39 +14,48 @@
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
   background-color: white;
   position: relative;
-  margin-top: calc((100vh - 463px) / 2);
+  // margin-top: calc((100vh - 463px) / 2);
 
   .diet-card-title {
     position: relative;
-      .box-color {
-        position: absolute;
-        left: 0;
-        height: 40px;
-        width: 12px;
-        z-index: 1;
-      }
-    .text {
+    .category-text {
       position: relative;
       z-index: 2;
     }
   }
 }
 
-.diet-card-title .green {
-  background-color: $green;
+.diet-card-text {
+  margin-bottom: 20%;
 }
-.diet-card-title .yellow {
+
+.diet-mark.yellow {
   background-color: $yellow;
 }
-.diet-card-title .pink {
+
+.diet-mark.green {
+  background-color: $green;
+}
+
+.diet-mark.pink{
   background-color: $pink;
 }
 
-.icons {
+.category-icons {
   height: 38px;
-  position: absolute;
-  top: 10px;
-  right: 25px;
+  align-self: flex-end;
+}
+
+.category-icons.green circle{
+  fill: $green;
+}
+
+.category-icons.pink circle {
+  fill: $pink;
+}
+
+.food-icon {
+  margin: 5px;
 }
 
 .carousel-indicators {

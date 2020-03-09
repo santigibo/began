@@ -6,5 +6,5 @@ showExplanation();
 iconToggle();
 
 $('#diet-carousel').carousel({
-  ride: false
+  interval: false
 });
