@@ -12,7 +12,7 @@
       <%= post.content %>
       <span style="color: gray">~ <%= post.user.fullname %></span>
 
-      <i class="fas fa-comments"></i>
+      <i class="fas fa-comments"></i><span>(<%= post.comments.count %>)</span>
 
       <% if post.user == current_user %>
         <%= link_to post_path(post), method: :delete do %>
@@ -21,8 +21,9 @@
       <% end %>
     </p>
 
+
       <div id="comment_form" class="d-none">
-        <%= simple_form_for (@post) do |f| %>
+        <%= simple_form_for [post, @comment] do |f| %>
          <%= f.input :content %>
          <%= f.submit class: "btn btn-success"%>
         <% end %>
