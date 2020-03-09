@@ -11,10 +11,21 @@
   position: absolute;
   height: 175px;
   width: 175px;
-  background-color: $yellow;
   border-radius: 25px;
-
 }
+
+.color-box.yellow {
+  background-color: $yellow;
+}
+
+.color-box.green {
+  background-color: $green;
+}
+
+.color-box.pink {
+  background-color: $pink;
+}
+
 
 .white-box {
   position: absolute;
