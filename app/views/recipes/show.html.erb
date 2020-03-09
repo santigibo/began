@@ -24,10 +24,11 @@
   <p class="paragraph-title">MAKE IT NOW</p>
   <p><%= @recipe.description %></p>
 
-  <% if current_user.recipes.include?(@recipe) %>
-    <p>Added <i class="fas fa-check"></i></p>
-  <% else %>
-    <%= link_to 'Add to cookbook', recipe_user_recipes_path(@recipe), method: :post %>
+  <%= link_to recipe_create_or_destroy_path(@recipe), method: :post do  %>
+    <% if current_user.recipes.include?(@recipe) %>
+      <i class="fas fa-heart"></i>
+    <% else %>
+      <i class="far fa-heart"></i>
+    <% end %>
   <% end %>
-
 </div>
