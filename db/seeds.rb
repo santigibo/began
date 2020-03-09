@@ -135,22 +135,12 @@ challenge1_flexi = Challenge.create(category: flexitarian, name: 'Tofu 101', des
     tip3_flexi_c1.challenge = challenge1_flexi
     tip3_flexi_c1.save
 
-
-
-
-
-    tip3_flexi_c1 = Tip.new(title: "No haters",
-                           description: "Most people will tell you that tofu is tasteless. Don’t listen
-                                        to them ! If they say so, it probably means that they never cook
-                                        it !")
-    tip3_flexi_c1.challenge = challenge1_flexi
-    tip3_flexi_c1.save
-
+puts "-------------------------------------------------------------------------------------------------------------------"
 
 puts "SECOND CHALLENGE FLEXETARIAN"
 challenge2_flexi = Challenge.create(category: flexitarian, name: 'Cook it', description: 'Look into recipes for tofu and cook something! There is a lot of possibilites, just try one', position: flexitarian.challenges.count + 1)
 
-puts "Adding special recipes for the first challenge"
+puts "Adding special recipes for the second challenge"
 scratch_top6('tofu').each do |recipe|
   challenge2_flexi.recipes << recipe
 end
@@ -172,106 +162,117 @@ end
     tip2_flexi_c2.challenge = challenge2_flexi
     tip2_flexi_c2.save
 
-  puts "CREATE THE QUIZ FOR THE FIRST CHALLENGE"
+puts "-------------------------------------------------------------------------------------------------------------------"
+
+puts "THIRD CHALLENGE FLEXETARIAN"
+challenge3_flexi = Challenge.create(category: flexitarian, name: 'Tofu quizz', description: 'Answer the questions of the quizz.', is_quizz: true, position: flexitarian.challenges.count + 1)
+
+
+  puts "CREATE THE QUIZ FOR THE THIRD CHALLENGE"
 
     puts "Create the first question for the first challenge of flexetarian"
-    question1_c1 = Question.new(content:"What is tofu made of?")
-    question1_c1.challenge = challenge1_flexi
-    question1_c1.save
+    question1_c3 = Question.new(content:"What is tofu made of?")
+    question1_c3.challenge = challenge3_flexi
+    question1_c3.save
 
-      puts "Answers for question 1 of challenge 1"
-      answer1_q1_c1 = Answer.new(
+      puts "Answers for question 1 of challenge 3"
+      answer1_q1_c3 = Answer.new(
                                   content: "Tofu is made from soybeans",
                                   status: true,
                                   explanation: "Yes, that’s right. Remember, straightforward with the ingredients: fermented soybeans and coagulant. Avoid fakers."
                                 )
-      answer1_q1_c1.question = question1_c1
-      answer1_q1_c1.save
+      answer1_q1_c3.question = question1_c3
+      answer1_q1_c3.save
 
 
-      answer2_q1_c1 = Answer.new(
+      answer2_q1_c3 = Answer.new(
                                   content:"Tofu is made from cheese",
                                   status: false,
                                   explanation:"It looks like, but not exactly. Keep looking."
                                 )
-      answer2_q1_c1.question = question1_c1
-      answer2_q1_c1.save
+      answer2_q1_c3.question = question1_c3
+      answer2_q1_c3.save
 
 
-      answer3_q1_c1 = Answer.new(
+      answer3_q1_c3 = Answer.new(
                                   content:"Tofu is made from almond milk",
                                   status: false,
                                   explanation:"It would be awesome, but not the case. A little bit different."
                                 )
-      answer3_q1_c1.question = question1_c1
-      answer3_q1_c1.save
+      answer3_q1_c3.question = question1_c3
+      answer3_q1_c3.save
 
     puts "Create the second question for the first challenge of flexetarian"
-    question2_c1 = Question.new(content:"Where does tofu come from?")
-    question2_c1.challenge = challenge1_flexi
-    question2_c1.save
+    question2_c3 = Question.new(content:"Where does tofu come from?")
+    question2_c3.challenge = challenge3_flexi
+    question2_c3.save
 
-      puts "Answers for question 2 of challenge 1"
-      answer1_q2_c1 = Answer.new(
+      puts "Answers for question 2 of challenge 3"
+      answer1_q2_c3 = Answer.new(
                                   content: "Tofu comes from America",
                                   status: false,
                                   explanation: "You are just half a world far from the actual place, but good guess! Keep looking"
                                 )
-      answer1_q2_c1.question = question2_c1
-      answer1_q2_c1.save
+      answer1_q2_c3.question = question2_c3
+      answer1_q2_c3.save
 
 
-      answer2_q2_c1 = Answer.new(
+      answer2_q2_c3 = Answer.new(
                                   content:"Tofu comes from China",
                                   status: true,
                                   explanation:"Yes. They made this awesome substitute possible. Thank you China"
                                 )
-      answer2_q2_c1.question = question2_c1
-      answer2_q2_c1.save
+      answer2_q2_c3.question = question2_c3
+      answer2_q2_c3.save
 
 
-      answer3_q2_c1 = Answer.new(
+      answer3_q2_c3 = Answer.new(
                                   content:"Tofu comes from Atlantis",
                                   status: false,
                                   explanation:"Come on, it was a tricky question. Keep looking."
                                 )
-      answer3_q2_c1.question = question2_c1
-      answer3_q2_c1.save
+      answer3_q2_c3.question = question2_c3
+      answer3_q2_c3.save
 
     puts "Create the third question for the first challenge of flexetarian"
-    question3_c1 = Question.new(content:"Can you have tofu for dessert?")
-    question3_c1.challenge = challenge1_flexi
-    question3_c1.save
+    question3_c3 = Question.new(content:"Can you have tofu for dessert?")
+    question3_c3.challenge = challenge3_flexi
+    question3_c3.save
 
-      puts "Answers for question 2 of challenge 1"
-      answer1_q3_c1 = Answer.new(
+      puts "Answers for question 3 of challenge 3"
+      answer1_q3_c3 = Answer.new(
                                   content: "Yes",
                                   status: true,
                                   explanation: "There is a lot of possibilities for tofu, and you can create more.
                                                 Try looking for some tofu dessert recipes, they are really good"
                                 )
-      answer1_q3_c1.question = question3_c1
-      answer1_q3_c1.save
+      answer1_q3_c3.question = question3_c3
+      answer1_q3_c3.save
 
 
-      answer2_q3_c1 = Answer.new(
+      answer2_q3_c3 = Answer.new(
                                   content:"No",
                                   status: false,
                                   explanation:"Actually it’s a really good possibility and is delicious. Try it."
                                 )
-      answer2_q3_c1.question = question3_c1
-      answer2_q3_c1.save
+      answer2_q3_c3.question = question3_c3
+      answer2_q3_c3.save
 
 
 puts "-------------------------------------------------------------------------------------------------------------------"
 
 
-puts "SECOND CHALLENGE FLEXETARIAN"
-challenge2_flexi = Challenge.create(category: flexitarian, name: 'Meet Quinoa',
-                                    description: ' Choose flakes, flour or grain of quinoa (or all of them) and cooks something!',
+puts "FOURTH CHALLENGE FLEXETARIAN"
+challenge4_flexi = Challenge.create(category: flexitarian, name: 'Go Quinoa',
+                                    description: 'Buy a type of quinoa and cook something. Choeck out the recipes for the challenge',
                                     position: flexitarian.challenges.count + 1)
+puts "Adding special recipes for the fourth challenge"
+scratch_top6('quinoa vegetarian').each do |recipe|
+  challenge4_flexi.recipes << recipe
+end
 
-  puts "Create tips for the second flexetarian challenge"
+
+  puts "Create tips for the fourth flexetarian challenge"
   tip1_flexi_c2 = Tip.new(title: 'History',
                          description: "Cultivated for more than 5000 years in South America
                                        (specifically Peru, Bolivia and Ecuador)")
@@ -288,7 +289,7 @@ challenge2_flexi = Challenge.create(category: flexitarian, name: 'Meet Quinoa',
   tip3_flexi_c2 = Tip.new(title: "Like rice",
                          description: "Quinoa is a plant that looks like a cereal. Relative to
                                        the spinach family, we actually eat the seeds that we cook
-                                       in 15 minutes like rice")
+                                       in 15 minutes like rice.")
   tip3_flexi_c2.challenge = challenge2_flexi
   tip3_flexi_c2.save
 
@@ -299,210 +300,103 @@ challenge2_flexi = Challenge.create(category: flexitarian, name: 'Meet Quinoa',
   tip4_flexi_c2.challenge = challenge2_flexi
   tip4_flexi_c2.save
 
-  puts "CREATE THE QUIZ FOR THE SECOND CHALLENGE"
+puts "-------------------------------------------------------------------------------------------------------------------"
 
-    puts "Create the first question for the second challenge of flexetarian"
-    question1_c2 = Question.new(content:"There is only one kind of quinoa?")
-    question1_c2.challenge = challenge2_flexi
-    question1_c2.save
+puts "FIFTH CHALLENGE FLEXETARIAN"
+challenge5_flexi = Challenge.create(category: flexitarian, name: 'Quinoa test',
+                                    is_quizz: true,
+                                    description: "Answer the quinoa quizz and let's see how much did you learned.",
+                                    position: flexitarian.challenges.count + 1)
 
-      puts "Answers for question 1 of challenge 2"
-      answer1_q1_c2 = Answer.new(
+
+  puts "CREATE THE QUIZ FOR THE FIFTH CHALLENGE"
+
+    puts "Create the first question for the fifth challenge of flexetarian"
+    question1_c5 = Question.new(content:"There is only one kind of quinoa?")
+    question1_c5.challenge = challenge2_flexi
+    question1_c5.save
+
+      puts "Answers for question 1 of challenge 5"
+      answer1_q1_c5 = Answer.new(
                                   content: "Yes",
                                   status: false,
                                   explanation: "Remember about the colors and forms"
                                 )
-      answer1_q1_c2.question = question1_c2
-      answer1_q1_c2.save
+      answer1_q1_c5.question = question1_c5
+      answer1_q1_c5.save
 
 
-      answer2_q1_c2 = Answer.new(
+      answer2_q1_c5 = Answer.new(
                                   content:"No",
                                   status: true,
                                   explanation:"Over a 100 types of quinoa, lot’s of colors and flour, flakes and grain form. A lot of variety, a lot to choose."
                                 )
-      answer2_q1_c2.question = question1_c2
-      answer2_q1_c2.save
+      answer2_q1_c5.question = question1_c5
+      answer2_q1_c5.save
 
     puts "Create the second question for the second challenge of flexetarian"
-    question2_c2 = Question.new(content:"Where does quinoa comes from?")
-    question2_c2.challenge = challenge2_flexi
-    question2_c2.save
+    question2_c5 = Question.new(content:"Where does quinoa comes from?")
+    question2_c5.challenge = challenge5_flexi
+    question2_c5.save
 
-      puts "Answers for question 2 of challenge 2"
-      answer1_q2_c2 = Answer.new(
+      puts "Answers for question 2 of challenge 5"
+      answer1_q2_c5 = Answer.new(
                                   content: "Peru",
                                   status: true,
                                   explanation: "Yes. It has been cultivated for more than 5000 years in south america, specially in Peru, Bolivia and Ecuador"
                                 )
-      answer1_q2_c2.question = question2_c2
-      answer1_q2_c2.save
+      answer1_q2_c5.question = question2_c5
+      answer1_q2_c5.save
 
 
-      answer2_q2_c2 = Answer.new(
+      answer2_q2_c5 = Answer.new(
                                   content:"France",
                                   status: false,
                                   explanation:"It's a little bit far"
                                 )
-      answer2_q2_c2.question = question2_c2
-      answer2_q2_c2.save
+      answer2_q2_c5.question = question2_c5
+      answer2_q2_c5.save
 
 
-      answer3_q2_c2 = Answer.new(
+      answer3_q2_c5 = Answer.new(
                                   content:"Japan",
                                   status: false,
                                   explanation:"It's far"
                                 )
-      answer3_q2_c2.question = question2_c2
-      answer3_q2_c2.save
+      answer3_q2_c5.question = question2_c5
+      answer3_q2_c5.save
 
     puts "Create the third question for the second challenge of flexetarian"
-    question3_c2 = Question.new(content:"How many grams of protein is there in a 100g of quinoa?")
-    question3_c2.challenge = challenge2_flexi
-    question3_c2.save
+    question3_c5 = Question.new(content:"How many grams of protein is there in a 100g of quinoa?")
+    question3_c5.challenge = challenge2_flexi
+    question3_c5.save
 
-      puts "Answers for question 2 of challenge 2"
-      answer1_q3_c2 = Answer.new(
+      puts "Answers for question 3 of challenge 5"
+      answer1_q3_c5 = Answer.new(
                                   content: "1g",
                                   status: false,
                                   explanation: "Come on. That’s a small number for 100g of delicious quinoa"
                                 )
-      answer1_q3_c2.question = question3_c2
-      answer1_q3_c2.save
+      answer1_q3_c5.question = question3_c5
+      answer1_q3_c5.save
 
 
-      answer2_q3_c2 = Answer.new(
+      answer2_q3_c5 = Answer.new(
                                   content:"8g",
                                   status: true,
                                   explanation:"Perfect 8% of protein. On the other hand, it has a lot of
                                                fiber, that is really good for your body."
                                 )
-      answer2_q3_c2.question = question3_c2
-      answer2_q3_c2.save
+      answer2_q3_c5.question = question3_c5
+      answer2_q3_c5.save
 
-      answer3_q3_c2 = Answer.new(
+      answer3_q3_c5 = Answer.new(
                                   content:"20g",
                                   status: false,
                                   explanation:"Wow. Chill"
                                 )
-      answer3_q3_c2.question = question3_c2
-      answer3_q3_c2.save
-
-
-puts "-------------------------------------------------------------------------------------------------------------------"
-
-
-puts "THIRD CHALLENGE FLEXETARIAN"
-challenge3_flexi = Challenge.create(category: flexitarian, name: 'Be a protein apprentice',
-                                    description: 'Learn the basics of proteins and answer the quiz',
-                                    position: flexitarian.challenges.count + 1)
-
-  puts "Create tips for the third flexetarian challenge"
-  tip1_flexi_c3 = Tip.new(title: 'What is protein?',
-                         description: "Proteins are essentials to the good mechanism of our body.
-                                       From our muscles to our skin to our hormones, proteins
-                                       make our body work and regenerate itself.")
-  tip1_flexi_c3.challenge = challenge3_flexi
-  tip1_flexi_c3.save
-
-  tip2_flexi_c3 = Tip.new(title: "Types",
-                         description: "There 2 types of proteins: the essentials, that we find
-                                       in food and the non-essentials that our body produce")
-  tip2_flexi_c3.challenge = challenge3_flexi
-  tip2_flexi_c3.save
-
-  tip3_flexi_c3 = Tip.new(title: "A reasonable amount",
-                         description: "To be in good health, most organizations recommend to
-                                       eat 0.8g of proteins per kilogram of body weight.")
-  tip3_flexi_c3.challenge = challenge3_flexi
-  tip3_flexi_c3.save
-
-  puts "CREATE THE QUIZ FOR THE THIRD CHALLENGE"
-
-    puts "Create the first question for the third challenge of flexetarian"
-    question1_c3 = Question.new(content:"Can I find proteins in grapefruits?")
-    question1_c3.challenge = challenge3_flexi
-    question1_c3.save
-
-      puts "Answers for question 1 of challenge 3"
-      answer1_q1_c3 = Answer.new(
-                                  content: "Yes",
-                                  status: false,
-                                  explanation: "Grapefruit is a fruit. You’ll find a lot of water
-                                                and vitamins A and C! But not protein like you can
-                                                find in other green protein sources."
-                                )
-      answer1_q1_c3.question = question1_c3
-      answer1_q1_c3.save
-
-
-      answer2_q1_c3 = Answer.new(
-                                  content:"No",
-                                  status: true,
-                                  explanation:"Not that much protein, actually is minimal the
-                                               percentage of protein you can find. Not that
-                                               relevant at all! But it's a great source of vitamins A and C."
-                                )
-      answer2_q1_c3.question = question1_c3
-      answer2_q1_c3.save
-
-    puts "Create the second question for the third challenge of flexetarian"
-    question2_c3 = Question.new(content:"What are the two types of proteins?")
-    question2_c3.challenge = challenge3_flexi
-    question2_c3.save
-
-      puts "Answers for question 2 of challenge 3"
-      answer1_q2_c3 = Answer.new(
-                                  content: "Red meat and fish",
-                                  status: false,
-                                  explanation: "Actually you can find protein in both,
-                                                but are not the two types! Keep looking"
-                                )
-      answer1_q2_c3.question = question2_c3
-      answer1_q2_c3.save
-
-
-      answer2_q2_c3 = Answer.new(
-                                  content:"Essentials and non-essentials",
-                                  status: true,
-                                  explanation:"Yes yes yesss, Remember the essentials
-                                               are the ones in food; the non-essentials
-                                               are the ones our body produce"
-                                )
-      answer2_q2_c3.question = question2_c3
-      answer2_q2_c3.save
-
-
-      answer3_q2_c3 = Answer.new(
-                                  content:"Animals and grain",
-                                  status: false,
-                                  explanation:"Even tho is two sources of protein, is not the two types. Is more general"
-                                )
-      answer3_q2_c3.question = question2_c3
-      answer3_q2_c3.save
-
-    puts "Create the third question for the third challenge of flexetarian"
-    question3_c3 = Question.new(content:"Proteins are just for bodies that exercise?")
-    question3_c3.challenge = challenge3_flexi
-    question3_c3.save
-
-      puts "Answers for question 3 of challenge 3"
-      answer1_q3_c3 = Answer.new(
-                                  content: "Yes",
-                                  status: false,
-                                  explanation: "Not so sure. We all have muscles to regenerate and a body to work."
-                                )
-      answer1_q3_c3.question = question3_c3
-      answer1_q3_c3.save
-
-
-      answer2_q3_c3 = Answer.new(
-                                  content:"No",
-                                  status: true,
-                                  explanation:"We all need protein! Every day 0.8 g per kilogram of your body weight."
-                                )
-      answer2_q3_c3.question = question3_c3
-      answer2_q3_c3.save
+      answer3_q3_c5.question = question3_c5
+      answer3_q3_c5.save
 
 puts "-------------------------------------------------------------------------------------------------------------------"
 
