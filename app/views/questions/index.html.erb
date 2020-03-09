@@ -31,7 +31,7 @@
               <%= answer.explanation %>
               <% if q_index + 1 == @questions.all.length %>
                 <%# if @questions.all? { |question| question.users.include?(current_user) } %>
-                  <%= link_to 'finish', challenge_path(@challenge), class: "d-none", id: 'real-finish' %>
+                <%= link_to 'Finish', challenge_challenge_completions_path(@challenge), method: :post, class: "button-default d-none", id: 'real-finish' %>
                 <%# else %>
                   <p id="fake-finish">finish</p>
                 <%# end %>
