@@ -5,6 +5,7 @@ import { form_toggle } from "../plugins/comment-form-toggle"
 
 showExplanation();
 iconToggle();
+form_toggle();
 
 $('#diet-carousel').carousel({
   ride: false
