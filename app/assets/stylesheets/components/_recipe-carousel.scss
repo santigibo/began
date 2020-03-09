@@ -2,7 +2,7 @@
   width: 300px;
   height: 300px;
   margin: 20px auto;
-  padding: 16px;
+  padding: 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,15 +12,6 @@
   border-radius: 25px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
   position: relative;
-  background-color: $yellow;
-
-  .recipe-img {
-    width:300px;
-    height:300px;
-    background-size:cover;
-    border-radius: 25px;
-    display:none;
-  }
 
   .recipe-card-text {
     position: absolute;
@@ -29,7 +20,7 @@
     width:300px;
     height: 90px;
     border-radius: 0px 0px 25px 25px;
-    padding: 15px;
+    padding: 15px 0;
   }
 
   h2.recipe-name {
@@ -42,6 +33,14 @@
   }
 }
 
+
+.recipe-img {
+    width: 100%;
+    height:300px;
+    border-radius: 25px;
+    background-size: cover;
+    background-position: center;
+}
 
 h1.head-title {
   font-size: 30px;
@@ -61,18 +60,5 @@ mark {
   background-color: $yellow;
 }
 
-// .carousel-indicators {
-//   bottom: -50px;
-// }
 
-// .carousel-dot {
-//   margin: 0px 5px !important;
-//   background-color: $gray !important;
-//   height: 10px !important;
-//   width: 10px !important;
-//   border-radius: 50%;
-// }
 
-// .carousel-dot.active {
-//   background-color: black !important;
-// }

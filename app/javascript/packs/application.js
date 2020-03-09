@@ -10,3 +10,7 @@ form_toggle();
 $('#diet-carousel').carousel({
   interval: false
 });
+
+$('#recipe-carousel').carousel({
+  interval: false
+});

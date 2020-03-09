@@ -24,20 +24,38 @@
   <% end %>
 </div>
 
-<div class="grid-column">
+
+<div class="recipe-column">
+
   <% @recipes.each do |recipe| %>
-    <div>
-      <%= cl_image_tag recipe.photo.key %>
-      <%= link_to recipe.name, recipe_path(recipe.id) %>
-      <%= recipe.time %>
-      <%= recipe.difficulty %>
-        <%= link_to recipe_create_or_destroy_path(recipe), method: :post do  %>
-          <% if current_user.recipes.include?(recipe) %>
-            <i class="fas fa-heart"></i>
-          <% else %>
-            <i class="far fa-heart"></i>
+    <div class="recipe-details">
+
+      <div class="recipe-details-img">
+        <%= cl_image_tag recipe.photo.key%>
+      </div>
+
+      <div class="recipe-info">
+
+        <div class="recipe-details title">
+        <%= link_to recipe.name, recipe_path(recipe.id) %>
+        </div>
+
+        <div class="recipe-details difficulty">
+          <%= recipe.difficulty %>
+        </div>
+
+        <!-- <div class="recipe-details like">
+          <%= link_to recipe_create_or_destroy_path(recipe), method: :post do  %>
+            <% if current_user.recipes.include?(recipe) %>
+              <i class="fas fa-heart"></i>
+            <% else %>
+              <i class="far fa-heart"></i>
+            <% end %>
           <% end %>
-        <% end %>
+        </div> -->
+
+      </div>
+
     </div>
   <% end %>
 </div>
