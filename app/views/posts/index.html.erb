@@ -21,6 +21,12 @@
       <% end %>
     </p>
 
+      <div id="comments_display" class="d-none">
+        <% post.comments.each do |comment| %>
+          <%= comment.content %>
+        <% end %>
+      </div>
+
 
       <div id="comment_form" class="d-none">
         <%= simple_form_for [post, @comment] do |f| %>
