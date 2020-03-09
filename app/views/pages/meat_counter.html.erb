@@ -3,9 +3,20 @@
 
 <% if current_user.updated_at.day == DateTime.current.to_date.day && current_user.created_at != current_user.updated_at %>
   <p>Congratulation for you day without meat !</p>
+  <p>
+    <%= current_user.no_meat_counter %>
+  </p>
 <% else %>
-  <p>Today was a day without meat for you ?</p>
-  <p>Add it to the counter !</p>
-  <%= link_to 'Add the day to the counter', add_one_path, method: :post, class: "button-default" %>
+  <div id="meat_part">
+    <p>Today was a day without meat for you ?</p>
+    <p>Add it to the counter !</p>
+    <%= link_to 'Add the day to the counter', add_one_path, method: :post, remote: true, class: "button-default" %>
+    <%= current_user.no_meat_counter %>
+  </div>
 <% end %>
+
+<div id="no_meat_part">
+
+</div>
+
 
