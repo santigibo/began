@@ -16,57 +16,66 @@
 <div class="container pr-0 pl-0">
   <div id="recipe-carousel" class="carousel slide">
     <ol class="carousel-indicators">
-      <li class="carousel-dot active" data-target="#diet-carousel" data-slide-to="0"></li>
+      <li class="carousel-dot active" data-target="#recipe-carousel" data-slide-to="0"></li>
+      <li class="carousel-dot" data-target="#recipe-carousel" data-slide-to="1"></li>
+      <li class="carousel-dot" data-target="#recipe-carousel" data-slide-to="2"></li>
+      <li class="carousel-dot" data-target="#recipe-carousel" data-slide-to="3"></li>
+      <li class="carousel-dot" data-target="#recipe-carousel" data-slide-to="4"></li>
+      <li class="carousel-dot" data-target="#recipe-carousel" data-slide-to="5"></li>
     </ol>
 
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <%= link_to challenge_recipes_path(@all_recipes) do %>
 
-          <div class="recipe-carousel-card">
-            <div class="recipe-img">
-              <%= image_tag("began-homepage.png") %>
+    <div class="carousel-inner">
+
+      <div class="carousel-item active">
+        <% recipe = @recipes.first %>
+        <%= link_to recipe_path(recipe.id) do %>
+        <div class="recipe-carousel-card">
+
+
+            <div class="recipe-img" style="background-image: url('<%= cloudinary_url(recipe.photo.key) %>')">
+              &nbsp;
             </div>
 
             <div class="recipe-card-text">
-              <h2 class="recipe-name"><%= @challenge.recipes.name %></h2>
-              <h3 class="recipe-difficulty">recipe difficulty</h3>
+              <h2 class="recipe-name"><%= recipe.name %></h2>
+              <h3 class="recipe-difficulty"><%= recipe.difficulty %></h3>
+            </div>
+
+        </div>
+        <% end %>
+      </div>
+
+
+        <!-- begin looping through all recipes -->
+        <% @recipes[1..-1].each do |recipe| %>
+
+        <div class="carousel-item">
+          <%= link_to recipe_path(recipe.id) do %>
+
+          <div class="recipe-carousel-card">
+
+            <div class="recipe-img" style="background-image: url('<%= cloudinary_url(recipe.photo.key) %>')">
+              &nbsp;
+            </div>
+
+            <div class="recipe-card-text">
+              <h2 class="recipe-name"><%= recipe.name %></h2>
+              <h3 class="recipe-difficulty"><%= recipe.difficulty %></h3>
             </div>
           </div>
 
+          <% end %>
+        </div>
         <% end %>
 
     </div>
+
+
+
   </div>
+
+
 </div>
-
-
-
-
-<% @recipes.each do |recipe| %>
-  <%= cl_image_tag recipe.photo.key %>
-  <%= recipe.name %>
-  <%= recipe.description %>
-  <%= recipe.time %>
-  <%= recipe.difficulty %>
-
-  <%= link_to recipe_create_or_destroy_path(recipe), method: :post do  %>
-    <% if current_user.recipes.include?(recipe) %>
-      <i class="fas fa-heart"></i>
-    <% else %>
-      <i class="far fa-heart"></i>
-    <% end %>
-  <% end %>
-<% end %>
-
-<% if @recipes.empty? %>
-  <% @all_recipes.sample(6).each do |recipe| %>
-    <%= cl_image_tag recipe.photo.key %>
-    <%= recipe.name %>
-    <%= recipe.description %>
-    <%= recipe.time %>
-    <%= recipe.difficulty %>
-  <% end %>
-<% end %>
 
 </div>
