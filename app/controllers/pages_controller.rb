@@ -5,6 +5,18 @@ class PagesController < ApplicationController
     @user = current_user
   end
 
+  def meat_counter
+    # current_user.no_meat_counter += 1
+    # current_user.save
+  end
+
+  def add_one
+    current_user.update(no_meat_counter: current_user.no_meat_counter += 1)
+  end
+
+  def choose_cookbook
+  end
+
   def choose_category
     @category = Category.all
   end
