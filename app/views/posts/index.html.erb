@@ -11,17 +11,31 @@
       <span style="font-size: small; color: gray;"><%= post.created_at.strftime("%d-%m") %></span>
       <%= post.content %>
       <span style="color: gray">~ <%= post.user.fullname %></span>
+
+      <i class="fas fa-comments"></i>
+
       <% if post.user == current_user %>
         <%= link_to post_path(post), method: :delete do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       <% end %>
     </p>
+
+      <div id="comment_form" class="d-none">
+        <%= simple_form_for (@post) do |f| %>
+         <%= f.input :content %>
+         <%= f.submit class: "btn btn-success"%>
+        <% end %>
+      </div>
   </div>
 <% end %>
 
-<h4>Add a post !</h4>
-<%= simple_form_for (@post) do |f| %>
-  <%= f.input :content %>
-  <%= f.submit class: "btn btn-success"%>
-<% end %>
+<div>
+  <h4>Add a post !</h4>
+  <div>
+    <%= simple_form_for (@post) do |f| %>
+      <%= f.input :content %>
+      <%= f.submit class: "btn btn-success"%>
+    <% end %>
+  </div>
+</div>

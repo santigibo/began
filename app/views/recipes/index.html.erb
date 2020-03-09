@@ -49,6 +49,14 @@
   <%= recipe.description %>
   <%= recipe.time %>
   <%= recipe.difficulty %>
+
+  <%= link_to recipe_create_or_destroy_path(recipe), method: :post do  %>
+    <% if current_user.recipes.include?(recipe) %>
+      <i class="fas fa-heart"></i>
+    <% else %>
+      <i class="far fa-heart"></i>
+    <% end %>
+  <% end %>
 <% end %>
 
 <% if @recipes.empty? %>
