@@ -1,3 +1,14 @@
+<div class="topbar">
+  <p class="chevron">
+    <%= link_to choose_cookbook_path do %>
+    <i class="fas fa-chevron-left"></i>
+    <% end %>
+  </p>
+
+  <p class="topbar-title">MY COOKBOOK</p>
+</div>
+
+
 <% @cookbook.each do |recipe| %>
   <p><%= link_to recipe.name, recipe_path(recipe.id) %></p>
 <% end %>
