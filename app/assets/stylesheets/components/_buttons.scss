@@ -21,3 +21,21 @@
   margin: 0 auto;
   color: white;
 }
+
+.accordion-card {
+  border: none;
+}
+
+.tip-name {
+  background-color: white;
+  border: none;
+  padding: 0 20px;
+  button {
+    color: black;
+    font-weight: bold;
+    &:hover {
+      text-decoration: none;
+      color: black;
+    }
+  }
+}
