@@ -1,0 +1,13 @@
+const congrats =
+`<p>Congratulation for you day without meat !</p>
+<p>meat count : <%= current_user.no_meat_counter %></p>
+`
+;
+
+const meat_part = document.getElementById('meat_part');
+const no_meat_part = document.getElementById('no_meat_part');
+
+meat_part.innerHTML = "";
+no_meat_part.innerHTML = congrats
+
+
