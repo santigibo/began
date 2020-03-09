@@ -4,27 +4,31 @@
   </div>
     <ul class="footer-nav">
       <% if user_signed_in? %>
-      <div class="footer-icon-left">
-        <li class="footer-nav-item">
+      <div class="footer-icon-section">
+        <li class="footer-nav-item <%= params[:action] === 'home' ? 'active' : '' %> ">
           <%= link_to root_path  do %>
           <i class="fas fa-home"></i>
+          <p class="footer-nav-text">Dashboard</p>
           <% end %>
         </li>
-        <li class="footer-nav-item">
+        <li class="footer-nav-item <%= params[:action] === 'meat_counter' ? 'active' : '' %> ">
           <%= link_to meat_counter_path do %>
           <i class="fas fa-calendar-check"></i>
+          <p class="footer-nav-text">Counter</p>
           <% end %>
         </li>
       </div>
-      <div class="footer-icon-right">
-        <li class="footer-nav-item">
+      <div class="footer-icon-section">
+        <li class="footer-nav-item <%= params[:action] === 'choose_cookbook' ? 'active' : '' %> ">
           <%= link_to choose_cookbook_path do %>
           <i class="fas fa-utensils"></i>
+          <p class="footer-nav-text">Cookbook</p>
           <% end %>
         </li>
-        <li class="footer-nav-item">
+        <li class="footer-nav-item <%= params[:action] === 'index' ? 'active' : '' %> ">
           <%= link_to posts_path do %>
           <i class="fas fa-users"></i>
+          <p class="footer-nav-text">Forum</p>
           <% end %>
         </li>
       </div>
