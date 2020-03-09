@@ -108,43 +108,69 @@ puts "Create challenges for flexitarian"
 puts "-------------------------------------------------------------------------------------------------------------------"
 
 puts "FIRST CHALLENGE FLEXETARIAN"
-challenge1_flexi = Challenge.create(category: flexitarian, name: 'Tofu Beginner', description: 'Cook a tofu recipe and try it! Is a great resource of protein', position: flexitarian.challenges.count + 1)
+challenge1_flexi = Challenge.create(category: flexitarian, name: 'Tofu 101', description: 'Buy a piece of tofu. Read the tips for more information!', position: flexitarian.challenges.count + 1)
+
+
+    puts "Create tips for the first flexetarian challenge"
+    tip1_flexi_c1 = Tip.new(title: "Clear ingredients",
+                           description: "Avoid fake tofus with GMO’s and other chemicals. Always take
+                                         30 seconds to read the label. It should be straight with the
+                                         ingredients: fermented soybeans and coagulant (a type of salt
+                                         either calcium chloride, calcium sulfate or magnesium sulfate)")
+    tip1_flexi_c1.challenge = challenge1_flexi
+    tip1_flexi_c1.save
+
+    tip2_flexi_c1 = Tip.new(title: "Amorphus",
+                           description: "Silken to use it as cream cheese; regular for stews or noodle soups;
+                                        firm to pan-dry it. There is a lot of types of tofu, and each one can be
+                                        used for different recipes.")
+    tip2_flexi_c1.challenge = challenge1_flexi
+    tip2_flexi_c1.save
+
+    tip3_flexi_c1 = Tip.new(title: "Where",
+                           description: "In every supermarket you can find blocks of tofu. The firm is the one
+                                        most widely available in supermakets, but don't hesitate on looking
+                                        for different types. Remember the first tip and look for the most natural
+                                          one, avoid chemicals.")
+    tip3_flexi_c1.challenge = challenge1_flexi
+    tip3_flexi_c1.save
+
+
+
+
+
+    tip3_flexi_c1 = Tip.new(title: "No haters",
+                           description: "Most people will tell you that tofu is tasteless. Don’t listen
+                                        to them ! If they say so, it probably means that they never cook
+                                        it !")
+    tip3_flexi_c1.challenge = challenge1_flexi
+    tip3_flexi_c1.save
+
+
+puts "SECOND CHALLENGE FLEXETARIAN"
+challenge2_flexi = Challenge.create(category: flexitarian, name: 'Cook it', description: 'Look into recipes for tofu and cook something! There is a lot of possibilites, just try one', position: flexitarian.challenges.count + 1)
 
 puts "Adding special recipes for the first challenge"
 scratch_top6('tofu').each do |recipe|
-  challenge1_flexi.recipes << recipe
+  challenge2_flexi.recipes << recipe
 end
 
-    puts "Create tips for the first flexetarian challenge"
-    tip1_flexi_c1 = Tip.new(title: 'History',
+    tip1_flexi_c2 = Tip.new(title: 'History',
                            description: "Made from fermented soybean milk, Tofu is also called “bean curd”
                                 because of its silky, cheese-like texture. Originated from ancient
                                 China, tofu is probably the most popular substitute for meat because
                                 it's high in protein and amino acids."
                   )
-    tip1_flexi_c1.challenge = challenge1_flexi
-    tip1_flexi_c1.save
+    tip1_flexi_c2.challenge = challenge2_flexi
+    tip1_flexi_c2.save
 
-    tip2_flexi_c1 = Tip.new(title: "Amorphus",
-                           description: "Soft, ferm, flavored, grilled or sweet, tofu can be prepared
-                                        in a lot of different ways.")
-    tip2_flexi_c1.challenge = challenge1_flexi
-    tip2_flexi_c1.save
 
-    tip3_flexi_c1 = Tip.new(title: "Be careful!",
-                           description: "Avoid fake tofus with GMO’s and other chemicals. Always take
-                                         30 seconds to read the label. It should be straight with the
-                                         ingredients: fermented soybeans and coagulant (a type of salt
-                                         either calcium chloride, calcium sulfate or magnesium sulfate)")
-    tip3_flexi_c1.challenge = challenge1_flexi
-    tip3_flexi_c1.save
-
-    tip4_flexi_c1 = Tip.new(title: "No haters",
+    tip2_flexi_c2 = Tip.new(title: "No haters",
                            description: "Most people will tell you that tofu is tasteless. Don’t listen
                                         to them ! If they say so, it probably means that they never cook
                                         it !")
-    tip4_flexi_c1.challenge = challenge1_flexi
-    tip4_flexi_c1.save
+    tip2_flexi_c2.challenge = challenge2_flexi
+    tip2_flexi_c2.save
 
   puts "CREATE THE QUIZ FOR THE FIRST CHALLENGE"
 
