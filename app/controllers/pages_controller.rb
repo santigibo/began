@@ -6,9 +6,10 @@ class PagesController < ApplicationController
   end
 
   def meat_counter
+  end
+
+  def add_one
     current_user.update(no_meat_counter: current_user.no_meat_counter += 1)
-    # current_user.no_meat_counter += 1
-    # current_user.save
   end
 
   def choose_cookbook

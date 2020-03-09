@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       post '/create_or_destroy', to: 'user_recipes#create_or_destroy', as: :create_or_destroy
   end
 
-  post '/add_one', to: 'pages#meat_counter', as: :add_one
+  post '/add_one', to: 'pages#add_one', as: :add_one
 
   resources :user_recipes, only: %I(destroy)
   resources :posts, only: %I(index show create update destroy) do
