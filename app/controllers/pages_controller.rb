@@ -6,8 +6,6 @@ class PagesController < ApplicationController
   end
 
   def meat_counter
-    # current_user.no_meat_counter += 1
-    # current_user.save
   end
 
   def add_one
