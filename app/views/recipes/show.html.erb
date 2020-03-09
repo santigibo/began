@@ -1,10 +1,33 @@
-<h1><%= @recipe.name %></h1>
-<%= cl_image_tag @recipe.photo.key %>
-<p><%= @recipe.description %></p>
-<p><%= @recipe.time %></p>
-<p><%= @recipe.difficulty %></p>
-<% if current_user.recipes.include?(@recipe) %>
-  <p>Added <i class="fas fa-check"></i></p>
-<% else %>
-  <%= link_to 'Add to cookbook', recipe_user_recipes_path(@recipe), method: :post %>
-<% end %>
+<div class="topbar">
+  <p class="chevron">
+    <%= link_to :back do %>
+    <i class="fas fa-chevron-left"></i>
+    <% end %>
+  </p>
+
+  <p class="topbar-title"><span class="my">MY</span> <%= @challenge.category.name.upcase %><span class="excla-mark">!</span></%></p>
+</div>
+
+<div class="container">
+  <h1 class="main-title">RECIPES</h1>
+  <h2 class="third-title"><mark></mark>Challenge <%= @challenge.id %></h2>
+  <h2 class="recipe-title"><mark></mark><%= @recipe.name.upcase%></h2>
+
+  <%= cl_image_tag @recipe.photo.key %>
+
+  <p><%= @recipe.difficulty %><%= @recipe.time %></p>
+
+  <p class="paragraph-title">INGREDIENTS</p>
+  <p><%= @recipe.ingredients %></p>
+
+
+  <p class="paragraph-title">MAKE IT NOW</p>
+  <p><%= @recipe.description %></p>
+
+  <% if current_user.recipes.include?(@recipe) %>
+    <p>Added <i class="fas fa-check"></i></p>
+  <% else %>
+    <%= link_to 'Add to cookbook', recipe_user_recipes_path(@recipe), method: :post %>
+  <% end %>
+
+</div>

@@ -18,6 +18,15 @@
   color: black;
 }
 
+.challenge-tip a{
+  display: block;
+  width:100%;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  color: #c4c4c4;
+  text-align:center;
+}
+
 
 .challenge-link {
   display: block;
@@ -28,7 +37,7 @@
 }
 
 
-h2.challenge {
+h2.second-title {
   font-size: 22px;
   font-weight: bold;
   margin: 50px 0 20px 0;
@@ -37,6 +46,6 @@ h2.challenge {
 }
 
 
-h1.challenge {
+h1.head-title {
   text-align: center !important;
 }
