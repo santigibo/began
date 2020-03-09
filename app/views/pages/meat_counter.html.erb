@@ -1,0 +1,11 @@
+<h1>Meat counter</h1>
+
+
+<% if current_user.updated_at.day == DateTime.current.to_date.day %>
+  <p>Congratulation for you day without meat !</p>
+<% else %>
+  <p>Today was a day without meat for you ?</p>
+  <p>Add it to the counter !</p>
+  <%= link_to 'Add the day to the counter', add_one_path, method: :post, class: "button-default" %>
+<% end %>
+

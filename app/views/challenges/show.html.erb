@@ -17,13 +17,16 @@
     <p><%= @challenge.description %></p>
   </div>
 
-  <h2 class="challenge">Tips</h2>
-  <div class="challenge-tips">
-    <% @challenge.tips.each do |tip |%>
-      <p><%= tip.title %></p>
-      <p><%= tip.description %></p>
-    <% end %>
-  </div>
+  <% unless @challenge.tips.empty? %>
+    <h2 class="challenge">Tips</h2>
+    <div class="challenge-tips">
+      <% @challenge.tips.each do |tip |%>
+        <p><%= tip.title %></p>
+        <p><%= tip.description %></p>
+      <% end %>
+    </div>
+  <% end %>
+
   <div class="challenge-tip">
     <%= link_to "Read more", challenge_questions_path(@challenge.id) %>
   </div>
