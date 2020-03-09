@@ -27,11 +27,13 @@
 
         <div class="text">
           <% if is_first || is_done || before_done %>
-            <%= link_to challenge.name.upcase, challenge_path(challenge.id) %>
+            <%= link_to challenge.name.upcase, challenge_path(challenge.id), class: "challenge-name" %>
           <% else %>
             <i class="fas fa-lock"></i>
-            <p><%= challenge.name.upcase %></p>
+            <p class="challenge-name"><%= challenge.name.upcase %></p>
           <% end %>
+
+          <p class="challenge-number">challenge <%= index + 1 %></p>
         </div>
       </div>
     <% end %>
