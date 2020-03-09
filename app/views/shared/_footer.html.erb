@@ -1,7 +1,22 @@
 <div id="footer">
-  <div class="small-logo">
-    <%= link_to image_tag("began_small_logo.png"), root_path %>
-  </div>
+
+    <% if current_user.category.nil? %>
+      <%= link_to choose_category_path do %>
+        <div class="small-logo">
+          <span class="purple-circle"></span>
+          <span class="go">go</span>
+        </div>
+      <% end %>
+    <% else %>
+      <%= link_to category_path(current_user.category) do %>
+        <div class="small-logo">
+          <span class="purple-circle"></span>
+          <span class="go">go</span>
+        </div>
+      <% end %>
+    <% end %>
+
+
     <ul class="footer-nav">
       <% if user_signed_in? %>
       <div class="footer-icon-section">

@@ -10,6 +10,25 @@
   margin-top: -100px;
   text-align: center;
   z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.purple-circle {
+  background-color: #5626C4;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.go {
+  font-size: 30px;
+  position: absolute;
+  z-index: 15;
+  padding-bottom: 6px;
+  color: white;
+  font-family: $logo-font;
 }
 
 .footer-nav {

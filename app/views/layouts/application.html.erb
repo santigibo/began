@@ -14,9 +14,11 @@
       <%= yield %>
     </div>
 
+    <% unless current_user.nil? %>
     <div class="footer">
       <%=  render 'shared/footer' %>
     </div>
+    <% end %>
 
     <%#= render 'shared/flashes' %>
     <%= javascript_include_tag 'application' %>
