@@ -32,12 +32,16 @@
   <div class="challenge-links">
 
   <!-- <div class="challenge-link">
-    <%= link_to "Recipes", challenge_recipes_path(@challenge.id), class:"button-default"  %>
   </div> -->
   <% if @challenge.is_quizz %>
     <div class="challenge-link">
       <%= link_to "Quizz", challenge_questions_path(@challenge.id), class:"button-default"  %>
     </div>
+  <% else %>
+    <% unless @challenge.recipes.empty? %>
+      <%= link_to "Recipes", challenge_recipes_path(@challenge.id), class:"button-default"  %>
+    <% end %>
+    <%= link_to 'Complete', challenge_challenge_completions_path(@challenge), method: :post, class: "button-default" %>
   <% end %>
 
   <!-- <div class="challenge-link">
