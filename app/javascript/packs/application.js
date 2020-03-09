@@ -8,5 +8,5 @@ iconToggle();
 form_toggle();
 
 $('#diet-carousel').carousel({
-  ride: false
+  interval: false
 });
