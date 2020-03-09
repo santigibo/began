@@ -1,3 +1,88 @@
-<%= link_to Category.all[0].name, category_path(Category.all[0]) %>
-<%= link_to Category.all[1].name, category_path(Category.all[1]) %>
-<%= link_to Category.all[2].name, category_path(Category.all[2]) %>
+<div class="topbar">
+  <p>CHOOSE YOUR GOAL</p>
+</div>
+
+<div class="full-height-centered-container">
+  <div id="diet-carousel" class="carousel slide">
+    <ol class="carousel-indicators">
+      <li class="carousel-dot active" data-target="#diet-carousel" data-slide-to="0"></li>
+      <li class="carousel-dot" data-target="#diet-carousel" data-slide-to="1"></li>
+      <li class="carousel-dot" data-target="#diet-carousel" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= link_to category_path(Category.all[0]) do %>
+
+          <div class="diet-card">
+             <div class="category-icons yellow">
+              <%= render 'shared/steak-icon' %>
+              <%= render 'shared/egg-icon' %>
+              <%= render 'shared/leaf-icon' %>
+            </div>
+
+            <div class="diet-card-text">
+              <div class="diet-card-title">
+                <h2 class="category-text yellow"><mark class="diet-mark yellow"></mark>FLEXITARIAN</h2>
+              </div>
+
+              <p>Center your diet around plant foods, with occasional inclusion of meat.</p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+
+      <div class="carousel-item">
+        <%= link_to category_path(Category.all[1]) do %>
+
+          <div class="diet-card">
+            <div class="category-icons green">
+              <%= render 'shared/egg-icon' %>
+              <%= render 'shared/leaf-icon' %>
+            </div>
+
+            <div class="diet-card-text">
+              <div class="diet-card-title">
+                <h2 class="category-text green"><mark class="diet-mark green"></mark>VEGETARIAN</h2>
+              </div>
+
+              <p>Center your diet around plant foods, with occasional inclusion of animal products, except meat and fish.</p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="carousel-item">
+        <%= link_to category_path(Category.all[2]) do %>
+
+          <div class="diet-card">
+            <div class="category-icons pink">
+              <%= render 'shared/leaf-icon' %>
+            </div>
+
+            <div class="diet-card-text">
+              <div class="diet-card-title">
+                <h2 class="category-text pink"><mark class="diet-mark pink"></mark>VEGAN</h2>
+              </div>
+
+              <p>Center your diet around plant foods without animal products.</p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+
+
+

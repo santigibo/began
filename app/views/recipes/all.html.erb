@@ -1,26 +1,45 @@
-<h1>All recipes</h1>
+<div class="topbar">
+  <p class="chevron">
+    <%= link_to :back do %>
+    <i class="fas fa-chevron-left"></i>
+    <% end %>
+  </p>
 
-<div>
-  <%= form_tag all_recipes_path, method: :get do %>
+  <p class="topbar-title">ALL RECIPES</p>
+</div>
+
+<div class="container">
+  <h2 class="second-title">Delicious ideas.<br>For delicious meals.</h2>
+
+<div class="search-form">
+  <%= form_tag all_recipes_path, class: "form-inline", method: :get do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-      placeholder: "Look into all our recipes"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+      placeholder: "Search our recipes"%>
+      <%= button_tag(type: 'submit', class: "button-search") do %>
+         <i class="fas fa-seedling"></i>
+      <% end %>
+      <%#= submit_tag "Search", class: "button-search" %>
   <% end %>
 </div>
 
-<% @recipes.each do |recipe| %>
-  <div>
-    <%= cl_image_tag recipe.photo.key %>
-    <%= link_to recipe.name, recipe_path(recipe.id) %>
-    <%= recipe.time %>
-    <%= recipe.difficulty %>
-    <% if current_user.recipes.include?(recipe) %>
-      <p>Added <i class="fas fa-check"></i></p>
-    <% else %>
-      <%= link_to 'Add to cookbook', recipe_user_recipes_path(recipe), method: :post %>
-    <% end %>
-  </div>
-<% end %>
+<div class="grid-column">
+  <% @recipes.each do |recipe| %>
+    <div>
+      <%= cl_image_tag recipe.photo.key %>
+      <%= link_to recipe.name, recipe_path(recipe.id) %>
+      <%= recipe.time %>
+      <%= recipe.difficulty %>
+        <%= link_to recipe_create_or_destroy_path(recipe), method: :post do  %>
+          <% if current_user.recipes.include?(recipe) %>
+            <i class="fas fa-heart"></i>
+          <% else %>
+            <i class="far fa-heart"></i>
+          <% end %>
+        <% end %>
+    </div>
+  <% end %>
+</div>
+
+</div>

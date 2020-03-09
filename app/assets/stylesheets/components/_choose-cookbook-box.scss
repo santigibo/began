@@ -1,0 +1,45 @@
+.cookbook-box {
+  position: relative;
+  display: flex;
+  height: 235px;
+  justify-content: center;
+  align-items: center;
+}
+
+.cookbook-color-box {
+  position: absolute;
+  height: 160px;
+  width: 160px;
+  border-radius: 25px;
+  transform: rotate(45deg);
+}
+
+.cookbook-color-box.pink {
+  background-color: $pink;
+}
+
+.cookbook-color-box.yellow {
+  background-color: $yellow;
+}
+
+.cookbook-white-box {
+  position: absolute;
+  border: 2px solid black;
+  border-radius: 25px;
+  height: 160px;
+  width: 160px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+    p {
+      margin-bottom: 0;
+    }
+}
+
+.not-that-big {
+  font-weight: bold;
+  font-size: 24px;
+}
+

@@ -1,0 +1,51 @@
+.challenge-description {
+  display: block;
+  width:100%;
+  border-left: 6px solid $yellow;
+  border-radius:6px;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  color: black;
+}
+
+.challenge-tips {
+  display: block;
+  width:100%;
+  border-right: 6px solid $yellow;
+  border-radius:6px;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  color: black;
+}
+
+.challenge-tip a{
+  display: block;
+  width:100%;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  color: #c4c4c4;
+  text-align:center;
+}
+
+
+.challenge-link {
+  display: block;
+  width:100%;
+  padding: 20px 0;
+  text-align:center;
+  color: black;
+}
+
+
+h2.second-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 50px 0 20px 0;
+  color: black;
+  text-align: center;
+}
+
+
+h1.head-title {
+  text-align: center !important;
+}

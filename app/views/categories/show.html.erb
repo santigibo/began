@@ -1,15 +1,54 @@
-<%= @category.name %>
-<% @challenges.each do |challenge| %>
-  <% challenge_before = @challenges.detect { |in_challenge| in_challenge.position == challenge.position - 1 } %>
+<div class="topbar">
+  <p class="chevron">
+    <%= link_to root_path do %>
+    <i class="fas fa-chevron-left"></i>
+    <% end %>
+  </p>
 
-  <% is_first = challenge == @challenges.first %>
-  <% is_done = current_user.challenges.include?(challenge) %>
-  <% before_done = current_user.challenges.include?(challenge_before) %>
+  <p class="topbar-title"><span class="my">MY</span> <%= @category.name.upcase %><span class="excla-mark">!</span></%></p>
+</div>
 
-  <% if is_first || is_done || before_done %>
-    <%= link_to challenge.name, challenge_path(challenge.id) %>
-  <% else %>
-    <p><%= challenge.name %></p>
-  <% end %>
+<div class="container">
 
-<% end %>
+    <%= link_to choose_category_path, alt: "change game" do %>
+      <i class="fas fa-sync-alt"></i>
+    <% end %>
+
+    <% @challenges.each_with_index do |challenge, index| %>
+      <% challenge_before = @challenges.detect { |in_challenge| in_challenge.position == challenge.position - 1 } %>
+
+      <% is_first = challenge == @challenges.first %>
+      <% is_done = current_user.challenges.include?(challenge) %>
+      <% before_done = current_user.challenges.include?(challenge_before) %>
+
+      <% if index != 0 %>
+        <div class="line"></div>
+      <% end %>
+
+      <div class="challenge-box">
+        <% if index % 3 == 0 %>
+          <span class="color-box yellow"></span>
+        <% elsif index % 3 == 1 %>
+          <span class="color-box green"></span>
+        <% else %>
+          <span class="color-box pink"></span>
+        <% end %>
+
+        <span class="white-box"></span>
+
+        <div class="text">
+          <% if is_first || is_done || before_done %>
+            <% if is_done %>
+              <i class="fas fa-check-circle"></i>
+            <% end %>
+            <%= link_to challenge.name.upcase, challenge_path(challenge.id), class: "challenge-name" %>
+          <% else %>
+            <i class="fas fa-lock"></i>
+            <p class="challenge-name"><%= challenge.name.upcase %></p>
+          <% end %>
+
+          <p class="challenge-number">challenge <%= index + 1 %></p>
+        </div>
+      </div>
+    <% end %>
+</div>

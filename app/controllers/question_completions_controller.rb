@@ -1,7 +1,7 @@
 class QuestionCompletionsController < ApplicationController
   def create
-    question = Question.find(answer.question)
+    question = Question.find(params[:question_id])
+    @questions = question.challenge.questions
     QuestionCompletion.create(user: current_user, question: question)
-    redirect_to challenge_questions_path(params[:challenge_id])
   end
 end
