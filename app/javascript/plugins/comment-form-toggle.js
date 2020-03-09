@@ -5,8 +5,10 @@ const form_toggle = () => {
 
   btns.forEach((btn) => {
     btn.addEventListener('click', () => {
-      const form = document.querySelector('#comment_form')
+      const comment = document.querySelector('#comment_form')
+      const form = document.querySelector('#comments_display')
       form.classList.toggle('d-none');
+      comment.classList.toggle('d-none');
     });
   });
 };
