@@ -273,32 +273,32 @@ end
 
 
   puts "Create tips for the fourth flexetarian challenge"
-  tip1_flexi_c2 = Tip.new(title: 'History',
+  tip1_flexi_c4 = Tip.new(title: 'History',
                          description: "Cultivated for more than 5000 years in South America
                                        (specifically Peru, Bolivia and Ecuador)")
-  tip1_flexi_c2.challenge = challenge2_flexi
-  tip1_flexi_c2.save
+  tip1_flexi_c4.challenge = challenge4_flexi
+  tip1_flexi_c4.save
 
-  tip2_flexi_c2 = Tip.new(title: "Is a complete protein",
+  tip2_flexi_c4 = Tip.new(title: "Is a complete protein",
                          description: "It means that it contains the 9 amino acids the human
                                        body needs for growth and tissue regeneration. there is
                                        8g of proteins for every 100g of quinoa, a perfect number.")
-  tip2_flexi_c2.challenge = challenge2_flexi
-  tip2_flexi_c2.save
+  tip2_flexi_c4.challenge = challenge4_flexi
+  tip2_flexi_c4.save
 
-  tip3_flexi_c2 = Tip.new(title: "Like rice",
+  tip3_flexi_c4 = Tip.new(title: "Like rice",
                          description: "Quinoa is a plant that looks like a cereal. Relative to
                                        the spinach family, we actually eat the seeds that we cook
                                        in 15 minutes like rice.")
-  tip3_flexi_c2.challenge = challenge2_flexi
-  tip3_flexi_c2.save
+  tip3_flexi_c4.challenge = challenge4_flexi
+  tip3_flexi_c4.save
 
-  tip4_flexi_c2 = Tip.new(title: "When cooking",
+  tip4_flexi_c4 = Tip.new(title: "When cooking",
                          description: "The quinoa grains are protected by a thin envelope that can
                                        be bitter. So even if most quinoa available today are sold
                                        already clean, take a few minutes to rinse it before cooking it.")
-  tip4_flexi_c2.challenge = challenge2_flexi
-  tip4_flexi_c2.save
+  tip4_flexi_c4.challenge = challenge4_flexi
+  tip4_flexi_c4.save
 
 puts "-------------------------------------------------------------------------------------------------------------------"
 
@@ -313,7 +313,7 @@ challenge5_flexi = Challenge.create(category: flexitarian, name: 'Quinoa test',
 
     puts "Create the first question for the fifth challenge of flexetarian"
     question1_c5 = Question.new(content:"There is only one kind of quinoa?")
-    question1_c5.challenge = challenge2_flexi
+    question1_c5.challenge = challenge5_flexi
     question1_c5.save
 
       puts "Answers for question 1 of challenge 5"
