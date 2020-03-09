@@ -38,6 +38,9 @@
 
         <div class="text">
           <% if is_first || is_done || before_done %>
+            <% if is_done %>
+              <i class="fas fa-check-circle"></i>
+            <% end %>
             <%= link_to challenge.name.upcase, challenge_path(challenge.id), class: "challenge-name" %>
           <% else %>
             <i class="fas fa-lock"></i>
