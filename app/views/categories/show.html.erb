@@ -1,6 +1,6 @@
 <div class="topbar">
   <p class="chevron">
-    <%= link_to :back do %>
+    <%= link_to root_path do %>
     <i class="fas fa-chevron-left"></i>
     <% end %>
   </p>
@@ -9,6 +9,10 @@
 </div>
 
 <div class="container">
+
+    <%= link_to choose_category_path, alt: "change game" do %>
+      <i class="fas fa-sync-alt"></i>
+    <% end %>
 
     <% @challenges.each_with_index do |challenge, index| %>
       <% challenge_before = @challenges.detect { |in_challenge| in_challenge.position == challenge.position - 1 } %>
@@ -22,9 +26,9 @@
       <% end %>
 
       <div class="challenge-box">
-        <% if [0, 3, 6, 9].include? index %>
+        <% if index % 3 == 0 %>
           <span class="color-box yellow"></span>
-        <% elsif [1, 4, 7, 10].include? index  %>
+        <% elsif index % 3 == 1 %>
           <span class="color-box green"></span>
         <% else %>
           <span class="color-box pink"></span>

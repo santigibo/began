@@ -1,6 +1,6 @@
 <div class="topbar">
   <p class="chevron">
-    <%= link_to :back do %>
+    <%= link_to category_path(@challenge.category) do %>
     <i class="fas fa-chevron-left"></i>
     <% end %>
   </p>
@@ -9,7 +9,7 @@
 </div>
 
 <div class="container">
-  <h1 class="head-title">CHALLENGE <%= @challenge.id %></h1>
+  <h1 class="head-title">CHALLENGE <%= @challenge.position %></h1>
 
   <h2 class="second-title"><%= @challenge.name.upcase %></h2>
 
@@ -34,9 +34,11 @@
   <!-- <div class="challenge-link">
     <%= link_to "Recipes", challenge_recipes_path(@challenge.id), class:"button-default"  %>
   </div> -->
-  <div class="challenge-link">
-    <%= link_to "Quizz", challenge_questions_path(@challenge.id), class:"button-default"  %>
-  </div>
+  <% if @challenge.is_quizz %>
+    <div class="challenge-link">
+      <%= link_to "Quizz", challenge_questions_path(@challenge.id), class:"button-default"  %>
+    </div>
+  <% end %>
 
   <!-- <div class="challenge-link">
   <% if @challenge.questions.all? { |question| current_user.questions.include?(question)} %>
