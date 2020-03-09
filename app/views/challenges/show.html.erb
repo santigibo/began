@@ -30,7 +30,7 @@
             <div class="card-header tip-name" id="heading<%= index %>">
               <h2 class="mb-0">
                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%= index %>" aria-expanded="true" aria-controls="collapse<%= index %>">
-                  <%= tip.title %>
+                  <i class="fas fa-angle-down"></i> <%= tip.title %>
                 </button>
               </h2>
             </div>
@@ -48,10 +48,6 @@
     </div>
   <% end %>
 
-  <div class="challenge-tip">
-    <%= link_to "Read more", challenge_questions_path(@challenge.id) %>
-  </div>
-
 
   <div class="challenge-links">
 
@@ -59,13 +55,15 @@
   </div> -->
   <% if @challenge.is_quizz %>
     <div class="challenge-link">
-      <%= link_to "Quizz", challenge_questions_path(@challenge.id), class:"button-default"  %>
+      <%= link_to "Quizz", challenge_questions_path(@challenge.id), class: "button-default"  %>
     </div>
   <% else %>
-    <% unless @challenge.recipes.empty? %>
-      <%= link_to "Recipes", challenge_recipes_path(@challenge.id), class:"button-default"  %>
-    <% end %>
-    <%= link_to 'Complete', challenge_challenge_completions_path(@challenge), method: :post, class: "button-default" %>
+    <div class="challenge-link">
+      <% unless @challenge.recipes.empty? %>
+        <%= link_to "Recipes", challenge_recipes_path(@challenge.id), class: "button-default"  %>
+      <% end %>
+      <%= link_to 'Complete', challenge_challenge_completions_path(@challenge), method: :post, class: "button-default" %>
+    </div>
   <% end %>
 
   <!-- <div class="challenge-link">
