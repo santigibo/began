@@ -10,6 +10,10 @@
 
 <div class="container">
 
+    <%= link_to choose_category_path, alt: "change game" do %>
+      <i class="fas fa-sync-alt"></i>
+    <% end %>
+
     <% @challenges.each_with_index do |challenge, index| %>
       <% challenge_before = @challenges.detect { |in_challenge| in_challenge.position == challenge.position - 1 } %>
 
