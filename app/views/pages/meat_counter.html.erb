@@ -1,7 +1,7 @@
 <h1>Meat counter</h1>
 
 
-<% if current_user.updated_at.day == DateTime.current.to_date.day %>
+<% if current_user.updated_at.day == DateTime.current.to_date.day && current_user.created_at != current_user.updated_at %>
   <p>Congratulation for you day without meat !</p>
 <% else %>
   <p>Today was a day without meat for you ?</p>
