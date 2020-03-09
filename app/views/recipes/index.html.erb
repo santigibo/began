@@ -1,4 +1,48 @@
-<h1><%= @challenge.name %> recipes</h1>
+<div class="topbar">
+  <p class="chevron">
+    <%= link_to :back do %>
+    <i class="fas fa-chevron-left"></i>
+    <% end %>
+  </p>
+
+  <p class="topbar-title"><span class="my">MY</span> <%= @challenge.category.name.upcase %><span class="excla-mark">!</span></%></p>
+</div>
+
+<div class="container">
+<h1 class="main-title">RECIPES</h1>
+<h2 class="third-title"><mark></mark>Challenge <%= @challenge.id %></h2>
+
+
+<div class="container pr-0 pl-0">
+  <div id="recipe-carousel" class="carousel slide">
+    <ol class="carousel-indicators">
+      <li class="carousel-dot active" data-target="#diet-carousel" data-slide-to="0"></li>
+    </ol>
+
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= link_to challenge_recipes_path(@all_recipes) do %>
+
+          <div class="recipe-carousel-card">
+            <div class="recipe-img">
+              <%= image_tag("began-homepage.png") %>
+            </div>
+
+            <div class="recipe-card-text">
+              <h2 class="recipe-name"><%= @challenge.recipes.name %></h2>
+              <h3 class="recipe-difficulty">recipe difficulty</h3>
+            </div>
+          </div>
+
+        <% end %>
+
+    </div>
+  </div>
+</div>
+
+
+
+
 <% @recipes.each do |recipe| %>
   <%= cl_image_tag recipe.photo.key %>
   <%= recipe.name %>
@@ -17,3 +61,4 @@
   <% end %>
 <% end %>
 
+</div>
