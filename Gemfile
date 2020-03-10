@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.6.5'
 
+gem "simple_calendar", "~> 2.0"
 gem 'dotenv-rails'
 gem 'cloudinary', '~> 1.12.0'
 gem 'bootsnap', require: false
