@@ -1,11 +1,16 @@
 <div class="topbar">
-  <p class="chevron">
+  <div class="chevron">
     <%= link_to :back do %>
       <i class="fas fa-chevron-left"></i>
     <% end %>
-  </p>
+  </div>
 
-  <p class="topbar-title"><span class="my">MY</span> <%= @challenge.category.name.upcase %><span class="excla-mark">!</span></%></p>
+  <div class="topbar-title"><span class="my">MY</span> <%= @challenge.category.name.upcase %><span class="excla-mark">!</span></%></div>
+
+  <div class="b-small-logo">
+    <span class="logo-dot"></span>
+    <span class="logo-b">b</span>
+  </div>
 </div>
 
 <div class="container">
