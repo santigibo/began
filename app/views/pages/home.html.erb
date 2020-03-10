@@ -6,25 +6,25 @@
 
   <div class="welcome">
     <h4 class="xl-large">Hi,</h4>
-    <h1><%= @user.first_name %></h1>
+    <h3 class="user-name"><%= @user.first_name %></h3>
   </div>
 
 
 <div class="progress-card">
   <div class="percent">
     <svg>
-      <circle cx="70" cy="70" r="70"></circle>
+      <circle cx="70" cy="70" r="60"></circle>
       <circle style="
         stroke-dasharray: calc(440 * <%= @percentage %>) calc(440 * <%= 1 - @percentage %>);
-        stroke-dashoffset: 110;
-      "cx="70" cy="70" r="70"></circle>
+        stroke-dashoffset: 153;
+      "cx="70" cy="70" r="60"></circle>
     </svg>
-    <div class="number">
-      <h3><%= pluralize(@days_without_meat_month, "DAY") %></h3>
-    </div>
   </div>
 
-  <h3 class="text">without meat</h3>
+  <div class="progress-text">
+    <p class="number-days"><%= pluralize(@days_without_meat_month, "DAY") %></p>
+    <p class="without-meat">without meat</p>
+  </div>
 </div>
 
 
