@@ -12,6 +12,18 @@
   margin: 30px 0;
 }
 
+.card-button-text p {
+  color: white;
+}
+
+.cards-button .green {
+  background-color: $green;
+}
+
+.cards-button .pink {
+  background-color: $pink;
+}
+
 h4.xl-large {
       font-size: 55px;
       font-weight: bold;
