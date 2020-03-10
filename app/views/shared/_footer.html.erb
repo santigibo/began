@@ -46,7 +46,7 @@
           </div>
           <% end %>
         </li>
-        <li class="footer-nav-item <%= params[:action] == 'index' ? 'active' : '' %> ">
+        <li class="footer-nav-item <%= @forum ? 'active' : '' %> ">
           <%= link_to posts_path do %>
           <div class="nav-element">
             <i class="fas fa-users"></i>
