@@ -10,16 +10,16 @@
   font-weight: bold;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   z-index: 1000000;
 }
 
-.topbar p {
+.topbar-title {
   margin-bottom: 0;
 }
 
 .chevron {
-  flex-grow:1;
+  // flex-grow:1;
   padding-left: 25px;
 }
 
@@ -36,9 +36,28 @@
 }
 
 .topbar-title {
-  position: fixed;
+  // position: fixed;
+}
+
+.b-small-logo {
+  display: flex;
+  align-items: center;
+  padding-right: 25px;
+}
+
+.logo-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #FACD3D;
+  margin-right: 3px;
+}
+
+.logo-b {
+  font-family: $logo-font;
 }
 
 .logo {
   height: 40px;
+  margin: 0 auto;
 }
