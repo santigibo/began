@@ -8,7 +8,6 @@ class PagesController < ApplicationController
     num_of_days_month = Date.today.end_of_month.day.to_f
     fraction = days_without_meat_month / num_of_days_month
     @percentage = fraction.round(3)
-    raise
   end
 
   def meat_counter
