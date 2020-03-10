@@ -25,8 +25,8 @@
       <p>No posts for now... be the first to share something with the community !</p>
     <% else %>
       <% @posts.each do |post| %>
-        <div>
-          <p>
+        <div class="post_partie">
+          <p class="post_content">
             <span style="font-size: small; color: gray;"><%= post.created_at.strftime("%d-%m") %></span>
             <%= post.content %>
             <span style="color: gray">~ <%= post.user.fullname %></span>
@@ -39,20 +39,26 @@
               <% end %>
             <% end %>
           </p>
-
+          <div class="comment_part">
             <div id="comments_display" class="d-none">
               <% post.comments.each do |comment| %>
-                <%= comment.content %><span style="color: gray"><%= comment.user.fullname %></span>
+                <%= comment.content %> - <span style="color: gray"><%= comment.user.fullname %></span>
               <% end %>
             </div>
-
 
             <div id="comment_form" class="d-none">
               <%= simple_form_for [post, @comment] do |f| %>
-               <%= f.input :content %>
-               <%= f.submit class: "btn btn-success"%>
+               <div class="form_style">
+                <div class="form_content">
+                 <%= f.input :content, label: false, placeholder: 'Content' %>
+                </div>
+                <%= button_tag(type: 'submit', class: "send_btn") do %>
+                  <i class="fas fa-arrow-circle-up"></i>
+                <% end %>
+               </div>
               <% end %>
             </div>
+          </div>
         </div>
       <% end %>
     <% end %>
@@ -63,8 +69,14 @@
     <p>Add a post !</p>
     <div class="post_form">
       <%= simple_form_for (@post) do |f| %>
-        <%= f.input :content %>
-        <%= f.submit class: "btn btn-success"%>
+        <div class="form_style">
+          <div class="form_content">
+            <%= f.input :content, label: false, placeholder: 'Content' %>
+          </div>
+          <%= button_tag(type: 'submit', class: "send_btn") do %>
+            <i class="fas fa-arrow-circle-up"></i>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>
