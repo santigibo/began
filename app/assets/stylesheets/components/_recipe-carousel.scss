@@ -12,34 +12,16 @@
   border-radius: 25px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
   position: relative;
-
-  .recipe-card-text {
-    position: absolute;
-    bottom:0;
-    background-color:#fff;
-    width:300px;
-    height: 90px;
-    border-radius: 0px 0px 25px 25px;
-    padding: 15px 0;
-  }
-
-  h2.recipe-name {
-    font-size: 20px;
-    font-weight:normal;
-  }
-
-  h3.recipe-difficulty {
-
-  }
 }
 
 .recipe-img.large{
-    width: 100%;
-    height:300px;
-    border-radius: 25px;
-    background-size: cover;
-    background-position: center;
+  width: 100%;
+  height:300px;
+  border-radius: 25px;
+  background-size: cover;
+  background-position: center;
 }
+
 
 h1.head-title {
   font-size: 30px;
@@ -47,10 +29,10 @@ h1.head-title {
 }
 
 h2.third-title {
-    font-size: 22px;
-    font-weight: 200;
-    color: black;
-    text-align: center;
+  font-size: 22px;
+  font-weight: 200;
+  color: black;
+  text-align: center;
 }
 
 mark {
@@ -59,5 +41,28 @@ mark {
   background-color: $yellow;
 }
 
+.recipe-card-text {
+  position: absolute;
+  bottom:0;
+  background-color:#fff;
+  width:300px;
+  height: 90px;
+  border-radius: 0px 0px 25px 25px;
+  padding: 15px 0;
+  }
+
+h2.recipe-name {
+  font-size: 20px;
+  font-weight: thin;
+}
+
+
+.fa-utensil-spoon.green {
+  color: #3FCCC4;
+}
+
+.fa-utensil-spoon {
+  color: #C4C4C4;
+}
 
 
