@@ -1,1 +1,11 @@
+.all_forum_page {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
+  .post_part {
+    flex-grow: 1;
+    margin-bottom: 50px;
+  }
+}
