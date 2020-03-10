@@ -3,6 +3,12 @@ class PagesController < ApplicationController
 
   def home
     @user = current_user
+    list_month = NoMeatDay.all.select { |nmd| nmd.created_at.to_date.month == Date.current.month }
+    days_without_meat_month = list_month.count
+    num_of_days_month = Date.today.end_of_month.day.to_f
+    fraction = days_without_meat_month / num_of_days_month
+    @percentage = fraction.round(3)
+    raise
   end
 
   def meat_counter
