@@ -54,6 +54,7 @@ img {
 .recipe-column {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
 }
 
 .paragraph-title {
@@ -66,3 +67,20 @@ mark {
   padding: 6px 8px;
   background-color: $yellow;
 }
+
+.fa-utensil-spoon.green {
+  color: #3FCCC4;
+  font-size: 16px;
+  margin: -2px;
+  transform: rotate(-45deg);
+}
+
+.fa-utensil-spoon {
+  color: #C4C4C4;
+  font-size: 16px;
+  margin: -2px;
+  transform: rotate(-45deg);
+}
+
+
+

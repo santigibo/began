@@ -1,7 +1,16 @@
+.change-goal-button {
+  margin-bottom: 30px;
+}
+
+.change-goal {
+  border-left: 6px solid #FACD3F;
+  border-radius: 6px;
+  padding: 0 6px;
+}
+
 .challenge-box {
   position: relative;
   display: flex;
-  // margin-bottom: 69px;
   height: 235px;
   justify-content: center;
   align-items: center;

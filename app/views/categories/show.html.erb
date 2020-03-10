@@ -1,19 +1,28 @@
 
 <div class="topbar">
-  <p class="chevron">
+  <div class="chevron">
     <%= link_to root_path do %>
     <i class="fas fa-chevron-left"></i>
     <% end %>
-  </p>
+  </div>
 
-  <p class="topbar-title"><span class="my">MY</span> <%= @category.name.upcase %><span class="excla-mark">!</span></%></p>
+  <div class="topbar-title"><span class="my">MY</span> <%= @category.name.upcase %><span class="excla-mark">!</span></%></div>
+
+  <div class="b-small-logo">
+    <span class="logo-dot"></span>
+    <span class="logo-b">b</span>
+  </div>
 </div>
 
 <div class="container">
 
-    <%= link_to choose_category_path, alt: "change game" do %>
-      <i class="fas fa-sync-alt"></i>
-    <% end %>
+
+      <%= link_to choose_category_path do %>
+        <div class="change-goal-button">
+          <span class="change-goal">CHANGE GOAL</span>
+          <i class="fas fa-sync-alt"></i>
+        </div>
+      <% end %>
 
     <% @challenges.each_with_index do |challenge, index| %>
       <% challenge_before = @challenges.detect { |in_challenge| in_challenge.position == challenge.position - 1 } %>

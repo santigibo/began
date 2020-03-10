@@ -1,11 +1,16 @@
 <div class="topbar">
-  <p class="chevron">
+  <div class="chevron">
     <%= link_to :back do %>
     <i class="fas fa-chevron-left"></i>
     <% end %>
-  </p>
+  </div>
 
-  <p class="topbar-title"><span class="my">MY</span> <%= @challenge.category.name.upcase %><span class="excla-mark">!</span></%></p>
+  <div class="topbar-title"><span class="my">MY</span> <%= @challenge.category.name.upcase %><span class="excla-mark">!</span></%></div>
+
+  <div class="b-small-logo">
+    <span class="logo-dot"></span>
+    <span class="logo-b">b</span>
+  </div>
 </div>
 
 <div class="container">
@@ -15,28 +20,60 @@
 <div class="recipe-page">
   <h2 class="recipe-title"><%= @recipe.name.upcase%></h2>
 
-  <div class="recipe-img">
+  <div class="recipe-img-large">
     <%= cl_image_tag @recipe.photo.key %>
   </div>
 
-  <div class="recipe-difficulty">
-    <p><%= @recipe.difficulty %><%= @recipe.time %></p>
+  <div class="recipe-info">
+    <div class= "recipe-info-one">
+    <div class="recipe-difficulty">
+      <% if @recipe.difficulty == "Easy" %>
+          <i class="fas fa-utensil-spoon yellow"></i>
+          <i class="fas fa-utensil-spoon"></i>
+          <i class="fas fa-utensil-spoon"></i>
+        <% elsif @recipe.difficulty == "More effort"%>
+          <i class="fas fa-utensil-spoon yellow"></i>
+          <i class="fas fa-utensil-spoon yellow"></i>
+          <i class="fas fa-utensil-spoon"></i>
+        <% else %>
+          <i class="fas fa-utensil-spoon"></i>
+          <i class="fas fa-utensil-spoon"></i>
+          <i class="fas fa-utensil-spoon"></i>
+      <% end %>
+    </div>
+
+    <div class= "recipe-time">
+      <i class="fas fa-stopwatch"></i>
+      <%= @recipe.time %>
+    </div>
+    </div>
+  <div class= "recipe-like">
+    <%= link_to recipe_create_or_destroy_path(@recipe), method: :post do  %>
+      <% if current_user.recipes.include?(@recipe) %>
+        <i class="fas fa-heart"></i>
+      <% else %>
+        <i class="far fa-heart"></i>
+      <% end %>
+    <% end %>
   </div>
 
-  <p class="paragraph-title">INGREDIENTS</p>
-  <p><%= @recipe.ingredients %></p>
+  </div>
 
+  <div class="recipe-ingredients">
+    <p class="paragraph-title">INGREDIENTS</p>
+    <p><% @recipe.ingredients.each do |ingredient|%>
+      <p> - <%= ingredient.content %></p>
+      <% end %>
+    </p>
+  </div>
 
+  <div class="recipe-cooking">
   <p class="paragraph-title">MAKE IT NOW</p>
-  <p><%= @recipe.description %></p>
-
-  <%= link_to recipe_create_or_destroy_path(@recipe), method: :post do  %>
-    <% if current_user.recipes.include?(@recipe) %>
-      <i class="fas fa-heart"></i>
-    <% else %>
-      <i class="far fa-heart"></i>
-    <% end %>
+    <p><% @recipe.recipe_methods.each_with_index do |recipe_method, index| %>
+    <p><%= index+1 %> - <%= recipe_method.content %></p>
   <% end %>
+</div>
+
 </div>
 
 </div>
