@@ -3,6 +3,8 @@ class PostsController < ApplicationController
     @posts = Post.all
     @post = Post.new
     @comment = Comment.new
+
+    @forum = true
   end
 
   def create
