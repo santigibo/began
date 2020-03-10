@@ -2,47 +2,50 @@
   <p>FORUM</p>
 </div>
 
-<h4>
-  Wright your feeling, sensation, appreciation
-  <br>
-  Share your advices to the others...
-</h4>
+<div class="post_part">
+  <p>
+    Wright your feeling, sensation, appreciation
+    <br>
+    Share your advices to the others...
+  </p>
 
-<% @posts.each do |post| %>
-  <div>
-    <p>
-      <span style="font-size: small; color: gray;"><%= post.created_at.strftime("%d-%m") %></span>
-      <%= post.content %>
-      <span style="color: gray">~ <%= post.user.fullname %></span>
+  <% @posts.each do |post| %>
+    <div>
+      <p>
+        <span style="font-size: small; color: gray;"><%= post.created_at.strftime("%d-%m") %></span>
+        <%= post.content %>
+        <span style="color: gray">~ <%= post.user.fullname %></span>
 
-      <i class="fas fa-comments"></i><span>(<%= post.comments.count %>)</span>
+        <i class="fas fa-comments"></i><span>(<%= post.comments.count %>)</span>
 
-      <% if post.user == current_user %>
-        <%= link_to post_path(post), method: :delete do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if post.user == current_user %>
+          <%= link_to post_path(post), method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
-      <% end %>
-    </p>
+      </p>
 
-      <div id="comments_display" class="d-none">
-        <% post.comments.each do |comment| %>
-          <%= comment.content %>
-        <% end %>
-      </div>
+        <div id="comments_display" class="d-none">
+          <% post.comments.each do |comment| %>
+            <%= comment.content %>
+          <% end %>
+        </div>
 
 
-      <div id="comment_form" class="d-none">
-        <%= simple_form_for [post, @comment] do |f| %>
-         <%= f.input :content %>
-         <%= f.submit class: "btn btn-success"%>
-        <% end %>
-      </div>
-  </div>
-<% end %>
+        <div id="comment_form" class="d-none">
+          <%= simple_form_for [post, @comment] do |f| %>
+           <%= f.input :content %>
+           <%= f.submit class: "btn btn-success"%>
+          <% end %>
+        </div>
+    </div>
+  <% end %>
 
-<div>
-  <h4>Add a post !</h4>
-  <div>
+</div>
+
+<div class="form_part">
+  <p>Add a post !</p>
+  <div class="post_form">
     <%= simple_form_for (@post) do |f| %>
       <%= f.input :content %>
       <%= f.submit class: "btn btn-success"%>
