@@ -32,6 +32,17 @@
   font-family: $logo-font;
 }
 
+.change-game-icon {
+  font-size: 30px;
+  position: absolute;
+  z-index: 15;
+  margin-bottom: 6px;
+  color: white;
+  // color: transparent;
+  // -webkit-text-stroke-width: 2px;
+  // -webkit-text-stroke-color: white;
+}
+
 .footer-nav {
   position: absolute;
   width:100%;
