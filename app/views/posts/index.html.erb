@@ -25,7 +25,7 @@
       <p>No posts for now... be the first to share something with the community !</p>
     <% else %>
       <% @posts.each do |post| %>
-        <div class="post_partie">
+        <div class="post_partie" id='post-<%= post.id %>'>
           <p class="post_content">
             <span style="font-size: small; color: gray;"><%= post.created_at.strftime("%d-%m") %></span>
             <%= post.content %>
@@ -40,13 +40,15 @@
             <% end %>
           </p>
           <div class="comment_part">
-            <div id="comments_display" class="d-none">
+            <div class="comments_display d-none">
               <% post.comments.each do |comment| %>
-                <%= comment.content %> - <span style="color: gray"><%= comment.user.fullname %></span>
+                <div>
+                  <%= comment.content %> - <span style="color: gray"><%= comment.user.fullname %></span>
+                </div>
               <% end %>
             </div>
 
-            <div id="comment_form" class="d-none">
+            <div class="comment_form d-none">
               <%= simple_form_for [post, @comment] do |f| %>
                <div class="form_style">
                 <div class="form_content">
