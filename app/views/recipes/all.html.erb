@@ -33,36 +33,35 @@
 <div class="recipe-column">
 
   <% @recipes.each do |recipe| %>
-    <div class="recipe-details">
+    <div class="recipe-card">
+      <%= link_to recipe_path(recipe.id) do %>
 
-      <div class="recipe-details-img">
-        <%= cl_image_tag recipe.photo.key%>
+      <div class="recipe-img-small" style="background-image: url('<%= cloudinary_url(recipe.photo.key) %>')">
+        &nbsp;
       </div>
 
-      <div class="recipe-info">
-
-        <div class="recipe-details title">
-        <%= link_to recipe.name, recipe_path(recipe.id) %>
-        </div>
-
-        <div class="recipe-details difficulty">
-          <%= recipe.difficulty %>
-        </div>
-
-        <!-- <div class="recipe-details like">
-          <%= link_to recipe_create_or_destroy_path(recipe), method: :post do  %>
-            <% if current_user.recipes.include?(recipe) %>
-              <i class="fas fa-heart"></i>
-            <% else %>
-              <i class="far fa-heart"></i>
-            <% end %>
+      <div class="recipe-card-text-small">
+        <h2 class="recipe-name-small"><%= recipe.name %></h2>
+        <div class="recipe-difficulty-small">
+          <% if recipe.difficulty == "Easy" %>
+                  <i class="fas fa-utensil-spoon green"></i>
+                  <i class="fas fa-utensil-spoon"></i>
+                  <i class="fas fa-utensil-spoon"></i>
+                <% elsif recipe.difficulty == "More effort"%>
+                  <i class="fas fa-utensil-spoon green"></i>
+                  <i class="fas fa-utensil-spoon green"></i>
+                  <i class="fas fa-utensil-spoon"></i>
+                <% else %>
+                  <i class="fas fa-utensil-spoon"></i>
+                  <i class="fas fa-utensil-spoon"></i>
+                  <i class="fas fa-utensil-spoon"></i>
           <% end %>
-        </div> -->
-
+        </div>
       </div>
-
-    </div>
+      <% end %>
+  </div>
   <% end %>
+
 </div>
 
 </div>
