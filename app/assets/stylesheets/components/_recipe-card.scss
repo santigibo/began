@@ -1,10 +1,9 @@
   .recipe-card {
     width: 100%;
-    height:200px;
     margin: 20px auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
     color: black;
@@ -13,9 +12,9 @@
     position: relative;
   }
 
- .recipe-img.small {
+ .recipe-img-small {
     width: 100%;
-    height:200px;
+    height:130px;
     border-radius: 25px 25px 0 0;
     background-size: cover;
     background-position: center;
@@ -25,24 +24,13 @@
     margin-top: 50px;
   }
 
-.recipe-card-text.small {
+.recipe-card-text-small {
+  width:100%;
   padding: 10px 5px;
+  word-wrap: break-word;
 }
 
-.recipe-name.small {
+.recipe-name-small {
   font-size: 18px;
   font-weight: normal;
-}
-
-.recipe-difficulty.small {
-  font-size: 18px;
-  font-weight: normal;
-}
-
-.fa-utensil-spoon.green {
-  color: #3FCCC4;
-}
-
-.fa-utensil-spoon {
-  color: #C4C4C4;
 }

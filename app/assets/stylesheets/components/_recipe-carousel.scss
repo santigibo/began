@@ -53,16 +53,14 @@ mark {
 
 h2.recipe-name {
   font-size: 20px;
-  font-weight: thin;
+  font-weight: normal;
 }
 
-
-.fa-utensil-spoon.green {
-  color: #3FCCC4;
-}
-
-.fa-utensil-spoon {
+.carousel-item.active.active i.fa-utensil-spoon {
   color: #C4C4C4;
 }
 
+.carousel-item.active.active i.fa-utensil-spoon.green {
+  color: #3FCCC4;
+}
 
