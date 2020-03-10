@@ -1,0 +1,52 @@
+.simple-calendar {
+  th { color: black }
+
+  .day {
+    margin: 4px;
+    text-align: center;
+
+    .no-mark-day {
+      border: 2px solid transparent;
+      border-radius: 50%;
+    }
+
+    .done {
+      border: 2px solid green;
+      border-radius: 50%;
+      background-color: green;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
+    .not-done {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: red;
+    }
+  }
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {}
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {
+    opacity: 0.3;
+  }
+  .next-month { }
+  .current-month {}
+
+  .has-events {}
+}

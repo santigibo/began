@@ -1,6 +1,7 @@
 require 'open-uri'
 require 'nokogiri'
 
+NoMeatDay.destroy_all
 QuestionCompletion.destroy_all
 Question.destroy_all
 Answer.destroy_all
