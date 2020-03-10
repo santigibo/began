@@ -28,9 +28,8 @@
 <div class="recipe-column">
 
   <% @recipes.each do |recipe| %>
-    <div class="recipe-details">
-
-      <div class="recipe-details-img">
+    <div class="recipe-card">
+      <!-- <div class="recipe-details-img">
         <%= cl_image_tag recipe.photo.key%>
       </div>
 
@@ -42,7 +41,28 @@
 
         <div class="recipe-details difficulty">
           <%= recipe.difficulty %>
-        </div>
+        </div> -->
+
+
+      <div class="recipe-img small" style="background-image: url('<%= cloudinary_url(recipe.photo.key) %>')">
+        &nbsp;
+      </div>
+
+      <div class="recipe-card-text small">
+        <h2 class="recipe-name small"><%= recipe.name %></h2>
+        <h3 class="recipe-difficulty small">
+          <% if recipe.difficulty == "Easy" %>
+            <i class="fas fa-utensil-spoon green"></i>
+            <i class="fas fa-utensil-spoon"></i>
+            <i class="fas fa-utensil-spoon"></i>
+            <% else %>
+           <i class="fas fa-utensil-spoon"></i>
+           <i class="fas fa-utensil-spoon"></i>
+           <i class="fas fa-utensil-spoon"></i>
+           <% end %>
+        </h3>
+      </div>
+
 
         <!-- <div class="recipe-details like">
           <%= link_to recipe_create_or_destroy_path(recipe), method: :post do  %>
@@ -54,10 +74,9 @@
           <% end %>
         </div> -->
 
-      </div>
-
-    </div>
+  </div>
   <% end %>
+
 </div>
 
 </div>
