@@ -10,9 +10,14 @@
   }
 }
 
+.post_partie {
+  margin: 50px 0;
+}
+
 .form_style {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   .form_content {
     flex-grow: 1;
