@@ -6,14 +6,15 @@ class PagesController < ApplicationController
   end
 
   def meat_counter
-
+    @no_meat_days = NoMeatDay.all.select { |nmd| nmd.user == current_user }
   end
 
   def add_one
     current_user.update(no_meat_counter: current_user.no_meat_counter += 1)
+    NoMeatDay.create(user: current_user)
     @count = current_user.no_meat_counter
     respond_to do |format|
-      format.html { no_meat_counter_path }
+      format.html { meat_counter_path }
       format.js  # <-- will render `app/views/reviews/create.js.erb`
     end
   end

@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :challenge_completions, dependent: :destroy
   has_many :challenges, through: :challenge_completions
 
+  has_many :no_meat_days
+
   belongs_to :category, optional: true
   # validates :categories, length: { minimum: 0, maximum: 1 }
 
