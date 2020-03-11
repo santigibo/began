@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   def create
+    @posts = Post.all
     @post = Post.find(params[:post_id])
     @comment = Comment.new(safe_params)
     @comment.post = @post
@@ -7,7 +8,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to posts_path
     else
-      render :index
+      render "posts/index"
     end
   end
 
