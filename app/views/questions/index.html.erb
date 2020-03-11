@@ -39,11 +39,8 @@
             <% end %>
               <%= answer.explanation %>
               <% if q_index + 1 == @questions.all.length %>
-                <%# if @questions.all? { |question| question.users.include?(current_user) } || current_user.challenges.include?(@challenge) %>
                 <%= link_to 'Finish', challenge_challenge_completions_path(@challenge), method: :post, class: "button-default d-none", id: 'real-finish' %>
-                <%# else %>
                 <p id="fake-finish">finish</p>
-                <%# end %>
               <% else %>
                 <a href="#<%= q_index + 1 %>-question">Next</a>
               <% end %>
@@ -68,6 +65,3 @@
   </div>
 </div>
 
-<div>
-  <%= link_to "Go back to the challenge", challenge_path(@challenge) %>
-</div>
