@@ -15,9 +15,6 @@
 
 <%= month_calendar do |date| %>
   <% no_meat_day = @no_meat_days.detect { |nmd| nmd.created_at.to_date == date } %>
-  <% if date == Date.current %>
-    <%# raise %>
-  <% end %>
   <% if no_meat_day.nil? %>
     <% if date == Time.now.to_date %>
       <%= link_to add_one_path, method: :post, remote: true, class: 'mark-day' do  %>
