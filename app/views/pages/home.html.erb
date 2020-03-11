@@ -10,46 +10,43 @@
   </div>
 
 
-<div class="progress-card">
-  <div class="percent">
-    <svg id="ring">
-      <circle cx="70" cy="70" r="60"></circle>
-      <circle style="
-        stroke-dasharray: calc(440 * <%= @percentage %>) calc(440 * <%= 1 - @percentage %>);
-        stroke-dashoffset: 153;"
-        cx="70" cy="70" r="60"></circle>
-    </svg>
+  <div class="progress-card">
+    <div class="percent">
+      <svg id="ring">
+        <circle cx="70" cy="70" r="60"></circle>
+        <circle style="
+          stroke-dasharray: calc(440 * <%= @percentage %>) calc(440 * <%= 1 - @percentage %>);
+          stroke-dashoffset: 153;"
+          cx="70" cy="70" r="60"></circle>
+      </svg>
+    </div>
+
+    <div class="progress-text">
+      <p class="number-days"><%= pluralize(@days_without_meat_month, "DAY").upcase %></p>
+      <p class="without-meat">without meat</p>
+    </div>
   </div>
-
-  <div class="progress-text">
-    <p class="number-days"><%= pluralize(@days_without_meat_month, "DAY").upcase %></p>
-    <p class="without-meat">without meat</p>
-  </div>
-</div>
-
-
-
 
 
   <div class="cards-button">
 
     <div class="card-button pink">
-      <div class="card-button-text">
-
         <% if @user.category_id.nil? %>
           <%= link_to choose_category_path do %>
-            <p>Choose your
-            <br><span>GOAL</span>
-            </p>
+            <div class="card-button-text">
+              <p>Choose your
+              <br><span>GOAL</span>
+              </p>
+            </div>
           <% end %>
         <% else %>
           <%= link_to category_path(@user.category_id) do %>
-            <p>Your game is <br>
-            <span style="font-size:20px"><%= @user.category.name.upcase %></span></p>
+            <div class="card-button-text">
+              <p>Your game is <br>
+              <span style="font-size:20px"><%= @user.category.name.upcase %></span></p>
+            </div>
           <% end %>
         <% end %>
-
-      </div>
     </div>
 
 
