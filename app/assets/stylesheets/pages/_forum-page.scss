@@ -1,23 +1,33 @@
 .all_forum_page {
-  margin: 20px 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 75vh;
 
   .post_part {
+    margin: 10px;
     flex-grow: 1;
     margin-bottom: 50px;
   }
+
+  .form_part {
+    background-color: $pink;
+    padding-bottom: 100px;
+    padding-top: 20px;
+  }
 }
 
+
 .post_partie {
-  margin: 50px 0;
+  margin: 20px 0;
+  border: 1px solid rgb(235,235,235);
+  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
 }
 
 .form_style {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
 
   .form_content {
     flex-grow: 1;
@@ -31,10 +41,11 @@
 }
 
 .comment_part {
-  margin-left: 10%;
-  margin-right: 10px;
+  margin: 10px;
   padding-left: 5px;
-  border-left: solid 2px gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   #comment_form {
     margin-top: 10px;

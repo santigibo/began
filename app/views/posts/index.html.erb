@@ -15,12 +15,6 @@
 
 <div class="all_forum_page">
   <div class="post_part">
-    <p><strong>
-      Wright your feeling, sensation, appreciation
-      <br>
-      Share your advices to the others...
-    </strong></p>
-
     <% if @posts.empty? %>
       <p>No posts for now... be the first to share something with the community !</p>
     <% else %>
@@ -29,7 +23,7 @@
           <p class="post_content">
             <span style="font-size: small; color: gray;"><%= post.created_at.strftime("%d-%m") %></span>
             <%= post.content %>
-            <span style="color: gray">~ <%= post.user.fullname %></span>
+            <span style="color: gray">~ <%= post.user.first_name %></span>
 
             <i class="fas fa-comments"></i><span>(<%= post.comments.count %>)</span>
 
@@ -43,7 +37,7 @@
             <div class="comments_display d-none">
               <% post.comments.each do |comment| %>
                 <div>
-                  <%= comment.content %> - <span style="color: gray"><%= comment.user.fullname %></span>
+                  <%= comment.content %> - <span style="color: gray"><%= comment.user.first_name %></span>
                 </div>
               <% end %>
             </div>
@@ -52,7 +46,7 @@
               <%= simple_form_for [post, @comment] do |f| %>
                <div class="form_style">
                 <div class="form_content">
-                 <%= f.input :content, label: false, placeholder: 'Content' %>
+                  <p><%= f.input :content, label: false, placeholder: 'Add a new comment !' %></p>
                 </div>
                 <%= button_tag(type: 'submit', class: "send_btn") do %>
                   <i class="fas fa-arrow-circle-up"></i>
@@ -68,12 +62,11 @@
   </div>
 
   <div class="form_part">
-    <p>Add a post !</p>
     <div class="post_form">
       <%= simple_form_for (@post) do |f| %>
         <div class="form_style">
           <div class="form_content">
-            <%= f.input :content, label: false, placeholder: 'Content' %>
+            <%= f.input :content, label: false, placeholder: 'Add a new post !' %>
           </div>
           <%= button_tag(type: 'submit', class: "send_btn") do %>
             <i class="fas fa-arrow-circle-up"></i>
