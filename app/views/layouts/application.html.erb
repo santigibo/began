@@ -12,7 +12,7 @@
   <body>
     <%= yield %>
 
-    <% unless current_user.nil? %>
+    <% unless current_user.nil? || request.env['PATH_INFO'] == root_path %>
     <div class="footer">
       <%=  render 'shared/footer' %>
     </div>

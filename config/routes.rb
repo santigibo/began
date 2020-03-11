@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
+  get '/landingpage', to: 'pages#landingpage', as: :landingpage
+  get '/homepage', to: 'pages#home', as: :homepage
+  root to: 'pages#landingpage'
 
   get '/meat_counter', to: 'pages#meat_counter', as: :meat_counter
   get '/cookbook', to: 'pages#cookbook', as: :cookbook

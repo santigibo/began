@@ -6,7 +6,7 @@ h2.recipe-title {
 }
 
 
-.recipe-img-large img{
+.recipe-img-large img {
   border-radius: 25px;
 }
 
@@ -25,8 +25,11 @@ h2.recipe-title {
 
 .recipe-difficulty {
   margin-right: 15px;
-  padding-right: 15px;
-  border-right: 1px solid #ccc;
+}
+
+.recipe-time {
+  border-left: 1px solid #ccc;
+  padding-left: 15px;
 }
 
 .fa-stopwatch, .fa-heart, .fa-utensil-spoon.yellow {

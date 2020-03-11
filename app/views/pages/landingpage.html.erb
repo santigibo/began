@@ -1,0 +1,58 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1540914124281-342587941389?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80);">
+  <div class="landing_page_container">
+    <h1>Began, the app to start being vegan </h1>
+    <p>Trust the process</p>
+    <% if current_user.nil? %>
+      <%= link_to 'Log in', new_user_session_path, class: "btn btn-success" %>
+    <% else %>
+      <%= link_to 'Log in', homepage_path, class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="landing_page_container">
+  <div class="content_section">
+    <div class="img_section">
+      <img src="https://file.mockplus.com/image/2018/08/35954039-9a83-418d-ae40-15736c7e7774.png" alt="">
+    </div>
+
+    <div class="category_text_section">
+      <h4>We guide you depending on the goal you choose</h4>
+      <p>Three tips of goals</p>
+      <ul>
+        <li>Flexitarian</li>
+        <li>Vegetarian</li>
+        <li>Vegan</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content_section">
+
+    <div class="img_section">
+      <img src="https://file.mockplus.com/image/2018/08/35954039-9a83-418d-ae40-15736c7e7774.png" alt="">
+    </div>
+
+    <div class="recipe_text_section">
+      <h4>Access to all our recipes</h4>
+      <p>Find wonderfull recipes to help you on your diet</p>
+      <ul>
+        <li>Time prep</li>
+        <li>difficulty</li>
+        <li>ingredients</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content_section">
+    <div class="img_section">
+      <img src="https://file.mockplus.com/image/2018/08/35954039-9a83-418d-ae40-15736c7e7774.png" alt="">
+    </div>
+
+    <div class="community_text_section">
+      <h4>Share it with our community !</h4>
+      <p>Share your feeling and progress with people in the app</p>
+    </div>
+  </div>
+
+</div>

@@ -36,9 +36,7 @@
     <div class="recipe-card">
       <%= link_to recipe_path(recipe.id) do %>
 
-      <div class="recipe-img-small" style="background-image: url('<%= cloudinary_url(recipe.photo.key) %>')">
-        &nbsp;
-      </div>
+      <%= cl_image_tag recipe.photo.key, class: "recipe-img-small", alt: "alttext" %>
 
       <div class="recipe-card-text-small">
         <h2 class="recipe-name-small"><%= recipe.name %></h2>
