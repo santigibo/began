@@ -2,12 +2,16 @@
   <div class="landing_page_container">
     <h1>Began, the app to start being vegan </h1>
     <p>Trust the process</p>
-    <%= link_to 'Log in', new_user_session_path, class: "btn btn-success" %>
+    <% if current_user.nil? %>
+      <%= link_to 'Log in', new_user_session_path, class: "btn btn-success" %>
+    <% else %>
+      <%= link_to 'Log in', homepage_path, class: "btn btn-success" %>
+    <% end %>
   </div>
 </div>
 
 <div class="landing_page_container">
-  <div class="flex_landingpage">
+  <div class="content_section">
     <div class="img_section">
       <img src="https://file.mockplus.com/image/2018/08/35954039-9a83-418d-ae40-15736c7e7774.png" alt="">
     </div>
@@ -23,7 +27,7 @@
     </div>
   </div>
 
-  <div class="flex_landingpage">
+  <div class="content_section">
 
     <div class="img_section">
       <img src="https://file.mockplus.com/image/2018/08/35954039-9a83-418d-ae40-15736c7e7774.png" alt="">
@@ -40,7 +44,7 @@
     </div>
   </div>
 
-  <div class="flex_landingpage">
+  <div class="content_section">
     <div class="img_section">
       <img src="https://file.mockplus.com/image/2018/08/35954039-9a83-418d-ae40-15736c7e7774.png" alt="">
     </div>

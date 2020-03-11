@@ -21,7 +21,7 @@
       <% if user_signed_in? %>
       <div class="footer-icon-section">
         <li class="footer-nav-item <%= params[:action] == 'home' ? 'active' : '' %> ">
-          <%= link_to root_path  do %>
+          <%= link_to homepage_path  do %>
           <div class="nav-element">
             <i class="fas fa-home"></i>
             <p class="footer-nav-text">Dashboard</p>
