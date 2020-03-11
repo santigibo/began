@@ -98,7 +98,13 @@ puts "--------------------------------------------------------------------------
 
 
 puts "Create 4 users"
-User.create({first_name: 'Santiago', last_name: 'Giraldo', age: 20, email:'santi@web.com', password: '123456'})
+first_u = User.create({first_name: 'Santiago', last_name: 'Giraldo', age: 20, email:'santi@web.com', password: '123456'})
+4.times do |n|
+  nmd = NoMeatDay.create(user: first_u)
+  nmd.created_at = Time.new(2020, 03, 6 + n)
+  nmd.save
+end
+
 User.create({first_name: 'Vicky', last_name: 'Andre', age: 20, email:'vicky@web.com', password: '123456'})
 User.create({first_name: 'Katell', last_name: 'Goaer', age: 20, email:'katell@web.com', password: '123456'})
 User.create({first_name: 'Félix', last_name: 'Timmel', age: 23, email:'felix@web.com', password: '123456'})
