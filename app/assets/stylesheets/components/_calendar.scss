@@ -1,16 +1,25 @@
 .simple-calendar {
   th { color: black }
 
+  td { padding: 8px; }
+
   .day {
-    margin: 4px;
+    margin: 0;
     text-align: center;
 
-    .no-mark-day {
+    .no-mark-day, .mark-day {
       border: 2px solid transparent;
       border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .done {
+      width: 32px;
+      height: 32px;
       border: 2px solid green;
       border-radius: 50%;
       background-color: green;
@@ -21,6 +30,8 @@
     }
 
     .not-done {
+      width: 32px;
+      height: 32px;
       display: flex;
       justify-content: center;
       align-items: center;
