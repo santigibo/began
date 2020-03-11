@@ -12,17 +12,17 @@
 
 <div class="progress-card">
   <div class="percent">
-    <svg>
+    <svg id="ring">
       <circle cx="70" cy="70" r="60"></circle>
       <circle style="
         stroke-dasharray: calc(440 * <%= @percentage %>) calc(440 * <%= 1 - @percentage %>);
-        stroke-dashoffset: 153;
-      "cx="70" cy="70" r="60"></circle>
+        stroke-dashoffset: 153;"
+        cx="70" cy="70" r="60"></circle>
     </svg>
   </div>
 
   <div class="progress-text">
-    <p class="number-days"><%= pluralize(@days_without_meat_month, "DAY") %></p>
+    <p class="number-days"><%= pluralize(@days_without_meat_month, "DAY").upcase %></p>
     <p class="without-meat">without meat</p>
   </div>
 </div>
