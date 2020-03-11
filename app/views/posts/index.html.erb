@@ -20,21 +20,30 @@
     <% else %>
       <% @posts.each do |post| %>
         <div class="post_partie" id='post-<%= post.id %>'>
-          <p class="post_content">
-            <span style="font-size: small; color: gray;"><%= post.created_at.strftime("%d-%m") %></span>
-            <%= post.content %>
-            <span style="color: gray">~ <%= post.user.first_name %></span>
 
-            <i class="fas fa-comments"></i><span>(<%= post.comments.count %>)</span>
+          <div class="post_content">
+            <div class="name_part">
+              <span style="color: gray"> <%= post.user.first_name %></span>
+            </div>
+            <div class="content_part">
+              <p><span style="font-size: small; color: gray;"><%= post.created_at.strftime("%d-%m") %></span></p>
+              <p><%= post.content %></p>
+            </div>
+            <div class="icon_part">
+              <p><i class="fas fa-comments"></i><span>(<%= post.comments.count %>)</span></p>
+              <p>
+                <% if post.user == current_user %>
+                  <%= link_to post_path(post), method: :delete do %>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %>
+                <% end %>
+              </p>
+            </div>
 
-            <% if post.user == current_user %>
-              <%= link_to post_path(post), method: :delete do %>
-                <i class="fas fa-trash-alt"></i>
-              <% end %>
-            <% end %>
-          </p>
-          <div class="comment_part">
-            <div class="comments_display d-none">
+
+          </div>
+          <div class="comment_part  d-none">
+            <div class="comments_display">
               <% post.comments.each do |comment| %>
                 <div>
                   <%= comment.content %> - <span style="color: gray"><%= comment.user.first_name %></span>
@@ -42,7 +51,7 @@
               <% end %>
             </div>
 
-            <div class="comment_form d-none">
+            <div class="comment_form">
               <%= simple_form_for [post, @comment] do |f| %>
                <div class="form_style">
                 <div class="form_content">
