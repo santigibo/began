@@ -60,31 +60,28 @@
 
   <% if @challenge.is_quizz %>
 
-    <div class="quizz-box">
-  <% @questions.each_with_index do |question, q_index| %>
-    <p id="<%= q_index %>-question"><strong><%= question.content %></strong></p>
-    <div class="border-question"></div>
+  <div class="quizz-box">
+    <% @questions.each_with_index do |question, q_index| %>
+      <p id="<%= q_index %>-question"><strong><%= question.content %></strong></p>
+      <div class="border-question"></div>
       <% question.answers.each do |answer| %>
         <% if answer.status %>
           <div class="answer">
-
-            <div class="form-check">
-              <input class="form-check-input" type="radio" id="radio_box1" value="option1">
-              <label class="form-check-label" for="radio_box1">
-                <%= link_to answer.content, question_question_completions_path(question), method: :post, remote: true, class: 'answer-option'%>
-              </label>
-
-            </div>
+            <p>
+              <%= link_to question_question_completions_path(question), method: :post, remote: true, class: 'answer-option' do%>
+                <i class="far fa-square"></i>
+              <% end %>
+              <%= answer.content %>
+            </p>
 
 
-            <% if current_user.challenges.include?(question.challenge) %>
-              <div class="explanation">
-            <% else %>
-              <div class="explanation d-none">
-            <% end %>
+          <% if current_user.challenges.include?(question.challenge) %>
+            <div class="explanation">
+          <% else %>
+            <div class="explanation d-none">
+          <% end %>
               <%= answer.explanation %>
               <% if q_index + 1 == @questions.all.length %>
-                <%# if @questions.all? { |question| question.users.include?(current_user) } || current_user.challenges.include?(@challenge) %>
                 <%= link_to 'Finish', challenge_challenge_completions_path(@challenge), method: :post, class: "button-default d-none", id: 'real-finish' %>
                 <%# else %>
                 <p id="fake-finish">finish</p>
@@ -94,13 +91,13 @@
               <% end %>
             </div>
           </div>
+
         <% else %>
           <div class="answer">
-            <div class="form-check">
-              <input class="form-check-input"  type="radio" id="radio_box2" value="option2">
-              <label class="form-check-label" for="radio_box2">
-              <a href="" class="answer-option"><%= answer.content %></a>
-            </div>
+            <p>
+              <i class="far fa-square"></i>
+              <%= answer.content %>
+            </p>
 
             <div class="explanation d-none">
               <%= answer.explanation %>
