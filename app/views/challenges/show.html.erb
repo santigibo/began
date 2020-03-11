@@ -18,12 +18,14 @@
 
   <h2 class="second-title"><%= @challenge.name.upcase %></h2>
 
+  <% unless @challenge.is_quizz %>
   <div class="challenge-description">
     <p><%= @challenge.description %></p>
   </div>
+  <% end %>
 
   <% unless @challenge.tips.empty? %>
-    <h2 class="challenge">Tips</h2>
+    <h2 class="second-title">Tips</h2>
 
     <div class="challenge-tips">
       <div class="accordion" id="accordionExample">
@@ -41,9 +43,8 @@
             </div>
 
             <div id="collapse<%= index %>" class="collapse tip-info" aria-labelledby="headingOne" data-parent="#accordionExample">
-              <div class="card-body">
+              <div class="explanation">
                 <%= tip.description %>
-                <!-- Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. -->
               </div>
             </div>
           </div>
@@ -56,28 +57,80 @@
 
   <div class="challenge-links">
 
-  <!-- <div class="challenge-link">
-  </div> -->
+
   <% if @challenge.is_quizz %>
-    <div class="challenge-link">
-      <%= link_to "Quizz", challenge_questions_path(@challenge.id), class: "button-default"  %>
-    </div>
-  <% else %>
-    <div class="challenge-link">
-      <% unless @challenge.recipes.empty? %>
-        <%= link_to "Recipes", challenge_recipes_path(@challenge.id), class: "button-default"  %>
+
+    <div class="quizz-box">
+  <% @questions.each_with_index do |question, q_index| %>
+    <p id="<%= q_index %>-question"><strong><%= question.content %></strong></p>
+    <div class="border-question"></div>
+      <% question.answers.each do |answer| %>
+        <% if answer.status %>
+          <div class="answer">
+
+            <div class="form-check">
+              <input class="form-check-input" type="radio" id="radio_box1" value="option1">
+              <label class="form-check-label" for="radio_box1">
+                <%= link_to answer.content, question_question_completions_path(question), method: :post, remote: true, class: 'answer-option'%>
+              </label>
+
+            </div>
+
+
+            <% if current_user.challenges.include?(question.challenge) %>
+              <div class="explanation">
+            <% else %>
+              <div class="explanation d-none">
+            <% end %>
+              <%= answer.explanation %>
+              <% if q_index + 1 == @questions.all.length %>
+                <%# if @questions.all? { |question| question.users.include?(current_user) } || current_user.challenges.include?(@challenge) %>
+                <%= link_to 'Finish', challenge_challenge_completions_path(@challenge), method: :post, class: "button-default d-none", id: 'real-finish' %>
+                <%# else %>
+                <p id="fake-finish">finish</p>
+                <%# end %>
+              <% else %>
+                <!-- <a href="#<%= q_index + 1 %>-question">Next</a> -->
+              <% end %>
+            </div>
+          </div>
+        <% else %>
+          <div class="answer">
+            <div class="form-check">
+              <input class="form-check-input"  type="radio" id="radio_box2" value="option2">
+              <label class="form-check-label" for="radio_box2">
+              <a href="" class="answer-option"><%= answer.content %></a>
+            </div>
+
+            <div class="explanation d-none">
+              <%= answer.explanation %>
+            </div>
+          </div>
+        <% end %>
       <% end %>
-      <%= link_to 'Complete', challenge_challenge_completions_path(@challenge), method: :post, class: "button-default" %>
+      <hr>
+  <% end %>
+  </div>
+</div>
+
+<div>
+  <%= link_to "Go back to the challenge", challenge_path(@challenge) %>
+</div>
+
+<% else %>
+
+<div class="challenge-link">
+      <% unless @challenge.recipes.empty? %>
+      <div class="challenge-link">
+        <%= link_to "Recipes", challenge_recipes_path(@challenge.id), class: "button-default"  %>
+      </div>
+      <% end %>
+      <div class="challenge-link">
+      <%= link_to 'Complete', challenge_challenge_completions_path(@challenge), method: :post, class: "button-complete" %>
     </div>
   <% end %>
+</div>
 
-  <!-- <div class="challenge-link">
-  <% if @challenge.questions.all? { |question| current_user.questions.include?(question)} %>
-      <%= link_to 'Mark as done', challenge_challenge_completions_path(@challenge), method: :post,  class:"button-complete"  %>
-    <% else %>
-      <p>Please complete the quizz</p>
-    <% end %>
-   </div> -->
 </div>
 
 </div>

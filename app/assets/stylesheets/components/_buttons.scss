@@ -14,7 +14,7 @@
 .button-complete {
   display: block;
   width:150px;
-  background-color: #c4c4c4;
+  background-color: $green;
   box-sizing: border-box;
   padding: 20px;
   border-radius: 25px;
@@ -30,12 +30,18 @@
   background-color: white;
   border: none;
   padding: 0;
+
   button {
     color: black;
-    font-weight: bold;
+    font-weight: normal;
+    font-size: 18px;
     &:hover {
       text-decoration: none;
       color: black;
     }
   }
+  .fa-angle-down:before {
+  padding-right: 10px;
 }
+}
+
