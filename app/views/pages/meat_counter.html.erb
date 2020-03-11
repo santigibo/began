@@ -13,33 +13,48 @@
   </div>
 </div>
 
-<%= month_calendar do |date| %>
-  <% no_meat_day = @no_meat_days.detect { |nmd| nmd.created_at.to_date == date } %>
-  <% if no_meat_day.nil? %>
-    <% if date == Time.now.to_date %>
-      <%= link_to add_one_path, method: :post, remote: true, class: 'mark-day' do  %>
+<div class="container">
+
+<div class="calendar-text">
+  <h2 class="third-title"><mark></mark>MARK YOUR PROGRESS</h2>
+  <p>Be proud of yourself ! <br> Keep track of your meat-free days with your personal calendar </p>
+</div>
+    <%= month_calendar do |date| %>
+      <% no_meat_day = @no_meat_days.detect { |nmd| nmd.created_at.to_date == date } %>
+
+      <% if no_meat_day.nil? %>
+
+        <% if date == Time.now.to_date %>
+          <%= link_to add_one_path, method: :post, remote: true, class: 'mark-day' do  %>
+              <%= date.day %>
+          <% end %>
+
+        <% elsif date < Time.now.to_date %>
+          <div class="not-done">
+            <%= date.day %>
+          </div>
+
+        <% else %>
+          <div class="no-mark-day">
+            <%= date.day %>
+          </div>
+
+        <% end %>
+
+      <% else %>
+        <div class="done">
           <%= date.day %>
+        </div>
       <% end %>
-    <% elsif date < Time.now.to_date %>
-      <div class="not-done">
-        <%= date.day %>
-      </div>
-    <% else %>
-      <div class="no-mark-day">
-        <%= date.day %>
-      </div>
     <% end %>
-  <% else %>
-    <div class="done">
-      <%= date.day %>
-    </div>
-  <% end %>
-<% end %>
+
+
+</div>
 
 <script>
-  const div = document.querySelector('.mark-day');
+    const div = document.querySelector('.mark-day');
 
-  div.addEventListener('click', (event) => {
-    event.currentTarget.classList.add('done');
-  });
+    div.addEventListener('click', (event) => {
+      event.currentTarget.classList.add('done');
+    });
 </script>
