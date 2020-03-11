@@ -44,7 +44,11 @@
           <span class="color-box pink"></span>
         <% end %>
 
-        <span class="white-box"></span>
+        <% if is_first || is_done || before_done %>
+          <%= link_to "", challenge_path(challenge.id), class: "white-box" %>
+        <% else %>
+          <span class="white-box"></span>
+        <% end %>
 
         <div class="challenge-text">
           <% if is_first || is_done || before_done %>
