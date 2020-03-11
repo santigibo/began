@@ -3,6 +3,9 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:landingpage]
 
   def landingpage
+    unless current_user.nil?
+      redirect_to homepage_path
+    end
   end
 
   def home
