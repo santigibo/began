@@ -66,7 +66,7 @@ def scratch_top6(ingredient)
       href = element.search(".teaser-item__title a").attribute('href').value
       reci_url = "https://www.bbcgoodfood.com#{href}"
 
-      p r = scrape_from(reci_url)
+      r = scrape_from(reci_url)
 
       unless r.nil?
         search_result << r
@@ -103,21 +103,10 @@ puts "--------------------------------------------------------------------------
 
 
 puts "Create 4 users"
-u1 = User.create({first_name: 'Santiago', last_name: 'Giraldo', email:'santi@web.com', password: '123456'})
-4.times do |n|
-  nmd = NoMeatDay.create(user: u1)
-  nmd.created_at = DateTime.new(2020, 03, 6 + n)
-  nmd.save
-end
-
+User.create({first_name: 'Santiago', last_name: 'Giraldo', email:'santi@web.com', password: '123456'})
 User.create({first_name: 'Vicky', last_name: 'Andre', email:'vicky@web.com', password: '123456'})
 User.create({first_name: 'Katell', last_name: 'Goaer', email:'katell@web.com', password: '123456'})
-u2 = User.create({first_name: 'Félix', last_name: 'Timmel', email:'felix@web.com', password: '123456'})
-4.times do |n|
-  nmd = NoMeatDay.create(user: u2)
-  nmd.created_at = DateTime.new(2020, 03, 6 + n)
-  nmd.save
-end
+User.create({first_name: 'Félix', last_name: 'Timmel', email:'felix@web.com', password: '123456'})
 
 puts "-------------------------------------------------------------------------------------------------------------------"
 
