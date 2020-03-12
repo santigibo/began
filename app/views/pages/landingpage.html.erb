@@ -1,58 +1,57 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1540914124281-342587941389?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80);">
-  <div class="landing_page_container">
-    <h1>Began, the app to start being vegan </h1>
-    <p>Trust the process</p>
-    <% if current_user.nil? %>
-      <%= link_to 'Log in', new_user_session_path, class: "btn btn-success" %>
-    <% else %>
-      <%= link_to 'Log in', homepage_path, class: "btn btn-success" %>
-    <% end %>
+<div class="topbar landing">
+  <%= image_tag("began-logo.png", alt: "Began logo", class: "logo") %>
+</div>
+
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://images.unsplash.com/photo-1540914124281-342587941389?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80);">
+  <div class="landing-page-container">
+    <h1>The app to become vegan </h1>
+
+    <%= link_to 'Get started', new_user_registration_path, class: "signup-btn" %>
+
+    <p class="sign-up">Already have an account? <%= link_to 'Log In', new_user_session_path %></p>
   </div>
 </div>
 
-<div class="landing_page_container">
-  <div class="content_section">
-    <div class="img_section">
-      <img src="https://file.mockplus.com/image/2018/08/35954039-9a83-418d-ae40-15736c7e7774.png" alt="">
+
+<div class="landing-page-container">
+
+  <div class="content-section">
+    <div class="text-section">
+      <h2>Choose your goal!</h2>
+      <p>follow the path and complete challenges</p>
     </div>
 
-    <div class="category_text_section">
-      <h4>We guide you depending on the goal you choose</h4>
-      <p>Three tips of goals</p>
-      <ul>
-        <li>Flexitarian</li>
-        <li>Vegetarian</li>
-        <li>Vegan</li>
-      </ul>
+    <div class="img-section">
+      <%= image_tag("path-without-phone.png", alt: "Path", class: "landing-page-img") %>
     </div>
   </div>
 
-  <div class="content_section">
-
-    <div class="img_section">
-      <img src="https://file.mockplus.com/image/2018/08/35954039-9a83-418d-ae40-15736c7e7774.png" alt="">
+  <div class="content-section">
+    <div class="text-section">
+      <h2>Watch your progress!</h2>
+      <p>Keep track of your meat-free days</p>
     </div>
 
-    <div class="recipe_text_section">
-      <h4>Access to all our recipes</h4>
-      <p>Find wonderfull recipes to help you on your diet</p>
-      <ul>
-        <li>Time prep</li>
-        <li>difficulty</li>
-        <li>ingredients</li>
-      </ul>
+    <div class="img-section">
+      <%= image_tag("dashboard-without-phone.png", alt: "Dashboard", class: "landing-page-img") %>
     </div>
   </div>
 
-  <div class="content_section">
-    <div class="img_section">
-      <img src="https://file.mockplus.com/image/2018/08/35954039-9a83-418d-ae40-15736c7e7774.png" alt="">
+  <div class="content-section">
+    <div class="text-section">
+      <h2>Build your own cookbook!</h2>
+      <p>Browse our recipes to help you on your adventure</p>
     </div>
 
-    <div class="community_text_section">
-      <h4>Share it with our community !</h4>
-      <p>Share your feeling and progress with people in the app</p>
+    <div class="img-section">
+      <%= image_tag("cookbook-without-phone.png", alt: "Cookbook", class: "landing-page-img") %>
     </div>
   </div>
+</div>
 
+<div class="landing-page-footer">
+      <p><a class="social" href="#"><i class="fab fa-facebook"></i></a></p>
+      <p><a class="social" href="#"><i class="fab fa-linkedin"></i></a></p>
+      <p><a class="social" href="#"><i class="fab fa-twitter"></i></a></p>
 </div>
