@@ -12,6 +12,7 @@
 
   td {
     padding: 1px;
+    width: 25px;
 
     div, a {
       width: 25px;
@@ -19,15 +20,19 @@
       margin: 0 auto;
     }
   }
+}
 
-  }
 
-  .day {
+.table {
+  table-layout: fixed;
+}
+
+.day {
     margin: 0;
     text-align: center;
   }
 
-    .no-mark-day, .mark-day {
+.no-mark-day, .mark-day {
       border: 2px solid transparent;
       border-radius: 50%;
       width: 32px;
@@ -35,31 +40,33 @@
       display: flex;
       justify-content: center;
       align-items: center;
-    }
+}
 
-    .done {
-      border-radius: 4px;
-      background-color: $green;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      padding: 20px;
-    }
+.done {
+  border-radius: 4px;
+  background-color: $green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white !important;
+  padding: 20px;
+}
 
-    .not-done {
-      width: 32px;
-      height: 32px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #444;
-    }
+.not-done {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #444;
+}
 
 
 .calendar-heading span {
-  font-size: 30px;
+  font-size: 22px;
+  font-weight: 200;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .calendar-heading {
@@ -81,8 +88,6 @@
 .calendar-heading i {
   font-size: 18px;
 }
-
-
 
 .table-striped tbody tr:nth-of-type(odd) {
     background-color: white;
