@@ -7,6 +7,7 @@ class UserRecipesController < ApplicationController
       user_recipe.destroy
     else
       UserRecipe.create(user: current_user, recipe: recipe)
+      flash[:alert] = "Added to your cookbook"
     end
   end
 end
