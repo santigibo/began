@@ -5,7 +5,11 @@
     <% end %>
   </div>
 
-  <div class="topbar-title"><span class="my">MY</span> <%= @challenge.category.name.upcase %><span class="excla-mark">!</span></%></div>
+  <% if request.referrer.match(/all_recipes$/) %>
+    <div class="topbar-title"><span class="my">ALL</span> RECIPES</div>
+  <% else %>
+    <div class="topbar-title"><span class="my">MY</span> <%= @challenge.category.name.upcase %><span class="excla-mark">!</span></%></div>
+  <% end %>
 
   <div class="b-small-logo">
     <span class="logo-dot"></span>
@@ -15,12 +19,19 @@
 
 <div class="container">
   <h1 class="main-title">RECIPES</h1>
-  <h2 class="third-title"><mark></mark>Challenge <%= @challenge.id %></h2>
 
 <div class="recipe-page">
-  <h2 class="recipe-title"><%= @recipe.name.upcase%></h2>
+  <h2 class="recipe-title"><mark></mark><%= @recipe.name.upcase%></h2>
 
   <div class="recipe-img-large">
+    <div class="msg-hidden" id="add_recipe">
+      <p><i class="fas fa-check"></i></p>
+      <p>Added to your cookbook</p>
+    </div>
+    <div class="msg-hidden" id="remove_recipe">
+      <p><i class="fas fa-minus"></i></p>
+      <p>Removed from your cookbook</p>
+    </div>
     <%= cl_image_tag @recipe.photo.key %>
   </div>
 
