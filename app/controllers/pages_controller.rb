@@ -10,7 +10,7 @@ class PagesController < ApplicationController
 
   def home
     @user = current_user
-    list_month = NoMeatDay.all.select { |nmd| nmd.created_at.to_date.month == Date.current.month }
+    list_month = NoMeatDay.all.select { |nmd| nmd.created_at.to_date.month == Date.current.month && nmd.user == current_user }
     @days_without_meat_month = list_month.count
     num_of_days_month = Date.today.end_of_month.day.to_f
     fraction = @days_without_meat_month / num_of_days_month
