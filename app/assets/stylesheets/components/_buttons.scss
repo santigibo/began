@@ -23,13 +23,24 @@
 
 .button-complete {
   display: block;
-  width:150px;
+  width: 150px;
   background-color: $green;
   box-sizing: border-box;
   padding: 20px;
   border-radius: 25px;
   margin: 0 auto;
   color: white !important;
+}
+
+.login-signup-button {
+  display: block;
+  width: 325px;
+  height: 50px;
+  background-color: $green;
+  box-sizing: border-box;
+  border-radius: 13px;
+  color: white !important;
+  margin: 25px 0 20px 0;
 }
 
 .accordion-card {
@@ -52,6 +63,6 @@
   }
   .fa-angle-down:before {
   padding-right: 10px;
-}
+  }
 }
 
