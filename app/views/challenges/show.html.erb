@@ -19,9 +19,9 @@
   <h2 class="second-title"><%= @challenge.name.upcase %></h2>
 
   <% unless @challenge.is_quizz %>
-  <div class="challenge-description">
-    <p><%= @challenge.description %></p>
-  </div>
+    <div class="challenge-description">
+      <p><%= @challenge.description %></p>
+    </div>
   <% end %>
 
   <% unless @challenge.tips.empty? %>
@@ -114,24 +114,27 @@
 </div>
 
 
-<% else %>
+  <% else %>
 
-<div class="challenge-link">
+    <div class="challenge-link">
       <% unless @challenge.recipes.empty? %>
-      <div class="challenge-link">
-        <%= link_to "Recipes", challenge_recipes_path(@challenge.id), class: "button-default"  %>
-      </div>
+        <div class="challenge-link">
+          <%= link_to "Recipes", challenge_recipes_path(@challenge.id), class: "button-complete"  %>
+        </div>
       <% end %>
 
       <div class="challenge-link">
-        <p> Ready ? <br> Click on the carrot to continue</p>
-      <%= link_to challenge_challenge_completions_path(@challenge), method: :post, class: "button-tips"  do %>
-      <span id="icon-bounce"><i class="fas fa-carrot animated infinite bounce delay-2s"></i></span>
-      <% end %>
+        <% if current_user.challenges.include?(@challenge) %>
+          <p>Challenge already completed!</p>
+          <span class="leaf-complete"><i class="fas fa-seedling"></i></span>
+        <% else %>
+          <p> Done? <br> Click on the carrot to continue</p>
+          <%= link_to challenge_challenge_completions_path(@challenge), method: :post, class: "button-tips"  do %>
+            <span id="icon-bounce"><i class="fas fa-carrot animated infinite bounce delay-2s"></i></span>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   <% end %>
-</div>
-
-</div>
-
+  </div>
 </div>
