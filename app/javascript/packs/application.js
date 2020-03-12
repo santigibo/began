@@ -10,8 +10,11 @@ showExplanation();
 iconToggle();
 form_toggle();
 cookbook_card_toggle();
-post_form_toggle();
-dragg();
+
+if(window.location.pathname === '/posts'){
+  post_form_toggle();
+  dragg();
+};
 
 $('#diet-carousel').carousel({
   interval: false
