@@ -1,3 +1,7 @@
+<div class="topbar">
+  <%= image_tag("began-logo.png", alt: "Began logo", class: "logo") %>
+</div>
+
 <div class="container">
   <h2>Forgot your password?</h2>
 
@@ -12,12 +16,12 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Send me reset password instructions" %>
+      <%= f.button :submit, "Send me reset password instructions", class: "login-signup-button"%>
     </div>
   <% end %>
 
   <%= render "devise/shared/links" %>
 
 
-  <p style="color: #FA5F5F; text-align: center; font-size: 40px; margin-top: 40px;"><i class="fas fa-seedling"></i></p>
+  <p style="color: #FA5F5F; text-align: center; font-size: 40px; margin-top: 221px;"><i class="fas fa-seedling"></i></p>
 </div>
