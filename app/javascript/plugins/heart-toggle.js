@@ -9,14 +9,14 @@ const iconToggle = () => {
       const removed_notif = document.querySelector('#remove_recipe')
 
       if (icon.classList.contains('far')) {
-        removed_notif.classList.remove('d-none');
+        removed_notif.classList.add('add_notif');
         setTimeout(function(){
-          removed_notif.classList.add('d-none');
+          removed_notif.classList.remove('add_notif');
         }, 2500);
       } else {
-        added_notif.classList.remove('d-none');
+        added_notif.classList.add('add_notif');
         setTimeout(function(){
-          added_notif.classList.add('d-none');
+          added_notif.classList.remove('add_notif');
         }, 2500);
       }
     });
