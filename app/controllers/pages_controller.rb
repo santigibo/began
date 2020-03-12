@@ -24,7 +24,7 @@ class PagesController < ApplicationController
   def add_one
     NoMeatDay.create(user: current_user)
     number = NoMeatDay.all.select { |nmd| nmd.user == current_user}
-    current_user.update(no_meat_counter: number)
+    current_user.update(no_meat_counter: number.count)
     @count = current_user.no_meat_counter
     respond_to do |format|
       format.html { meat_counter_path }
