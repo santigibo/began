@@ -8,11 +8,20 @@
         </div>
       <% end %>
     <% else %>
-      <%= link_to category_path(current_user.category, anchor: current_user.challenges.last.position + 1) do %>
-        <div class="small-logo">
-          <span class="purple-circle"></span>
-          <span class="go">go</span>
-        </div>
+      <% if current_user.challenges.empty? %>
+        <%= link_to category_path(current_user.category) do %>
+          <div class="small-logo">
+            <span class="purple-circle"></span>
+            <span class="go">go</span>
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to category_path(current_user.category, anchor: current_user.challenges.last.position) do %>
+          <div class="small-logo">
+            <span class="purple-circle"></span>
+            <span class="go">go</span>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
 
