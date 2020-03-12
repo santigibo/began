@@ -116,7 +116,8 @@
       </div>
       <% end %>
       <div class="challenge-link">
-      <%= link_to 'Complete', challenge_challenge_completions_path(@challenge), method: :post, class: "button-complete" %>
+        <p> Ready ? </p>
+      <%= link_to 'Next', challenge_challenge_completions_path(@challenge), method: :post, class: "button-complete" %>
     </div>
   <% end %>
 </div>
