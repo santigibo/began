@@ -15,12 +15,9 @@
 
 <div class="container">
   <h1 class="main-title">RECIPES</h1>
-  <% unless @challenge.nil? %>
-    <h2 class="third-title"><mark></mark>Challenge <%= @challenge.position %></h2>
-  <% end %>
 
 <div class="recipe-page">
-  <h2 class="recipe-title"><%= @recipe.name.upcase%></h2>
+  <h2 class="recipe-title"><mark></mark><%= @recipe.name.upcase%></h2>
 
   <div class="recipe-img-large">
     <%= cl_image_tag @recipe.photo.key %>
