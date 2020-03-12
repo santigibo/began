@@ -28,7 +28,8 @@
             <div class="form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">
-                <%= link_to answer.content, question_question_completions_path(question), method: :post, remote: true, class: 'answer-option'%></label>
+                <%= link_to answer.content, question_question_completions_path(question), method: :post, remote: true, class: 'answer-option'%>
+              </label>
             </div>
 
 
@@ -52,6 +53,7 @@
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">
               <a href="" class="answer-option"><%= answer.content %></a>
+            </label>
             </div>
 
             <div class="explanation d-none">
