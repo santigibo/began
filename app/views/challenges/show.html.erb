@@ -115,9 +115,12 @@
         <%= link_to "Recipes", challenge_recipes_path(@challenge.id), class: "button-default"  %>
       </div>
       <% end %>
+
       <div class="challenge-link">
-        <p> Ready ? </p>
-      <%= link_to 'Next', challenge_challenge_completions_path(@challenge), method: :post, class: "button-complete" %>
+        <p> Ready ? <br> Click on the carrot to continue</p>
+      <%= link_to challenge_challenge_completions_path(@challenge), method: :post, class: "button-tips"  do %>
+      <span id="icon-bounce"><i class="fas fa-carrot animated infinite bounce delay-2s"></i></span>
+      <% end %>
     </div>
   <% end %>
 </div>
