@@ -15,13 +15,14 @@
 
 <div class="all_forum_page">
   <div class="post_part">
+    <div id="add_a_post">
+      <i class="fas fa-plus-circle" id="add_a_postplus"></i>
+    </div>
+
     <% if @posts.empty? %>
       <p>No posts for now... be the first to share something with the community !</p>
     <% else %>
 
-    <div id="add_a_post">
-      <i class="fas fa-plus-circle" id="add_a_postplus"></i>
-    </div>
 
       <% @posts.each do |post| %>
         <div class="post_partie" id='post-<%= post.id %>'>
