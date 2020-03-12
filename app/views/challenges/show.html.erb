@@ -86,10 +86,7 @@
               <div class="explanation d-none">
             <% end %>
                 <%= answer.explanation %>
-                <% if q_index + 1 == @questions.all.length %>
-                  <%= link_to 'Finish', challenge_challenge_completions_path(@challenge), method: :post, class: "button-default d-none", id: 'real-finish' %>
-                  <p id="fake-finish">finish</p>
-                <% end %>
+
               </div>
             </div>
 
@@ -107,12 +104,19 @@
           <% end %>
         <% end %>
       </div>
-
       <hr>
     <% end %>
   </div>
 </div>
 
+  <div class="challenge-link">
+  <% if current_user.challenges.include?(@challenge) %>
+    <p>You already completed this quizz!</p>
+    <span class="leaf-complete"><i class="fas fa-seedling"></i></span>
+  <% else %>
+    <%= link_to 'Finish', challenge_challenge_completions_path(@challenge), method: :post, class: "button-default d-none ", id: 'real-finish' %>
+  <% end %>
+  </div>
 
   <% else %>
 
@@ -125,7 +129,7 @@
 
       <div class="challenge-link">
         <% if current_user.challenges.include?(@challenge) %>
-          <p>Challenge already completed!</p>
+          <p>You already completed this challenge!</p>
           <span class="leaf-complete"><i class="fas fa-seedling"></i></span>
         <% else %>
           <p> Done? <br> Click on the carrot to continue</p>
@@ -137,4 +141,6 @@
     </div>
   <% end %>
   </div>
+
+
 </div>
