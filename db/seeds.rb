@@ -111,7 +111,7 @@ puts "Create challenges for flexitarian"
 puts "-------------------------------------------------------------------------------------------------------------------"
 
 puts "FIRST CHALLENGE FLEXETARIAN"
-challenge1_flexi = Challenge.create(category: flexitarian, name: 'Tofu 101', description: 'Buy a piece of tofu. Read the tips for more information!', position: flexitarian.challenges.count + 1)
+challenge1_flexi = Challenge.create(category: flexitarian, name: 'Meet tofu', description: 'Buy a piece of tofu. Read the tips for more information!', position: flexitarian.challenges.count + 1)
 
 
     puts "Create tips for the first flexetarian challenge"
@@ -141,7 +141,7 @@ challenge1_flexi = Challenge.create(category: flexitarian, name: 'Tofu 101', des
 puts "-------------------------------------------------------------------------------------------------------------------"
 
 puts "SECOND CHALLENGE FLEXETARIAN"
-challenge2_flexi = Challenge.create(category: flexitarian, name: 'Cook it', description: 'Look into recipes for tofu and cook something! There is a lot of possibilites, just try one', position: flexitarian.challenges.count + 1)
+challenge2_flexi = Challenge.create(category: flexitarian, name: 'Cook tofu', description: 'Look into recipes for tofu and cook something! There is a lot of possibilites, just try one', position: flexitarian.challenges.count + 1)
 
 puts "Adding special recipes for the second challenge"
 scratch_top6('tofu').each do |recipe|
@@ -266,7 +266,7 @@ puts "--------------------------------------------------------------------------
 
 
 puts "FOURTH CHALLENGE FLEXETARIAN"
-challenge4_flexi = Challenge.create(category: flexitarian, name: 'Go Quinoa',
+challenge4_flexi = Challenge.create(category: flexitarian, name: 'Meet Quinoa',
                                     description: 'Buy a type of quinoa and cook something. Choeck out the recipes for the challenge',
                                     position: flexitarian.challenges.count + 1)
 puts "Adding special recipes for the fourth challenge"
@@ -306,7 +306,7 @@ end
 puts "-------------------------------------------------------------------------------------------------------------------"
 
 puts "FIFTH CHALLENGE FLEXETARIAN"
-challenge5_flexi = Challenge.create(category: flexitarian, name: 'Quinoa test',
+challenge5_flexi = Challenge.create(category: flexitarian, name: 'Quinoa 101',
                                     is_quizz: true,
                                     description: "Answer the quinoa quizz and let's see how much did you learned.",
                                     position: flexitarian.challenges.count + 1)
