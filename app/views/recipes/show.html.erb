@@ -21,6 +21,11 @@
 
   <div class="recipe-img-large">
     <%= cl_image_tag @recipe.photo.key %>
+    <% flash.each do |type, msg| %>
+      <div class="add_notif">
+        <%= msg %>
+      </div>
+    <% end %>
   </div>
 
   <div class="recipe-info">
