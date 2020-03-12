@@ -98,10 +98,10 @@ puts "--------------------------------------------------------------------------
 
 
 puts "Create 4 users"
-User.create({first_name: 'Santiago', last_name: 'Giraldo', age: 20, email:'santi@web.com', password: '123456'})
-User.create({first_name: 'Vicky', last_name: 'Andre', age: 20, email:'vicky@web.com', password: '123456'})
-User.create({first_name: 'Katell', last_name: 'Goaer', age: 20, email:'katell@web.com', password: '123456'})
-User.create({first_name: 'Félix', last_name: 'Timmel', age: 23, email:'felix@web.com', password: '123456'})
+User.create({first_name: 'Santiago', last_name: 'Giraldo', email:'santi@web.com', password: '123456'})
+User.create({first_name: 'Vicky', last_name: 'Andre', email:'vicky@web.com', password: '123456'})
+User.create({first_name: 'Katell', last_name: 'Goaer', email:'katell@web.com', password: '123456'})
+User.create({first_name: 'Félix', last_name: 'Timmel', email:'felix@web.com', password: '123456'})
 
 
 puts "-------------------------------------------------------------------------------------------------------------------"
@@ -111,7 +111,7 @@ puts "Create challenges for flexitarian"
 puts "-------------------------------------------------------------------------------------------------------------------"
 
 puts "FIRST CHALLENGE FLEXETARIAN"
-challenge1_flexi = Challenge.create(category: flexitarian, name: 'Tofu 101', description: 'Buy a piece of tofu. Read the tips for more information!', position: flexitarian.challenges.count + 1)
+challenge1_flexi = Challenge.create(category: flexitarian, name: 'Meet tofu', description: 'Buy a piece of tofu. Read the tips for more information!', position: flexitarian.challenges.count + 1)
 
 
     puts "Create tips for the first flexetarian challenge"
@@ -141,7 +141,7 @@ challenge1_flexi = Challenge.create(category: flexitarian, name: 'Tofu 101', des
 puts "-------------------------------------------------------------------------------------------------------------------"
 
 puts "SECOND CHALLENGE FLEXETARIAN"
-challenge2_flexi = Challenge.create(category: flexitarian, name: 'Cook it', description: 'Look into recipes for tofu and cook something! There is a lot of possibilites, just try one', position: flexitarian.challenges.count + 1)
+challenge2_flexi = Challenge.create(category: flexitarian, name: 'Cook tofu', description: 'Look into recipes for tofu and cook something! There is a lot of possibilites, just try one', position: flexitarian.challenges.count + 1)
 
 puts "Adding special recipes for the second challenge"
 scratch_top6('tofu').each do |recipe|
@@ -266,7 +266,7 @@ puts "--------------------------------------------------------------------------
 
 
 puts "FOURTH CHALLENGE FLEXETARIAN"
-challenge4_flexi = Challenge.create(category: flexitarian, name: 'Go Quinoa',
+challenge4_flexi = Challenge.create(category: flexitarian, name: 'Meet Quinoa',
                                     description: 'Buy a type of quinoa and cook something. Choeck out the recipes for the challenge',
                                     position: flexitarian.challenges.count + 1)
 puts "Adding special recipes for the fourth challenge"
@@ -306,7 +306,7 @@ end
 puts "-------------------------------------------------------------------------------------------------------------------"
 
 puts "FIFTH CHALLENGE FLEXETARIAN"
-challenge5_flexi = Challenge.create(category: flexitarian, name: 'Quinoa test',
+challenge5_flexi = Challenge.create(category: flexitarian, name: 'Quinoa 101',
                                     is_quizz: true,
                                     description: "Answer the quinoa quizz and let's see how much did you learned.",
                                     position: flexitarian.challenges.count + 1)
@@ -371,7 +371,7 @@ challenge5_flexi = Challenge.create(category: flexitarian, name: 'Quinoa test',
 
     puts "Create the third question for the second challenge of flexetarian"
     question3_c5 = Question.new(content:"How many grams of protein is there in a 100g of quinoa?")
-    question3_c5.challenge = challenge2_flexi
+    question3_c5.challenge = challenge5_flexi
     question3_c5.save
 
       puts "Answers for question 3 of challenge 5"
