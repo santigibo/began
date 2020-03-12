@@ -26,6 +26,7 @@ def scrape_from(url)
   file = URI.open(photo_url)
 
   name = html_doc.search(".recipe-header__title").text.strip
+  return nil if name == "Tofu & spinach cannelloni"
   prep_time = html_doc.search(".recipe-details__cooking-time-prep span").text.strip
   difficulty = html_doc.search(".recipe-details__item--skill-level span").text.strip
   description = html_doc.search(".field-item p").text.strip
@@ -65,7 +66,11 @@ def scratch_top6(ingredient)
       href = element.search(".teaser-item__title a").attribute('href').value
       reci_url = "https://www.bbcgoodfood.com#{href}"
 
-      search_result << scrape_from(reci_url)
+      p r = scrape_from(reci_url)
+
+      unless r.nil?
+        search_result << r
+      end
     end
   end
   return search_result.filter { |r| r }
