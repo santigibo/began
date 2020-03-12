@@ -38,7 +38,7 @@
         <br><span style="font-size:20px">GOAL</span></p>
       <% end %>
     <% else %>
-      <%= link_to category_path(@user.category_id), class: "card-button pink" do %>
+      <%= link_to category_path(@user.category_id, anchor: current_user.challenges.last.position + 1), class: "card-button pink" do %>
         <p>Your game is <br>
         <span style="font-size:20px"><%= @user.category.name.upcase %></span></p>
       <% end %>

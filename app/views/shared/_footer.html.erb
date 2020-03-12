@@ -8,7 +8,7 @@
         </div>
       <% end %>
     <% else %>
-      <%= link_to category_path(current_user.category) do %>
+      <%= link_to category_path(current_user.category, anchor: current_user.challenges.last.position + 1) do %>
         <div class="small-logo">
           <span class="purple-circle"></span>
           <span class="go">go</span>
