@@ -1,11 +1,11 @@
 <div class="topbar">
   <div class="chevron">
-    <%= link_to :back do %>
+    <%= link_to choose_cookbook_path do %>
     <i class="fas fa-chevron-left"></i>
     <% end %>
   </div>
 
-  <div class="topbar-title">ALL RECIPES</div>
+  <div class="topbar-title"><span class="my">ALL</span> RECIPES</div>
 
   <div class="b-small-logo">
     <span class="logo-dot"></span>
@@ -16,50 +16,47 @@
 <div class="container">
   <h2 class="second-title">Delicious ideas.<br>For delicious meals.</h2>
 
-<div class="search-form">
-  <%= form_tag all_recipes_path, class: "form-inline", method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Search our recipes"%>
-      <%= button_tag(type: 'submit', class: "button-search") do %>
-         <i class="fas fa-seedling"></i>
-      <% end %>
-      <%#= submit_tag "Search", class: "button-search" %>
-  <% end %>
-</div>
-
-
-<div class="recipe-column">
-
-  <% @recipes.each do |recipe| %>
-    <div class="recipe-card">
-      <%= link_to recipe_path(recipe.id) do %>
-
-      <%= cl_image_tag recipe.photo.key, class: "recipe-img-small", alt: "alttext" %>
-
-      <div class="recipe-card-text-small">
-        <h2 class="recipe-name-small"><%= recipe.name %></h2>
-        <div class="recipe-difficulty-small">
-          <% if recipe.difficulty == "Easy" %>
-                  <i class="fas fa-utensil-spoon green"></i>
-                  <i class="fas fa-utensil-spoon"></i>
-                  <i class="fas fa-utensil-spoon"></i>
-                <% elsif recipe.difficulty == "More effort"%>
-                  <i class="fas fa-utensil-spoon green"></i>
-                  <i class="fas fa-utensil-spoon green"></i>
-                  <i class="fas fa-utensil-spoon"></i>
-                <% else %>
-                  <i class="fas fa-utensil-spoon"></i>
-                  <i class="fas fa-utensil-spoon"></i>
-                  <i class="fas fa-utensil-spoon"></i>
-          <% end %>
-        </div>
-      </div>
-      <% end %>
+  <div class="search-form">
+    <%= form_tag all_recipes_path, class: "form-inline", method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search our recipes"%>
+        <%= button_tag(type: 'submit', class: "button-search") do %>
+           <i class="fas fa-seedling"></i>
+        <% end %>
+    <% end %>
   </div>
-  <% end %>
 
-</div>
 
+  <div class="recipe-column">
+
+    <% @recipes.each do |recipe| %>
+      <div class="recipe-card">
+        <%= link_to recipe_path(recipe.id) do %>
+
+          <%= cl_image_tag recipe.photo.key, class: "recipe-img-small", alt: "alttext" %>
+
+          <div class="recipe-card-text-small">
+            <h2 class="recipe-name-small"><%= recipe.name %></h2>
+            <div class="recipe-difficulty-small">
+              <% if recipe.difficulty == "Easy" %>
+                      <i class="fas fa-utensil-spoon green"></i>
+                      <i class="fas fa-utensil-spoon"></i>
+                      <i class="fas fa-utensil-spoon"></i>
+                    <% elsif recipe.difficulty == "More effort"%>
+                      <i class="fas fa-utensil-spoon green"></i>
+                      <i class="fas fa-utensil-spoon green"></i>
+                      <i class="fas fa-utensil-spoon"></i>
+                    <% else %>
+                      <i class="fas fa-utensil-spoon"></i>
+                      <i class="fas fa-utensil-spoon"></i>
+                      <i class="fas fa-utensil-spoon"></i>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>

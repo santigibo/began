@@ -3,11 +3,14 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:landingpage]
 
   def landingpage
+    unless current_user.nil?
+      redirect_to homepage_path
+    end
   end
 
   def home
     @user = current_user
-    list_month = NoMeatDay.all.select { |nmd| nmd.created_at.to_date.month == Date.current.month }
+    list_month = NoMeatDay.all.select { |nmd| nmd.created_at.to_date.month == Date.current.month && nmd.user == current_user }
     @days_without_meat_month = list_month.count
     num_of_days_month = Date.today.end_of_month.day.to_f
     fraction = @days_without_meat_month / num_of_days_month
@@ -19,8 +22,9 @@ class PagesController < ApplicationController
   end
 
   def add_one
-    current_user.update(no_meat_counter: current_user.no_meat_counter += 1)
     NoMeatDay.create(user: current_user)
+    number = NoMeatDay.all.select { |nmd| nmd.user == current_user}
+    current_user.update(no_meat_counter: number.count)
     @count = current_user.no_meat_counter
     respond_to do |format|
       format.html { meat_counter_path }

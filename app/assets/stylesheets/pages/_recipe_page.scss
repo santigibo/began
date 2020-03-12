@@ -8,6 +8,7 @@ h2.recipe-title {
 
 .recipe-img-large img {
   border-radius: 25px;
+  position: relative;
 }
 
 .recipe-info {
@@ -45,4 +46,13 @@ h2.recipe-title {
 
 .recipe-ingredients p {
   margin-bottom: 0;
+  line-height: 2.2;
+}
+
+.recipe-cooking p {
+  line-height: 1.8;
+}
+
+.recipe-steps {
+  font-weight: bold;
 }

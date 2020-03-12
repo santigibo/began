@@ -2,62 +2,54 @@
   <%= image_tag("began-logo.png", alt: "Began logo", class: "logo") %>
 </div>
 
-<div class="container">
+<div class="container" id="container-dashboard" style="background-image: url(<%= image_url("began-homepage.jpeg") %>)" >
+  <!-- <span class="background-image"></span> -->
+  <!-- style="background-image: url(<%= image_url("began-homepage.jpeg") %>)" -->
 
   <div class="welcome">
     <h4 class="xl-large">Hi,</h4>
     <h3 class="user-name"><%= @user.first_name %></h3>
   </div>
 
+  <div class="progress-card">
+    <div class="percent">
+      <svg id="ring">
+        <circle cx="70" cy="70" r="60"></circle>
+        <circle style="
+          stroke-dasharray: calc(440 * <%= @percentage %>) calc(440 * <%= 1 - @percentage %>);
+          stroke-dashoffset: 153;"
+          cx="70" cy="70" r="60"></circle>
+      </svg>
+      <span class="leaf-icon-dashboard"><i class="fas fa-seedling"></i></span>
+    </div>
 
-<div class="progress-card">
-  <div class="percent">
-    <svg id="ring">
-      <circle cx="70" cy="70" r="60"></circle>
-      <circle style="
-        stroke-dasharray: calc(440 * <%= @percentage %>) calc(440 * <%= 1 - @percentage %>);
-        stroke-dashoffset: 153;"
-        cx="70" cy="70" r="60"></circle>
-    </svg>
+    <div class="progress-text">
+      <p class="number-days"><%= pluralize(@days_without_meat_month, "DAY").upcase %> <br>
+      <span class="without-meat">without meat</span></p>
+    </div>
   </div>
-
-  <div class="progress-text">
-    <p class="number-days"><%= pluralize(@days_without_meat_month, "DAY").upcase %></p>
-    <p class="without-meat">without meat</p>
-  </div>
-</div>
-
-
-
 
 
   <div class="cards-button">
 
-    <div class="card-button pink">
-      <div class="card-button-text">
-
-        <% if @user.category_id.nil? %>
-          <%= link_to choose_category_path do %>
-            <p>Choose your
-            <br><span>GOAL</span>
-            </p>
-          <% end %>
-        <% else %>
-          <%= link_to category_path(@user.category_id) do %>
-            <p>Your game is <br>
-            <span style="font-size:20px"><%= @user.category.name.upcase %></span></p>
-          <% end %>
-        <% end %>
-
-      </div>
-    </div>
+    <% if @user.category_id.nil? %>
+      <%= link_to choose_category_path, class: "card-button pink" do %>
+        <p>Choose your
+        <br><span style="font-size:20px">GOAL</span></p>
+      <% end %>
+    <% else %>
+      <%= link_to category_path(@user.category_id), class: "card-button pink" do %>
+        <p>Your game is <br>
+        <span style="font-size:20px"><%= @user.category.name.upcase %></span></p>
+      <% end %>
+    <% end %>
 
 
     <div class="card-button green">
       <%= link_to cookbook_path do %>
        <div class="card-button-text">
-        <p>My favorite
-        <br><span style="font-size:20px">RECIPES</span>
+        <p>My favorite <br>
+        <span style="font-size:20px">RECIPES</span></p>
        </div>
       <% end %>
     </div>
