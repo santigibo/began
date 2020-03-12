@@ -20,7 +20,7 @@
 }
 
 .post_form {
-  padding: 20px 5px;
+  padding: 17px 5px 10px 5px;
   border-radius: 12px;
   background-color: $green;
 }
@@ -56,6 +56,8 @@
     font-size: 30px;
     background: none;
     border: none;
+    position: absolute;
+    left: 87%;
   }
 }
 
@@ -68,8 +70,12 @@
     }
   }
 
+#post_content {
+  border-radius: 12px;
+}
+
 .comment_part {
-  padding: 10px 0px 5px 20px;
+  padding: 10px 5px 5px 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -78,18 +84,27 @@
     margin: 10px 0;
   }
 
+  #comment_content {
+    border-radius: 12px;
+  }
+
   #comment_form {
     margin-top: 10px;
   }
 }
 
 #add_a_post {
-  font-size: 40px;
+  font-size: 45px;
   color: $green;
   position: absolute;
+  left: 85%;
+  top: -28px;
 }
 
 #close {
   position: absolute;
-  left: 93%;
+  left: 94%;
+  top: 2px;
+  font-size: 16px;
+  color: white;
 }
