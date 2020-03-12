@@ -17,8 +17,10 @@
 <div class="container">
 
 <% if current_user.recipes.empty? %>
-  <p>😢 You don't have any favorite recipes for now...</p>
-  <p>Do not hesitate to search among all our recipes and add to your cookbook if you like them !</p>
+  <div style="text-align: center;" class="mb-5">
+    <p>😢 You don't have any favorite recipes for now...</p>
+    <p>Do not hesitate to search among all our recipes and add to your cookbook if you like them !</p>
+  </div>
   <div style="box-shadow: 2px 2px 10px 0px rgba(204,204,204,1);">
     <%= image_tag("like_recipe.png") %>
   </div>
