@@ -371,7 +371,7 @@ challenge5_flexi = Challenge.create(category: flexitarian, name: 'Quinoa test',
 
     puts "Create the third question for the second challenge of flexetarian"
     question3_c5 = Question.new(content:"How many grams of protein is there in a 100g of quinoa?")
-    question3_c5.challenge = challenge2_flexi
+    question3_c5.challenge = challenge5_flexi
     question3_c5.save
 
       puts "Answers for question 3 of challenge 5"
