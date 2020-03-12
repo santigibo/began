@@ -20,12 +20,15 @@
   <h2 class="recipe-title"><mark></mark><%= @recipe.name.upcase%></h2>
 
   <div class="recipe-img-large">
+    <div class="add_notif d-none" id="add_recipe">
+      <p><i class="fas fa-check"></i></p>
+      <p>Added to your cookbook</p>
+    </div>
+    <div class="add_notif d-none" id="remove_recipe">
+      <p><i class="fas fa-check"></i></p>
+      <p>Removed from your cookbook</p>
+    </div>
     <%= cl_image_tag @recipe.photo.key %>
-    <% flash.each do |type, msg| %>
-      <div class="add_notif">
-        <%= msg %>
-      </div>
-    <% end %>
   </div>
 
   <div class="recipe-info">
