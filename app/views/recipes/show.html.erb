@@ -62,7 +62,7 @@
   <div class="recipe-ingredients">
     <p class="paragraph-title">INGREDIENTS</p>
     <p><% @recipe.ingredients.each do |ingredient|%>
-      <p> - <%= ingredient.content %></p>
+      <p> • <%= ingredient.content %></p>
       <% end %>
     </p>
   </div>
@@ -70,7 +70,7 @@
   <div class="recipe-cooking">
   <p class="paragraph-title">MAKE IT NOW</p>
     <p><% @recipe.recipe_methods.each_with_index do |recipe_method, index| %>
-    <p><%= index+1 %> - <%= recipe_method.content %></p>
+    <p><span class="recipe-steps"><%= index+1 %></span> - <%= recipe_method.content %></p>
   <% end %>
 </div>
 
