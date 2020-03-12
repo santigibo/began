@@ -44,8 +44,9 @@
           </div>
           <div class="comment_part  d-none">
             <div class="comments_display">
+              <p><strong>Comments :</strong></p>
               <% post.comments.each do |comment| %>
-                <div>
+                <div class="comment_content">
                   <%= comment.content %> - <span style="color: gray"><%= comment.user.first_name %></span>
                 </div>
               <% end %>
