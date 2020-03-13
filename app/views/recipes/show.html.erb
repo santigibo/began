@@ -11,10 +11,13 @@
     <div class="topbar-title"><span class="my">MY</span> <%= @challenge.category.name.upcase %><span class="excla-mark">!</span></%></div>
   <% end %>
 
-  <div class="b-small-logo">
-    <span class="logo-dot"></span>
-    <span class="logo-b">b</span>
-  </div>
+  <%= link_to homepage_path do %>
+    <div class="b-small-logo">
+      <span class="logo-dot"></span>
+      <span class="logo-b">b</span>
+    </div>
+  <% end %>
+
 </div>
 
 <div class="container">
