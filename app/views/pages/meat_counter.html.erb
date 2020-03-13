@@ -24,12 +24,12 @@
 
       <% if no_meat_day.nil? %>
 
-        <% if date == Time.now.to_date %>
+        <% if date == (Time.now.utc - 14400).to_date %>
           <%= link_to add_one_path, method: :post, remote: true, class: 'mark-day' do  %>
               <%= date.to_datetime %>
           <% end %>
 
-        <% elsif date < Time.now.to_date %>
+        <% elsif date < (Time.now.utc - 14400).to_date %>
           <div class="not-done">
             <%= date.to_datetime %>
           </div>
