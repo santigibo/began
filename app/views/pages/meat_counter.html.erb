@@ -26,12 +26,12 @@
 
         <% if date == Time.now.to_date %>
           <%= link_to add_one_path, method: :post, remote: true, class: 'mark-day' do  %>
-              <%= date.day %>
+              <%= date.to_datetime %>
           <% end %>
 
         <% elsif date < Time.now.to_date %>
           <div class="not-done">
-            <%= date.day %>
+            <%= date.to_datetime %>
           </div>
 
         <% else %>
