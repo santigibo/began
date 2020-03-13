@@ -3,5 +3,5 @@ class Post < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
-  validates :content, presence: true, length: { minimum: 10 }
+  validates :content, presence: true
 end

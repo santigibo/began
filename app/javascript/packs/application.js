@@ -27,3 +27,16 @@ $('#recipe-carousel').carousel({
   interval: false
 });
 
+
+import ConfettiGenerator from "confetti-js";
+
+if (document.querySelector("#my-canvas")) {
+  var confettiSettings = { target: 'my-canvas', max: 100 };
+  var confetti = new ConfettiGenerator(confettiSettings);
+  confetti.render();
+
+  setTimeout(() => {
+    confetti.clear();
+  }, 5000)
+}
+
