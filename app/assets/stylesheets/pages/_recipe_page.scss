@@ -1,0 +1,58 @@
+h2.recipe-title {
+ font-size: 22px;
+ font-weight: medium;
+ text-align:center;
+ padding-bottom: 15px;
+}
+
+
+.recipe-img-large img {
+  border-radius: 25px;
+  position: relative;
+}
+
+.recipe-info {
+  display: flex;
+  margin: 20px 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recipe-info-one {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.recipe-difficulty {
+  margin-right: 15px;
+}
+
+.recipe-time {
+  border-left: 1px solid #ccc;
+  padding-left: 15px;
+}
+
+.fa-stopwatch, .fa-heart, .fa-utensil-spoon.yellow {
+  color: $yellow;
+}
+
+.recipe-ingredients {
+  margin: 25px 0;
+   .paragraph-title {
+    margin-bottom: 10px;
+   }
+}
+
+.recipe-ingredients p {
+  margin-bottom: 0;
+  line-height: 2.2;
+}
+
+.recipe-cooking p {
+  line-height: 1.8;
+}
+
+.recipe-steps {
+  font-weight: bold;
+}

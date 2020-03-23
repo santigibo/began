@@ -1,0 +1,104 @@
+<div class="topbar">
+  <div class="chevron">
+    <%= link_to challenge_path(@challenge) do %>
+    <i class="fas fa-chevron-left"></i>
+    <% end %>
+  </div>
+
+  <div class="topbar-title"><span class="my">MY</span> <%= @challenge.category.name.upcase %><span class="excla-mark">!</span></%></div>
+
+  <%= link_to homepage_path do %>
+    <div class="b-small-logo">
+      <span class="logo-dot"></span>
+      <span class="logo-b">b</span>
+    </div>
+  <% end %>
+
+</div>
+
+<div class="container">
+  <h1 class="main-title">RECIPES</h1>
+  <h2 class="third-title"><mark></mark>Challenge <%= @challenge.position %></h2>
+
+
+  <div class="container pr-0 pl-0">
+    <div id="recipe-carousel" class="carousel slide">
+      <ol class="carousel-indicators">
+        <li class="carousel-dot active" data-target="#recipe-carousel" data-slide-to="0"></li>
+        <li class="carousel-dot" data-target="#recipe-carousel" data-slide-to="1"></li>
+        <li class="carousel-dot" data-target="#recipe-carousel" data-slide-to="2"></li>
+        <li class="carousel-dot" data-target="#recipe-carousel" data-slide-to="3"></li>
+        <li class="carousel-dot" data-target="#recipe-carousel" data-slide-to="4"></li>
+        <li class="carousel-dot" data-target="#recipe-carousel" data-slide-to="5"></li>
+      </ol>
+
+
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <% recipe = @recipes.first %>
+          <%= link_to recipe_path(recipe.id) do %>
+          <div class="recipe-carousel-card">
+
+
+            <div class="recipe-img large" style="background-image: url('<%= cloudinary_url(recipe.photo.key) %>')">
+                &nbsp;
+            </div>
+
+            <div class="recipe-card-text">
+              <h2 class="recipe-name"><%= recipe.name %></h2>
+              <h3 class="recipe-difficulty-large">
+                <% if recipe.difficulty == "Easy" %>
+                  <i class="fas fa-utensil-spoon green"></i>
+                  <i class="fas fa-utensil-spoon"></i>
+                  <i class="fas fa-utensil-spoon"></i>
+                <% else %>
+                  <i class="fas fa-utensil-spoon"></i>
+                  <i class="fas fa-utensil-spoon"></i>
+                  <i class="fas fa-utensil-spoon"></i>
+                <% end %>
+              </h3>
+            </div>
+          </div>
+          <% end %>
+        </div>
+
+
+          <!-- begin looping through all recipes -->
+        <% @recipes[1..-1].each do |recipe| %>
+
+          <div class="carousel-item">
+            <%= link_to recipe_path(recipe.id) do %>
+
+              <div class="recipe-carousel-card">
+
+                <div class="recipe-img large" style="background-image: url('<%= cloudinary_url(recipe.photo.key) %>')">
+                  &nbsp;
+                </div>
+
+                <div class="recipe-card-text">
+                  <h2 class="recipe-name"><%= recipe.name %></h2>
+                  <h3 class="recipe-difficulty-large">
+                  <% if recipe.difficulty == "Easy" %>
+                    <i class="fas fa-utensil-spoon green"></i>
+                    <i class="fas fa-utensil-spoon"></i>
+                    <i class="fas fa-utensil-spoon"></i>
+                  <% elsif recipe.difficulty == "More effort"%>
+                    <i class="fas fa-utensil-spoon green"></i>
+                    <i class="fas fa-utensil-spoon green"></i>
+                    <i class="fas fa-utensil-spoon"></i>
+                  <% else %>
+                    <i class="fas fa-utensil-spoon"></i>
+                    <i class="fas fa-utensil-spoon"></i>
+                    <i class="fas fa-utensil-spoon"></i>
+                  <% end %>
+                  </h3>
+                </div>
+            </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

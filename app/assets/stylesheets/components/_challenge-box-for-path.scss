@@ -1,0 +1,72 @@
+.change-goal-button {
+  margin-bottom: 30px;
+}
+
+.change-goal {
+  border-left: 6px solid #FACD3F;
+  border-radius: 6px;
+  padding: 0 6px;
+}
+
+.challenge-box {
+  position: relative;
+  display: flex;
+  height: 235px;
+  justify-content: center;
+  align-items: center;
+}
+
+.color-box {
+  position: absolute;
+  height: 175px;
+  width: 175px;
+  border-radius: 25px;
+}
+
+.color-box.yellow {
+  background-color: $yellow;
+}
+
+.color-box.green {
+  background-color: $green;
+}
+
+.color-box.pink {
+  background-color: $pink;
+}
+
+
+.white-box {
+  position: absolute;
+  transform: rotate(45deg);
+  border: 2px solid black;
+  border-radius: 25px;
+  height: 175px;
+  width: 175px;
+  background-color: white;
+}
+
+.challenge-text {
+  position: absolute;
+  z-index: 100;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.challenge-name {
+  margin-top: 18px;
+  margin-bottom: 0px;
+}
+
+.challenge-number {
+  font-weight: lighter;
+}
+
+.line {
+  width: 1px;
+  height: 69px;
+  border-left: 3px dotted black;
+  margin: auto;
+}

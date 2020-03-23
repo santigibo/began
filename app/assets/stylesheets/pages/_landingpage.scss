@@ -1,0 +1,102 @@
+// Topbar
+.topbar.landing {
+  height: 100px;
+}
+
+// Container
+.landing-page-container {
+  margin: 50px;
+}
+
+// Banner
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+}
+
+.banner .landing-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner h1 {
+  margin: 60px 0 30px 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.signup-btn {
+  color: white;
+  background: $pink;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+.sign-up {
+  color: white;
+  font-size: 16px;
+  margin-top: 16px;
+}
+
+.sign-up a {
+  color: $green;
+}
+
+// Content
+.content-section {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-section {
+  text-align: center;
+  margin-bottom: 24px;
+  h2 {
+  font-size: 20px;
+  }
+}
+
+.landing-page-img {
+  box-shadow: 0px 4px 10px rgba(68, 68, 68, 0.45);
+  border-radius: 6px;
+  width: 200px;
+  height: auto;
+}
+
+// Footer
+.landing-page-footer {
+  background-color: $pink;
+  height: 100px;
+  margin-top: -50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    margin: 0;
+  }
+}
+
+.social {
+  font-size: 32px;
+  color: white !important;
+  transition: 0.3;
+  padding: 0 10px;
+}
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+meta_product_name: "began"
+meta_title: "began - The guideline to began vegan"
+meta_description: "began is an app to have a fun path when becoming vegan. You can choose between three goals: Flexetarianism, vegetarianism and veganism. For each one you will have different challenges. Of course we would want for you to do all three, but it's a process, is step by step! "
+meta_image: "began_large_logo.jpg" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards

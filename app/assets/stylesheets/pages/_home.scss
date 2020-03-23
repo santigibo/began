@@ -1,1 +1,132 @@
 // Specific CSS for your home-page
+
+.welcome {
+  margin-bottom: 15px;
+  color: black;
+  text-align:left;
+}
+
+#container-dashboard {
+  background-position: 60% -30px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 0;
+  padding-top: 30px;
+}
+
+
+.cards-button {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+
+.card-button {
+  box-shadow: 0px 4px 10px rgba(68, 68, 68, 0.45);
+  width: 150px;
+  height: 170px;
+  box-sizing: border-box;
+  border-radius: 25px;
+  padding: 15px;
+  text-align: center;
+  color: white !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: left;
+
+  span {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom:0;
+    line-height: 1;
+  }
+
+  p {
+    margin:0;
+    color: white;
+  }
+}
+
+.cards-button .green {
+  background-color: $green;
+}
+
+.cards-button .pink {
+  background-color: $pink;
+}
+
+h4.xl-large {
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom:0;
+      line-height: 1;
+    }
+
+.user-name {
+  font-size: 25px;
+  margin-bottom: 0;
+}
+
+a, a:hover {
+  color: black;
+}
+
+// Progress ring
+
+#ring {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  z-index: 100;
+}
+
+#ring circle {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: $yellow;
+  stroke-width: 10;
+  stroke-linecap: round;
+  transform: translate(5px,5px);
+}
+
+#ring circle:nth-child(1) {
+  stroke: #EEEEEE;
+}
+
+.progress-card {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  text-align: center;
+}
+
+.number-days {
+  font-weight: bold;
+  font-size: 20px;
+  color: $gray;
+  margin: 10px 0 0 0;
+  line-height: 1;
+}
+
+.without-meat {
+  font-size: 16px;
+  color: $gray;
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+.leaf-icon-dashboard {
+  color: $green;
+  font-size: 40px;
+  position: absolute;
+  top: 32%;
+  left: 23%;
+}
+
+
+
+
+

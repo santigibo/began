@@ -1,0 +1,63 @@
+.topbar {
+  position:sticky;
+  top:0;
+  height: 60px;
+  width: 100vw;
+  color: black;
+  background-color: white;
+  border-bottom: 1px solid #EEEEEE;
+  font-size: 22px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000000;
+}
+
+.topbar-title {
+  margin-bottom: 0;
+}
+
+.chevron {
+  // flex-grow:1;
+  padding-left: 25px;
+}
+
+.chevron i {
+  color: black;
+}
+
+.my {
+  font-weight: lighter;
+}
+
+.excla-mark {
+  font-style: italic;
+}
+
+.topbar-title {
+  // position: fixed;
+}
+
+.b-small-logo {
+  display: flex;
+  align-items: center;
+  padding-right: 25px;
+}
+
+.logo-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #FACD3D;
+  margin-right: 3px;
+}
+
+.logo-b {
+  font-family: $logo-font;
+}
+
+.logo {
+  height: 40px;
+  margin: 0 auto;
+}

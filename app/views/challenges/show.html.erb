@@ -1,0 +1,152 @@
+<div class="topbar">
+  <div class="chevron">
+    <%= link_to category_path(@challenge.category) do %>
+    <i class="fas fa-chevron-left"></i>
+    <% end %>
+  </div>
+
+  <div class="topbar-title"><span class="my">MY</span> <%= @challenge.category.name.upcase %><span class="excla-mark">!</span></%></div>
+
+  <%= link_to homepage_path do %>
+    <div class="b-small-logo">
+      <span class="logo-dot"></span>
+      <span class="logo-b">b</span>
+    </div>
+  <% end %>
+
+</div>
+
+<div class="container">
+  <h1 class="head-title">CHALLENGE <%= @challenge.position %></h1>
+
+  <h2 class="second-title"><%= @challenge.name.upcase %></h2>
+
+  <% unless @challenge.is_quizz %>
+    <div class="challenge-description">
+      <p><%= @challenge.description %></p>
+    </div>
+  <% end %>
+
+  <% unless @challenge.tips.empty? %>
+    <h2 class="second-title">Tips</h2>
+
+    <div class="challenge-tips">
+      <div class="accordion" id="accordionExample">
+        <% @challenge.tips.each_with_index do |tip, index|%>
+
+        <!-- Wrote the css in _buttons.css. It can be errased if you want, no problem -->
+
+          <div class="card accordion-card">
+            <div class="card-header tip-name" id="heading<%= index %>">
+              <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%= index %>" aria-expanded="true" aria-controls="collapse<%= index %>">
+                  <i class="fas fa-angle-down"></i> <%= tip.title %>
+                </button>
+              </h2>
+            </div>
+
+            <div id="collapse<%= index %>" class="collapse tip-info" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="explanation">
+                <%= tip.description %>
+              </div>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+
+  <div class="challenge-links">
+
+
+  <% if @challenge.is_quizz %>
+
+  <div class="quizz-box">
+    <% @questions.each_with_index do |question, q_index| %>
+      <p id="<%= q_index %>-question"><strong><%= question.content %></strong></p>
+      <div class="border-question"></div>
+      <div>
+        <% question.answers.each do |answer| %>
+          <% if answer.status %>
+            <div id="answer-<%= answer.id %>" class="answer">
+              <p>
+                <%= link_to question_question_completions_path(question), method: :post, remote: true, class: 'answer-option' do %>
+                  <% if current_user.challenges.include?(question.challenge) %>
+                    <i class="fas fa-square"></i>
+                  <% else %>
+                    <i class="far fa-square"></i>
+                  <% end %>
+                <% end %>
+                <%= answer.content %>
+              </p>
+
+
+            <% if current_user.challenges.include?(question.challenge) %>
+              <div class="explanation">
+            <% else %>
+              <div class="explanation d-none">
+            <% end %>
+                <%= answer.explanation %>
+
+              </div>
+            </div>
+
+          <% else %>
+            <div class="answer-wrong answer">
+              <p>
+                <i class="far fa-square"></i>
+                <span id="to-strike"><%= answer.content %></span>
+              </p>
+
+              <div class="explanation d-none">
+                <%= answer.explanation %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <hr>
+    <% end %>
+  </div>
+</div>
+
+  <div class="challenge-link">
+  <% if current_user.challenges.include?(@challenge) %>
+    <p>You already completed this quizz!</p>
+    <span class="leaf-complete"><i class="fas fa-seedling"></i></span>
+  <% else %>
+    <div class="d-none" id="real-finish">
+      <p> Done? <br> Click on the carrot to continue</p>
+      <%= link_to challenge_challenge_completions_path(@challenge), method: :post, class: "button-tips"  do %>
+        <span id="icon-bounce"><i class="fas fa-carrot animated infinite bounce delay-2s"></i></span>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
+
+  <% else %>
+
+    <div class="challenge-link">
+      <% unless @challenge.recipes.empty? %>
+        <div class="challenge-link">
+          <%= link_to "Recipes", challenge_recipes_path(@challenge.id), class: "button-complete"  %>
+        </div>
+      <% end %>
+
+      <div class="challenge-link">
+        <% if current_user.challenges.include?(@challenge) %>
+          <p>You already completed this challenge!</p>
+          <span class="leaf-complete"><i class="fas fa-seedling"></i></span>
+        <% else %>
+          <p> Done? <br> Click on the carrot to continue</p>
+          <%= link_to challenge_challenge_completions_path(@challenge), method: :post, class: "button-tips"  do %>
+            <span id="icon-bounce"><i class="fas fa-carrot animated infinite bounce delay-2s"></i></span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>

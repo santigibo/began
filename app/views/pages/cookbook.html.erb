@@ -1,0 +1,57 @@
+<div class="topbar">
+  <div class="chevron">
+    <%= link_to choose_cookbook_path do %>
+    <i class="fas fa-chevron-left"></i>
+    <% end %>
+  </div>
+
+  <div class="topbar-title">MY COOKBOOK</div>
+
+  <%= link_to homepage_path do %>
+    <div class="b-small-logo">
+      <span class="logo-dot"></span>
+      <span class="logo-b">b</span>
+    </div>
+  <% end %>
+
+</div>
+
+
+<div class="container">
+
+<% if current_user.recipes.empty? %>
+  <div style="text-align: center;" class="mt-5">
+    <p>You don't have any favorite recipe for now...</p>
+    <p>Browse our recipes and add your favorites to your own cookbook!</p>
+    <br>
+    <%= link_to all_recipes_path do %>
+    <i class="far fa-heart" style="font-size: 32px;"></i>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="recipe-column">
+
+  <% @cookbook.each do |recipe| %>
+    <div class="recipe-card-cookbook">
+      <%= link_to recipe_path(recipe.id) do %>
+
+      <%= cl_image_tag recipe.photo.key, class: "recipe-img-small", alt: "alttext" %>
+
+      <div class="recipe-card-text-small">
+        <h2 class="recipe-name-small"><%= recipe.name %></h2>
+
+<div class= "recipe-like">
+    <%= link_to recipe_create_or_destroy_path(recipe), method: :post do  %>
+        <i class="fas fa-heart"></i>
+    <% end %>
+  </div>
+      </div>
+
+      <% end %>
+    </div>
+  <% end %>
+
+</div>
+
+</div>

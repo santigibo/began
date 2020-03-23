@@ -1,0 +1,43 @@
+<div class="topbar">
+  <div class="chevron">
+    <%= link_to homepage_path do %>
+    <i class="fas fa-chevron-left"></i>
+    <% end %>
+  </div>
+
+  <div class="topbar-title">COOKBOOK</div>
+
+  <%= link_to homepage_path do %>
+    <div class="b-small-logo">
+      <span class="logo-dot"></span>
+      <span class="logo-b">b</span>
+    </div>
+  <% end %>
+
+</div>
+
+<div class="container">
+  <div class="cookbook-box">
+    <span class="cookbook-color-box pink"></span>
+    <div class="cookbook-white-box">
+      <%= link_to cookbook_path do %>
+        <div class="card_my_cookbook">
+          My<br>
+          <span class="not-that-big">COOKBOOK</span></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="cookbook-box">
+    <span class="cookbook-color-box green"></span>
+    <div class="cookbook-white-box">
+      <%= link_to all_recipes_path do %>
+        <div class="card_all_recipes">
+          <p>All <br>
+          <span class="not-that-big">RECIPES</span></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

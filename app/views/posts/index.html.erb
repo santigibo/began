@@ -1,0 +1,114 @@
+<div class="topbar">
+  <div class="chevron">
+    <%= link_to homepage_path do %>
+    <i class="fas fa-chevron-left"></i>
+    <% end %>
+  </div>
+
+  <div class="topbar-title">FORUM</div>
+
+  <%= link_to homepage_path do %>
+    <div class="b-small-logo">
+      <span class="logo-dot"></span>
+      <span class="logo-b">b</span>
+    </div>
+  <% end %>
+
+</div>
+
+<div class="container">
+
+  <div class="post_part">
+
+    <div id="add_a_post">
+      <i class="fas fa-plus-circle" id="add_a_postplus"></i>
+    </div>
+
+    <% if @posts.empty? %>
+      <div class="forum-head">
+      <h2><mark></mark>No posts for now...</h2>
+      <p>Be the first to share something with the community !</p>
+    <% else %>
+      <h2><mark></mark>MESSAGES</h2>
+
+    <% @posts.each do |post| %>
+      <div class="post_partie" id='post-<%= post.id %>'>
+
+          <div class="post_content">
+
+            <div class="content_part">
+              <div class="content-title">
+                <p style="text-transform: uppercase; font-weight: bold;"> <%= post.user.first_name %></p>
+                <p style="font-size: 16px; color: gray;"><%= post.created_at.strftime("%d-%m") %></p>
+              </div>
+              <p><%= post.content %></p>
+            </div>
+
+            <div class="icon_part">
+              <p class="comment_toggle"><i class="fas fa-comments"></i> <span style="font-size: 16px; color: gray;"> Comments (<%= post.comments.count %>)</span></p>
+            </div>
+
+          </div>
+
+
+          <div class="comment_part  d-none">
+
+            <div class="comments_display">
+              <% post.comments.each do |comment| %>
+                <div class="comment_content">
+                  <%= comment.content %> - <span style="color: gray"><%= comment.user.first_name %></span>
+                </div>
+              <% end %>
+            </div>
+
+            <div class="comment_form">
+
+              <%= simple_form_for [post, @comment] do |f| %>
+                <div class="form_style">
+                  <div class="form_content">
+                    <%= f.input :content, label: false, placeholder: 'Add a new comment !' %>
+                    <%= button_tag(type: 'submit', class: "send_btn") do %>
+                    <i class="fas fa-paper-plane"></i>
+                    <% end %>
+                  </div>
+
+                </div>
+              <% end %>
+
+            </div>
+
+          </div>
+
+      </div>
+    <% end %>
+
+    <% end %>
+
+  </div>
+
+  <div class="form_part d-none">
+
+    <p id="close"><i class="fas fa-times-circle"></i></p>
+
+    <div class="post_form">
+
+      <%= simple_form_for (@post) do |f| %>
+        <div class="form_style">
+
+          <div class="form_content">
+            <%= f.input :content, label: false, placeholder: 'Add a new post !' %>
+            <%= button_tag(type: 'submit', class: "send_btn") do %>
+              <i class="fas fa-paper-plane"></i>
+            <% end %>
+          </div>
+
+        </div>
+      <% end %>
+
+    </div>
+
+  </div>
+
+  </div>
+
+</div>

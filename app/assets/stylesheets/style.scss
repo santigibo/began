@@ -1,0 +1,103 @@
+@import "config/colors";
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: white;
+  color: black;
+}
+
+
+a, a:hover {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+
+h2 {
+  font-size: 22px;
+  font-weight: medium;
+}
+
+p {
+  font-size: 18px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.main-title {
+  text-align: center;
+}
+
+.search-form {
+  margin: 0 auto;
+  padding-bottom: 25px;
+
+  .form-control {
+    width:80%;
+    margin-right: 15px;
+    border-radius: 15px;
+  }
+
+  .button-search {
+    background-color: $yellow;
+    color: white;
+    border:0;
+    border-radius: 15px;
+    padding: 4px 12px;
+    font-size: 20px;
+  }
+}
+
+.recipe-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+}
+
+.paragraph-title {
+  font-weight: bold;
+}
+
+
+mark {
+  margin-right: -12px;
+  padding: 6px 8px;
+  background-color: $yellow;
+}
+
+.fa-utensil-spoon.green {
+  color: #3FCCC4;
+  font-size: 16px;
+  margin: -2px;
+  transform: rotate(-45deg);
+}
+
+.fa-utensil-spoon {
+  color: #C4C4C4;
+  font-size: 16px;
+  margin: -2px;
+  transform: rotate(-45deg);
+}
+
+.alert-danger {
+  display: none;
+}
+
+.fas.fa-square {
+  color: $yellow;
+}

@@ -1,0 +1,116 @@
+.simple-calendar {
+  margin-top: 30px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+
+  th {
+    color: black;
+    padding: 5px;
+    text-align:center;
+    font-weight: 400;
+   }
+
+  td {
+    padding: 1px;
+    width: 25px;
+
+    div, a {
+      width: 25px;
+      height: 40px;
+      margin: 0 auto;
+    }
+  }
+}
+
+
+.table {
+  table-layout: fixed;
+}
+
+.day {
+    margin: 0;
+    text-align: center;
+  }
+
+.no-mark-day, .mark-day {
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+.done {
+  border-radius: 4px;
+  background-color: $green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white !important;
+  padding: 20px;
+}
+
+.not-done {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #444;
+}
+
+
+.calendar-heading span {
+  font-size: 22px;
+  font-weight: 200;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.calendar-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  padding: 10px 18px;
+}
+
+.calendar-text p{
+  text-align:center;
+  padding:10px 0;
+}
+
+.calendar-text {
+  padding-top:20px;
+}
+.calendar-heading i {
+  font-size: 18px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: white;
+}
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {}
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {
+    opacity: 0.3;
+  }
+  .next-month { }
+  .current-month {}
+
+  .has-events {}
+

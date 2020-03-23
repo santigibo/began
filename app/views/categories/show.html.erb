@@ -1,0 +1,83 @@
+<% if params[:confetti] %>
+  <canvas
+    id="my-canvas"
+    style="
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      z-index: 2;
+    "
+  ></canvas>
+<% end %>
+
+
+<div class="topbar">
+  <div class="chevron">
+    <%= link_to homepage_path do %>
+    <i class="fas fa-chevron-left"></i>
+    <% end %>
+  </div>
+
+  <div class="topbar-title"><span class="my">MY</span> <%= @category.name.upcase %><span class="excla-mark">!</span></%></div>
+
+  <%= link_to homepage_path do %>
+    <div class="b-small-logo">
+      <span class="logo-dot"></span>
+      <span class="logo-b">b</span>
+    </div>
+  <% end %>
+
+</div>
+
+<div class="container">
+
+
+      <%= link_to choose_category_path do %>
+        <div class="change-goal-button">
+          <span class="change-goal">CHANGE GOAL</span>
+          <i class="fas fa-sync-alt"></i>
+        </div>
+      <% end %>
+
+    <% @challenges.each_with_index do |challenge, index| %>
+      <% challenge_before = @challenges.detect { |in_challenge| in_challenge.position == challenge.position - 1 } %>
+
+      <% is_first = challenge == @challenges.first %>
+      <% is_done = current_user.challenges.include?(challenge) %>
+      <% before_done = current_user.challenges.include?(challenge_before) %>
+
+      <% if index != 0 %>
+        <div class="line"></div>
+      <% end %>
+
+      <div class="challenge-box">
+        <% if index % 3 == 0 %>
+          <span class="color-box yellow"></span>
+        <% elsif index % 3 == 1 %>
+          <span class="color-box green"></span>
+        <% else %>
+          <span class="color-box pink"></span>
+        <% end %>
+
+        <% if is_first || is_done || before_done %>
+          <%= link_to "", challenge_path(challenge.id), class: "white-box" %>
+        <% else %>
+          <span class="white-box"></span>
+        <% end %>
+
+        <div class="challenge-text">
+          <% if is_first || is_done || before_done %>
+            <% if is_done %>
+              <i class="fas fa-check-circle"></i>
+            <% end %>
+            <%= link_to challenge.name.upcase, challenge_path(challenge.id), class: "challenge-name" %>
+          <% else %>
+            <i class="fas fa-lock"></i>
+            <p class="challenge-name"><%= challenge.name.upcase %></p>
+          <% end %>
+
+          <p class="challenge-number"><a id="<%=index + 1%>"></a>challenge <%= index + 1 %></p>
+        </div>
+      </div>
+    <% end %>
+</div>

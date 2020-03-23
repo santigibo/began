@@ -1,0 +1,57 @@
+<div class="topbar landing">
+  <%= image_tag("began-logo.png", alt: "Began logo", class: "logo") %>
+</div>
+
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://images.unsplash.com/photo-1540914124281-342587941389?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80);">
+  <div class="landing-page-container">
+    <h1>The app to become vegan </h1>
+
+    <%= link_to 'Get started', new_user_registration_path, class: "signup-btn" %>
+
+    <p class="sign-up">Already have an account? <%= link_to 'Log In', new_user_session_path %></p>
+  </div>
+</div>
+
+
+<div class="landing-page-container">
+
+  <div class="content-section">
+    <div class="text-section">
+      <h2>Choose your goal!</h2>
+      <p>follow the path and complete challenges</p>
+    </div>
+
+    <div class="img-section">
+      <%= image_tag("path-without-phone.png", alt: "Path", class: "landing-page-img") %>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <div class="text-section">
+      <h2>Watch your progress!</h2>
+      <p>Keep track of your meat-free days</p>
+    </div>
+
+    <div class="img-section">
+      <%= image_tag("dashboard-without-phone.png", alt: "Dashboard", class: "landing-page-img") %>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <div class="text-section">
+      <h2>Build your own cookbook!</h2>
+      <p>Browse our recipes to help you on your adventure</p>
+    </div>
+
+    <div class="img-section">
+      <%= image_tag("cookbook-without-phone.png", alt: "Cookbook", class: "landing-page-img") %>
+    </div>
+  </div>
+</div>
+
+<div class="landing-page-footer">
+      <p><a class="social" href="#"><i class="fab fa-facebook"></i></a></p>
+      <p><a class="social" href="#"><i class="fab fa-linkedin"></i></a></p>
+      <p><a class="social" href="#"><i class="fab fa-twitter"></i></a></p>
+</div>
